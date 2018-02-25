@@ -2,3 +2,8 @@
 body {
   padding-top: 3.5rem;
 }
+
+#carouselExampleIndicators {
+  width: 40em;
+  margin: auto;
+}
