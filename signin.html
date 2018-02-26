@@ -14,7 +14,7 @@
 
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
-  <title>Eventually: Sign up</title>
+  <title>Eventually: Sign in</title>
 
   <link href="sign.css" rel="stylesheet">
 </head>
@@ -24,21 +24,11 @@
     <div class="text-center mb-4">
       <img class="mb-4" src="./assets/brand/logo.svg" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Eventually</h1>
-      <p>Sign up to be able to participate in the community and create events!</p>
+      <p>Sign in to come back to the community and participate in events!</p>
     </div>
 
     <div class="form-label-group">
-      <input type="text" id="inputFirstName" class="form-control" placeholder="Firstname" required autofocus>
-      <label for="inputEmail">First name</label>
-    </div>
-
-    <div class="form-label-group">
-      <input type="text" id="inputFirstName" class="form-control" placeholder="Last name" required>
-      <label for="inputEmail">Last name</label>
-    </div>
-
-    <div class="form-label-group">
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
       <label for="inputEmail">Email address</label>
     </div>
 
@@ -47,12 +37,12 @@
       <label for="inputPassword">Password</label>
     </div>
 
-    <div class="form-label-group">
-      <input type="password" id="inputPasswordConfirm" class="form-control" placeholder="Confirm the password" required>
-      <label for="inputPassword">Confirm the password</label>
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
     </div>
-
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     <p class="mt-5 mb-3 text-muted text-center">&copy; 2018</p>
   </form>
 </body>
