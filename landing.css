@@ -3,6 +3,16 @@ body {
   padding-top: 3.5rem;
 }
 
+#myTab {
+  padding-top: 3.5rem;
+}
+
+#myTabContent {
+  width: 60em;
+  margin: auto;
+  padding-top: 3.5rem;
+}
+
 #carouselExampleIndicators {
   width: 40em;
   margin: auto;
