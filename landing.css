@@ -5,6 +5,19 @@ body {
 
 #myTab {
   padding-top: 3.5rem;
+  background-color: #e9ecef;
+}
+
+#myTab a.nav-link.active {
+  background-color: #f8f9fa;
+  border-bottom-color: #f8f9fa;
+}
+
+#myTab a.nav-link {
+  color: var(--secondary);
+}
+#myTab a.nav-link.active {
+  color: inherit;
 }
 
 #myTabContent {
