@@ -2,5 +2,5 @@
     position: relative;
     margin: auto;
     margin-top: 2em;
-    width: 30em;
+    max-width: 30em;
 }
