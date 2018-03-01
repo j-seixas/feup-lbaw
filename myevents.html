@@ -2,250 +2,238 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="shortcut icon" type="image/png" href="./assets/brand/favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="./assets/brand/favicon.png" />
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
-    <title>Eventually: My Events</title>
+  <title>Eventually: My Events</title>
 
-    <link href="landing.css" rel="stylesheet">
+  <link href="landing.css" rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
-        <a class="navbar-brand mb-0 h1" href="./home.html">
-            <img src="./assets/brand/logo.svg" width="30" height="30" class="d-inline-block align-top" alt=""> Eventually
+  <nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
+    <a class="navbar-brand mb-0 h1" href="./home.html">
+      <img src="./assets/brand/logo.svg" width="30" height="30" class="d-inline-block align-top" alt=""> Eventually
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="./home.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./profile.html">Profile</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="./myevents.html">My Events
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item my-auto">
+          <a class="nav-link" href="#">
+            <i class="fas fa-bell"></i>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto pr-2">
+        <li class="nav-item">
+          <a class="nav-link" href="./index.html">Sign out</a>
+        </li>
+      </ul>
+
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Find an event..." aria-label="Search">
+        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+
+    </div>
+  </nav>
+
+  <main role="main">
+
+    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="created-tab" data-toggle="tab" href="#created" role="tab" aria-controls="created" aria-selected="true">
+          Created
+          <span class="badge badge-light">3</span>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="./home.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./profile.html">Profile</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="./myevents.html">My Events
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item my-auto">
-                  <a class="nav-link" href="#">
-                    <i class="fas fa-bell"></i>
-                  </a>
-                </li>
-            </ul>
-
-            <ul class="navbar-nav ml-auto pr-2">
-                <li class="nav-item">
-                    <a class="nav-link" href="./index.html">Sign out</a>
-                </li>
-            </ul>
-
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Find an event..." aria-label="Search">
-                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
-            </form>
-
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="going-tab" data-toggle="tab" href="#going" role="tab" aria-controls="going" aria-selected="false">
+          Going
+          <span class="badge badge-light">5</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="invited-tab" data-toggle="tab" href="#invited" role="tab" aria-controls="invited" aria-selected="false">
+          Invited
+          <span class="badge badge-light">0</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="past-tab" data-toggle="tab" href="#past" role="tab" aria-controls="past" aria-selected="false">
+          Past
+          <span class="badge badge-light">1</span>
+        </a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="created" role="tabpanel" aria-labelledby="created-tab">
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">Event Example 1</h5>
+              <small class="text-muted">In 3 days</small>
+            </div>
+            <p class="mb-1">Description example for the event example 1.</p>
+            <small>Public.</small>
+            <small class="text-muted">28 people going.</small>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">Dinner @ Restaurant</h5>
+              <small class="text-muted">In 7 days</small>
+            </div>
+            <p class="mb-1">Waddup! Lets get together and go dinner.</p>
+            <small>Private.</small>
+            <small class="text-muted">5 people going.</small>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">NOS Alive '18</h5>
+              <small class="text-muted">In 91 days</small>
+            </div>
+            <p class="mb-1">NOS Alive 2018 Day 1. Artic Monkeys. Snow Patrol.</p>
+            <small>Public.</small>
+            <small class="text-muted">18126 people going.</small>
+          </a>
         </div>
-    </nav>
-
-    <main role="main">
-
-        <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" id="created-tab" data-toggle="tab" href="#created" role="tab" aria-controls="created" aria-selected="true">
-              Created
-              <span class="badge badge-light">3</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="going-tab" data-toggle="tab" href="#going" role="tab" aria-controls="going" aria-selected="false">
-              Going
-              <span class="badge badge-light">5</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="invited-tab" data-toggle="tab" href="#invited" role="tab" aria-controls="invited" aria-selected="false">
-              Invited
-              <span class="badge badge-light">0</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="past-tab" data-toggle="tab" href="#past" role="tab" aria-controls="past" aria-selected="false">
-              Past
-              <span class="badge badge-light">1</span>
-            </a>
-          </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active" id="created" role="tabpanel" aria-labelledby="created-tab">
-            <div class="list-group">
-              <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">Event Example 1</h5>
-                  <small class="text-muted">In 3 days</small>
-                </div>
-                <p class="mb-1">Description example for the event example 1.</p>
-                <small>Public.</small>
-                <small class="text-muted">28 people going.</small>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">Dinner @ Restaurant</h5>
-                  <small class="text-muted">In 7 days</small>
-                </div>
-                <p class="mb-1">Waddup! Lets get together and go dinner.</p>
-                <small>Private.</small>
-                <small class="text-muted">5 people going.</small>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">NOS Alive '18</h5>
-                  <small class="text-muted">In 91 days</small>
-                </div>
-                <p class="mb-1">NOS Alive 2018 Day 1. Artic Monkeys. Snow Patrol.</p>
-                <small>Public.</small>
-                <small class="text-muted">18126 people going.</small>
-              </a>
+      </div>
+      <div class="tab-pane fade" id="going" role="tabpanel" aria-labelledby="going-tab">
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">Event Example 1</h5>
+              <small class="text-muted">In 3 days</small>
             </div>
-          </div>
-          <div class="tab-pane fade" id="going" role="tabpanel" aria-labelledby="going-tab">
-            <div class="list-group">
-              <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">Event Example 1</h5>
-                  <small class="text-muted">In 3 days</small>
-                </div>
-                <p class="mb-1">Description example for the event example 1.</p>
-                <small>Public.</small>
-                <small class="text-muted">28 people going.</small>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">Dinner @ Restaurant</h5>
-                  <small class="text-muted">In 7 days</small>
-                </div>
-                <p class="mb-1">Waddup! Lets get together and go dinner.</p>
-                <small>Private.</small>
-                <small class="text-muted">5 people going.</small>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">24 BDay Party</h5>
-                  <small class="text-muted">In 9 days</small>
-                </div>
-                <p class="mb-1">So I guess its my bday, so lets go to the club.</p>
-                <small>Private.</small>
-                <small class="text-muted">10 people going.</small>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">Game of Thrones Marathon</h5>
-                  <small class="text-muted">In 72 days</small>
-                </div>
-                <p class="mb-1">All Seasons GoT Marathon in Times Square.</p>
-                <small>Public.</small>
-                <small class="text-muted">362 people going.</small>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">NOS Alive '18</h5>
-                  <small class="text-muted">In 91 days</small>
-                </div>
-                <p class="mb-1">NOS Alive 2018 Day 1. Artic Monkeys. Snow Patrol.</p>
-                <small>Public.</small>
-                <small class="text-muted">18126 people going.</small>
-              </a>
+            <p class="mb-1">Description example for the event example 1.</p>
+            <small>Public.</small>
+            <small class="text-muted">28 people going.</small>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">Dinner @ Restaurant</h5>
+              <small class="text-muted">In 7 days</small>
             </div>
-          </div>
-          <div class="tab-pane fade" id="invited" role="tabpanel" aria-labelledby="invited-tab">
-            <p class="text-muted text-center">Bummer... Guess you weren't invited for any event.</p>
-          </div>
-          <div class="tab-pane fade" id="past" role="tabpanel" aria-labelledby="past-tab">
-            <div class="list-group">
-              <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">8-Ball Pool Championship</h5>
-                  <small class="text-muted">Was 24 days ago</small>
-                </div>
-                <p class="mb-1">Europe best 16 players of 8-Ball face each other in a three days Championship in Zurich.</p>
-                <small>Public.</small>
-                <small class="text-muted">98 people went.</small>
-              </a>
+            <p class="mb-1">Waddup! Lets get together and go dinner.</p>
+            <small>Private.</small>
+            <small class="text-muted">5 people going.</small>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">24 BDay Party</h5>
+              <small class="text-muted">In 9 days</small>
             </div>
-          </div>
+            <p class="mb-1">So I guess its my bday, so lets go to the club.</p>
+            <small>Private.</small>
+            <small class="text-muted">10 people going.</small>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">Game of Thrones Marathon</h5>
+              <small class="text-muted">In 72 days</small>
+            </div>
+            <p class="mb-1">All Seasons GoT Marathon in Times Square.</p>
+            <small>Public.</small>
+            <small class="text-muted">362 people going.</small>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">NOS Alive '18</h5>
+              <small class="text-muted">In 91 days</small>
+            </div>
+            <p class="mb-1">NOS Alive 2018 Day 1. Artic Monkeys. Snow Patrol.</p>
+            <small>Public.</small>
+            <small class="text-muted">18126 people going.</small>
+          </a>
         </div>
-
-        <footer class="footer container py-5">
-            <div class="row">
-                <div class="col-12 col-md">
-                    <small class="d-block mb-3 text-muted">Eventually &copy; 2018</small>
-                </div>
-                <div class="col-6 col-md">
-                    <h5>Features</h5>
-                    <ul class="list-unstyled text-small">
-                        <li>
-                            <a class="text-muted" href="#">Cool stuff</a>
-                        </li>
-                        <li>
-                            <a class="text-muted" href="#">Random feature</a>
-                        </li>
-                        <li>
-                            <a class="text-muted" href="#">Team feature</a>
-                        </li>
-                        <li>
-                            <a class="text-muted" href="#">Stuff for developers</a>
-                        </li>
-                        <li>
-                            <a class="text-muted" href="#">Another one</a>
-                        </li>
-                        <li>
-                            <a class="text-muted" href="#">Last time</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-6 col-md">
-                    <h5>Resources</h5>
-                    <ul class="list-unstyled text-small">
-                        <li>
-                            <a class="text-muted" href="#">Resource</a>
-                        </li>
-                        <li>
-                            <a class="text-muted" href="#">Resource name</a>
-                        </li>
-                        <li>
-                            <a class="text-muted" href="#">Another resource</a>
-                        </li>
-                        <li>
-                            <a class="text-muted" href="#">Final resource</a>
-                        </li>
-                    </ul>
-                </div>
+      </div>
+      <div class="tab-pane fade" id="invited" role="tabpanel" aria-labelledby="invited-tab">
+        <p class="text-muted text-center">Bummer... Guess you weren't invited for any event.</p>
+      </div>
+      <div class="tab-pane fade" id="past" role="tabpanel" aria-labelledby="past-tab">
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">8-Ball Pool Championship</h5>
+              <small class="text-muted">Was 24 days ago</small>
             </div>
-        </footer>
+            <p class="mb-1">Europe best 16 players of 8-Ball face each other in a three days Championship in Zurich.</p>
+            <small>Public.</small>
+            <small class="text-muted">98 people went.</small>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer container py-5">
+      <div class="row">
+        <div class="col-sm">
+          <small class="d-block mb-3 text-muted">Eventually &copy; 2018</small>
+        </div>
+        <div class="col">
+          <h5>Resources</h5>
+          <ul class="list-unstyled text-small">
+            <li>
+              <a class="text-muted" href="#">Frequently asked questions</a>
+            </li>
+            <li>
+              <a class="text-muted" href="#">Terms and conditions</a>
+            </li>
+            <li>
+              <a class="text-muted" href="#">Privacy</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col">
+          <h5>About us</h5>
+          <ul class="list-unstyled text-small">
+            <li>
+              <a class="text-muted" href="#">About us</a>
+            </li>
+            <li>
+              <a class="text-muted" href="#">Our team</a>
+            </li>
+            <li>
+              <a class="text-muted" href="#">Contact us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
 </body>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
+  crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
+  crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+  crossorigin="anonymous"></script>
 
 </html>
