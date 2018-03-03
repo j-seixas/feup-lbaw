@@ -1,0 +1,16 @@
+#eventGrid {
+    width: 100%
+}
+
+#attendance {
+    width: 30em;
+    margin: 0em;
+}
+
+#attendance button{
+    background-color: antiquewhite;
+    border-style: solid;
+    padding: 3px;
+    border-radius: 1px;
+    border-color: cadetblue;
+}
