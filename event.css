@@ -14,3 +14,32 @@
     border-radius: 1px;
     border-color: cadetblue;
 }
+
+.comment {
+    border-style: solid;
+    border-radius: 1px;
+    border-color: silver;
+    background-color: white;
+    padding: 5px;
+    margin: 5px;
+}
+
+.commentReplyButton {
+    float: right;
+}
+
+.profileIconAndName {
+    float: left;
+}
+
+.profileName {
+    margin-bottom: 0px;
+}
+.commentValue {
+    margin: 1em;
+    float: left;
+}
+
+.clearfix{
+    clear: both;
+}
