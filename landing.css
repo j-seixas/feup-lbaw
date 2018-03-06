@@ -4,7 +4,7 @@ body {
 }
 
 #myTab {
-  padding-top: 3.5rem;
+  padding-top: 1.5rem;
   background-color: #e9ecef;
 }
 
@@ -31,7 +31,9 @@ body {
   margin: auto;
 }
 
-
+#searchContainer{
+  padding-top: 1.5rem;
+}
 .box-shadow {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
