@@ -27,13 +27,13 @@
                 </form>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="./profile.html">Profile <span class="sr-only">(current)</span>  </a>
+                        <a class="nav-link" href="./profile.html">Profile <span class="sr-only">(current)</span> </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./myevents.html">My events</a>
                     </li>
                     <li class="nav-item my-auto">
-                        <a class="nav-link" href="#">  <i class="fas fa-bell"></i>  </a>
+                        <a class="nav-link" href="#"> <i class="fas fa-bell"></i> </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./index.html">Sign out</a>
@@ -42,27 +42,54 @@
             </div>
         </nav>
         <!-- Main jumbotron for a primary marketing message or call to action -->
-        <div class="card mb-3" id="profile">
+        <div class="card border-dark position-relative m-auto " id="profile">
             <h3 class="card-header">Card header</h3>
             <div class="card-body">
                 <h5 class="card-title">Name</h5>
                 <h6 class="card-subtitle text-muted">Whatever i want</h6>
             </div>
             <img style="width: 100%; display: block;" src="ani.png" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image">
-            <div class="card-body">
+            <div class="card-body pb-2">
+                <label style="float: right;" class="mr-2">
+                    <a href="#">Edit</a>
+                    <!-- <i class="fas fa-comment text-primary"></i> -->
+                </label>
                 <p class="card-text">My description. Me a fancy boi.</p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Country? Maybe yes.</li>
-                <li class="list-group-item">Tags</li>
+                <li class="list-group-item pb-1">
+                    <label style="float: right;" class="mr-2">
+                        <a href="#">Edit</a>
+                        <!-- <i class="fas fa-comment text-primary"></i> -->
+                    </label>                                        Country? Maybe yes.
+                </li>
+                <li class="list-group-item pb-1">
+                    <label style="float: right;" class="mr-2">
+                        <a href="#">Edit</a>
+                        <!-- <i class="fas fa-comment text-primary"></i> -->
+                    </label>                                            Tags
+                </li>
             </ul>
-            <div class="card-body">
+            <div class="card-body pb-2 border-dark">
+                <label style="float: right;" class="mr-2">
+                    <a href="#">Edit</a>
+                    <!-- <i class="fas fa-comment text-primary"></i> -->
+                </label>
                 <a href="#" class="card-link">Contact</a>
                 <a href="#" class="card-link">E-mail</a>
             </div>
             <div class="card-footer text-muted">
                 updated 2 days ago
 </div>
+        </div>
+        <div class="container pr-0 pl-0 mt-3" style="max-width: 30em;">
+            <div class="card border-danger mb-3 ">
+                <div class="text-danger card-body w-100">
+                    <h4 class="card-title">Danger Zone</h4>
+                    <div class="alert alert-danger" role="alert">Be careful, deleting your account will permanently erase all of your information, events and friends, have this in mind when you walk out the plank :'(</div>
+                    <button type="button" class="btn btn-outline-danger">Delete Account</button>
+                </div>
+            </div>
         </div>
         <footer class="footer container py-5">
             <div class="row">
