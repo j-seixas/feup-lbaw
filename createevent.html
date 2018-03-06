@@ -1,135 +1,140 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="shortcut icon" type="image/png" href="./assets/brand/favicon.png">
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script defer="" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-        <title>Eventually: Home</title>
-        <link href="landing.css" rel="stylesheet"> 
-    </head>
-    <body class="bg-light">
-        <div class="container pt-3">
-            <div class="card">
-                <div class="card-header">Create an event</div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <form>
-                            <div class="form-group">
-                                <label class="col-form-label" for="eventName">Event name</label>
-                                <input type="text" class="form-control" id="eventName" required>
-                            </div>                             
-                            <div class="form-group">
-                                <label class="col-form-label" for="eventDescription">Event description</label>
-                                <textarea class="form-control" id="eventDescription"></textarea>
-                            </div>
-                            <p class="mb-2">Privacy settings</p>
-                            <div class="btn-group" data-toggle="buttons"> 
-                                <label class="btn btn-secondary active">
-                                    <input type="radio" name="eventPrivacy" autocomplete="off" checked="checked" value="public">
-                                    <svg class="svg-inline--fa fa-users fa-w-20" aria-hidden="true" data-prefix="fas" data-icon="users" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 512" data-fa-i2svg="">
-                                        <path fill="currentColor" d="M320 64c57.99 0 105 47.01 105 105s-47.01 105-105 105-105-47.01-105-105S262.01 64 320 64zm113.463 217.366l-39.982-9.996c-49.168 35.365-108.766 27.473-146.961 0l-39.982 9.996C174.485 289.379 152 318.177 152 351.216V412c0 19.882 16.118 36 36 36h264c19.882 0 36-16.118 36-36v-60.784c0-33.039-22.485-61.837-54.537-69.85zM528 300c38.66 0 70-31.34 70-70s-31.34-70-70-70-70 31.34-70 70 31.34 70 70 70zm-416 0c38.66 0 70-31.34 70-70s-31.34-70-70-70-70 31.34-70 70 31.34 70 70 70zm24 112v-60.784c0-16.551 4.593-32.204 12.703-45.599-29.988 14.72-63.336 8.708-85.69-7.37l-26.655 6.664C14.99 310.252 0 329.452 0 351.477V392c0 13.255 10.745 24 24 24h112.169a52.417 52.417 0 0 1-.169-4zm467.642-107.09l-26.655-6.664c-27.925 20.086-60.89 19.233-85.786 7.218C499.369 318.893 504 334.601 504 351.216V412c0 1.347-.068 2.678-.169 4H616c13.255 0 24-10.745 24-24v-40.523c0-22.025-14.99-41.225-36.358-46.567z"></path>
-                                    </svg>
-                                    <!-- <i class="fas fa-users"></i> -->                                     Public
-                                </label>                                 
-                                <label class="btn btn-secondary">
-                                    <input type="radio" name="eventPrivacy" autocomplete="off" value="private">
-                                    <svg class="svg-inline--fa fa-lock fa-w-14" aria-hidden="true" data-prefix="fas" data-icon="lock" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512" data-fa-i2svg="">
-                                        <path fill="currentColor" d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"></path>
-                                    </svg>
-                                    <!-- <i class="fas fa-lock"></i> -->                                     Private
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-form-label" for="eventDate">Date</label>
-                                <input type="date" class="form-control" id="eventDate" style="max-width: 175px;" required>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-form-label" for="eventTime">Date</label>
-                                <input type="time" class="form-control" id="eventTime" style="max-width: 175px;" required>
-                            </div>
-                        </form>
-                    </li>
-                    <li class="list-group-item">Invite your friends</li>
-                </ul>
-            </div>
-            <button type="button" class="btn btn-primary btn-lg mw-100 w-25 mt-2">Createevent</button>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/png" href="./assets/brand/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <script defer="" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <title>Eventually: Home</title>
+    <link href="landing.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+    <div class="container pt-3">
+        <div class="card">
+            <div class="card-header">Create an event</div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <form>
+                        <div class="form-group">
+                            <label class="col-form-label" for="eventName">Event name</label>
+                            <input type="text" class="form-control" id="eventName" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="eventDescription">Event description</label>
+                            <textarea class="form-control" id="eventDescription"></textarea>
+                        </div>
+                        <p class="mb-2">Privacy settings</p>
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-secondary active">
+                                <input type="radio" name="eventPrivacy" autocomplete="off" checked="checked" value="public">
+                                <i class="fas fa-users"></i>Public
+                            </label>
+                            <label class="btn btn-secondary">
+                                <input type="radio" name="eventPrivacy" autocomplete="off" value="private">
+                                <i class="fas fa-lock"></i>Private
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="eventDate">Date</label>
+                            <input type="date" class="form-control" id="eventDate" style="max-width: 175px;" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="eventTime">Time</label>
+                            <input type="time" class="form-control" id="eventTime" style="max-width: 175px;" required>
+                        </div>
+                    </form>
+                </li>
+                <li class="list-group-item">Invite your friends</li>
+            </ul>
         </div>
-        <nav class="navbar navbar-expand-md fixed-top navbar-light bg-white box-shadow">
-            <a class="navbar-brand mb-0 h1" href="./home.html">
-                <img src="./assets/brand/logo.svg" width="30" height="30" class="d-inline-block align-top" alt=""> Eventually 
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="./home.html">Home <span class="sr-only">(current)</span> </a>
+        <button type="button" class="btn btn-primary btn-lg mw-100 w-25 mt-2">Create your event</button>
+    </div>
+    <nav class="navbar navbar-expand-md fixed-top navbar-light bg-white box-shadow">
+        <a class="navbar-brand mb-0 h1" href="./home.html">
+            <img src="./assets/brand/logo.svg" width="30" height="30" class="d-inline-block align-top" alt=""> Eventually
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="./home.html">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./profile.html">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./myevents.html">My events</a>
+                </li>
+                <li class="nav-item my-auto">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-bell"></i> Notifications </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto pr-2">
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html">Sign out</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Find an event..." aria-label="Search">
+                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <footer class="footer container py-5">
+        <div class="row">
+            <div class="col-sm">
+                <small class="d-block mb-3 text-muted">Eventually © 2018</small>
+            </div>
+            <div class="col">
+                <h5>Resources</h5>
+                <ul class="list-unstyled text-small">
+                    <li>
+                        <a class="text-muted" href="#">Frequently asked questions</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./profile.html">Profile</a>
+                    <li>
+                        <a class="text-muted" href="#">Terms and conditions</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./myevents.html">My events</a>
-                    </li>
-                    <li class="nav-item my-auto">
-                        <a class="nav-link" href="#"> <i class="fas fa-bell"></i> Notifications </a>
+                    <li>
+                        <a class="text-muted" href="#">Privacy</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav ml-auto pr-2">
-                    <li class="nav-item">
-                        <a class="nav-link" href="./index.html">Sign out</a>
+            </div>
+            <div class="col">
+                <h5>About us</h5>
+                <ul class="list-unstyled text-small">
+                    <li>
+                        <a class="text-muted" href="#">About us</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="#">Our team</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="#">Contact us</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Find an event..." aria-label="Search">
-                    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
-                </form>
             </div>
-        </nav>
-        <footer class="footer container py-5">
-            <div class="row">
-                <div class="col-sm">
-                    <small class="d-block mb-3 text-muted">Eventually © 2018</small>
-                </div>
-                <div class="col">
-                    <h5>Resources</h5>
-                    <ul class="list-unstyled text-small">
-                        <li>
-                            <a class="text-muted" href="#">Frequently asked questions</a>
-                        </li>
-                        <li>
-                            <a class="text-muted" href="#">Terms and conditions</a>
-                        </li>
-                        <li>
-                            <a class="text-muted" href="#">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col">
-                    <h5>About us</h5>
-                    <ul class="list-unstyled text-small">
-                        <li>
-                            <a class="text-muted" href="#">About us</a>
-                        </li>
-                        <li>
-                            <a class="text-muted" href="#">Our team</a>
-                        </li>
-                        <li>
-                            <a class="text-muted" href="#">Contact us</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </footer>
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    </body>
+        </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>
