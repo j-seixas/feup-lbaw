@@ -1,17 +1,17 @@
-<!doctype html> 
-<html lang="en"> 
-    <head> 
-        <!-- Required meta tags -->         
-        <meta charset="utf-8"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
-        <link rel="shortcut icon" type="image/png" href="./assets/brand/favicon.png" /> 
-        <!-- Bootstrap CSS -->         
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
-        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>         
-        <title>Eventually: My Events</title>         
-        <link href="landing.css" rel="stylesheet"> 
-    </head>     
-    <body class="bg-light"> 
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" type="image/png" href="./assets/brand/favicon.png" />
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+        <title>Eventually: Search results</title>         
+        <link href="landing.css" rel="stylesheet">
+    </head>
+    <body class="bg-light">
         <nav class="navbar navbar-expand-md fixed-top navbar-light bg-white box-shadow">
             <a class="navbar-brand mb-0 h1" href="./home.html">
                 <img src="./assets/brand/logo.svg" width="30" height="30" class="d-inline-block align-top" alt=""> Eventually
@@ -44,154 +44,154 @@
                     </li>
                 </ul>
             </div>
-        </nav>         
-        <div class="container" id="searchContainer"> 
-            <div class="row"> 
-                <div class="col-md-3"> 
-                    <div class="list-group"> 
-                        <button type="button" class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center"> 
+        </nav>
+        <div class="container" id="searchContainer">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="list-group">
+                        <button type="button" class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center">
                             Events
-                            <span class="badge badge-light badge-pill">14</span> 
-                        </button>                         
-                        <button type="button" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"> 
+                            <span class="badge badge-light badge-pill">14</span>
+                        </button>
+                        <button type="button" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                             Tags
-                            <span class="badge badge-light badge-pill">4</span> 
-                        </button>                         
-                        <button type="button" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"> 
+                            <span class="badge badge-light badge-pill">4</span>
+                        </button>
+                        <button type="button" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                             Users
-                            <span class="badge badge-light badge-pill">7</span> 
-                        </button>                         
-                    </div>                     
-                </div>                 
-                <div class="col-md-9"> 
-                    <div> 
-                        <div class="justify-content-between d-flex pb-2"> 
-                            <h5 class="align-self-center">14 results found</h5> 
-                            <div class="btn-group" role="group" aria-label="Button group with nested dropdown"> 
+                            <span class="badge badge-light badge-pill">7</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div>
+                        <div class="justify-content-between d-flex pb-2">
+                            <h5 class="align-self-center">14 results found</h5>
+                            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                                 <button type="button" class="btn btn-outline-primary active">
                                     <i class="fas fa-sort-amount-down"></i>
-                                </button>                                 
+                                </button>
                                 <button type="button" class="btn btn-outline-primary">
                                     <i class="fas fa-sort-amount-up"></i>
-                                </button>                                 
-                                <div class="btn-group" role="group"> 
-                                    <button id="btnGroupDrop1" type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort by&nbsp;</button>                                     
-                                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1"> 
-                                        <a class="dropdown-item" href="#">People Going</a> 
-                                        <a class="dropdown-item" href="#">Date</a> 
-                                    </div>                                     
-                                </div>                                 
-                            </div>                             
-                        </div>                         
-                        <div class="list-group"> 
-                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start"> 
-                                <div class="d-flex w-100 justify-content-between"> 
-                                    <h5 class="mb-1">Event Example 1</h5> 
-                                    <small class="text-muted">In 3 days</small> 
-                                </div>                                 
-                                <p class="mb-1">Description example for the event example 1.</p> 
-                                <small>Public.</small> 
-                                <small class="text-muted">28 people going.</small> 
-                            </a>                             
-                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start"> 
-                                <div class="d-flex w-100 justify-content-between"> 
-                                    <h5 class="mb-1">Dinner @ Restaurant</h5> 
-                                    <small class="text-muted">In 7 days</small> 
-                                </div>                                 
-                                <p class="mb-1">Waddup! Lets get together and go dinner.</p> 
-                                <small>Public.</small> 
-                                <small class="text-muted">5 people going.</small> 
-                            </a>                             
-                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start"> 
-                                <div class="d-flex w-100 justify-content-between"> 
-                                    <h5 class="mb-1">NOS Alive '18</h5> 
-                                    <small class="text-muted">In 32 days</small> 
-                                </div>                                 
-                                <p class="mb-1">NOS Alive 2018 Day 1. Artic Monkeys. Snow Patrol.</p> 
-                                <small>Public.</small> 
-                                <small class="text-muted">18126 people going.</small> 
-                            </a>                             
-                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start"> 
-                                <div class="d-flex w-100 justify-content-between"> 
-                                    <h5 class="mb-1">Dinner2 @ Restaurant</h5> 
-                                    <small class="text-muted">In 47 days</small> 
-                                </div>                                 
-                                <p class="mb-1">Lets get together and go dinner.</p> 
-                                <small>Public.</small> 
-                                <small class="text-muted">5 people going.</small> 
-                            </a>                             
-                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start"> 
-                                <div class="d-flex w-100 justify-content-between"> 
-                                    <h5 class="mb-1">NOS Alive '19</h5> 
-                                    <small class="text-muted">In 91 days</small> 
-                                </div>                                 
-                                <p class="mb-1">NOS Alive 2019.</p> 
-                                <small>Public.</small> 
-                                <small class="text-muted">126 people going.</small> 
-                            </a>                             
-                            <nav aria-label="..."> 
-                                <ul class="pagination justify-content-center mt-0 pt-2"> 
-                                    <li class="page-item disabled"> 
-                                        <a class="page-link" href="#" tabindex="-1">Previous</a> 
-                                    </li>                                     
-                                    <li class="page-item"> 
-                                        <a class="page-link" href="#">1</a> 
-                                    </li>                                     
-                                    <li class="page-item active"> 
-                                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a> 
-                                    </li>                                     
-                                    <li class="page-item"> 
-                                        <a class="page-link" href="#">3</a> 
-                                    </li>                                     
-                                    <li class="page-item"> 
-                                        <a class="page-link" href="#">Next</a> 
-                                    </li>                                     
-                                </ul>                                 
-                            </nav>                             
-                        </div>                         
-                    </div>                     
-                </div>                 
-            </div>             
-        </div>         
-        <footer class="footer container py-5"> 
-            <div class="row"> 
-                <div class="col-sm"> 
-                    <small class="d-block mb-3 text-muted">Eventually &copy; 2018</small> 
-                </div>                 
-                <div class="col"> 
-                    <h5>Resources</h5> 
-                    <ul class="list-unstyled text-small"> 
-                        <li> 
-                            <a class="text-muted" href="./FAQ.html">Frequently asked questions</a> 
-                        </li>                         
-                        <li> 
-                            <a class="text-muted" href="./terms.html">Terms and conditions</a> 
-                        </li>                         
-                        <li> 
-                            <a class="text-muted" href="./privacy.html">Privacy</a> 
-                        </li>                         
-                    </ul>                     
-                </div>                 
-                <div class="col"> 
-                    <h5>About us</h5> 
-                    <ul class="list-unstyled text-small"> 
-                        <li> 
-                            <a class="text-muted" href="./about.html">About us</a> 
-                        </li>                         
-                        <li> 
-                            <a class="text-muted" href="./team.html">Our team</a> 
-                        </li>                         
-                        <li> 
-                            <a class="text-muted" href="./contacts.html">Contact us</a> 
-                        </li>                         
-                    </ul>                     
-                </div>                 
-            </div>             
-        </footer>         
-    </body>     
-    <!-- Optional JavaScript -->     
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->     
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>     
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>     
+                                </button>
+                                <div class="btn-group" role="group">
+                                    <button id="btnGroupDrop1" type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort by&nbsp;</button>
+                                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                        <a class="dropdown-item" href="#">People Going</a>
+                                        <a class="dropdown-item" href="#">Date</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">Event Example 1</h5>
+                                    <small class="text-muted">In 3 days</small>
+                                </div>
+                                <p class="mb-1">Description example for the event example 1.</p>
+                                <small>Public.</small>
+                                <small class="text-muted">28 people going.</small>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">Dinner @ Restaurant</h5>
+                                    <small class="text-muted">In 7 days</small>
+                                </div>
+                                <p class="mb-1">Waddup! Lets get together and go dinner.</p>
+                                <small>Public.</small>
+                                <small class="text-muted">5 people going.</small>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">NOS Alive '18</h5>
+                                    <small class="text-muted">In 32 days</small>
+                                </div>
+                                <p class="mb-1">NOS Alive 2018 Day 1. Artic Monkeys. Snow Patrol.</p>
+                                <small>Public.</small>
+                                <small class="text-muted">18126 people going.</small>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">Dinner2 @ Restaurant</h5>
+                                    <small class="text-muted">In 47 days</small>
+                                </div>
+                                <p class="mb-1">Lets get together and go dinner.</p>
+                                <small>Public.</small>
+                                <small class="text-muted">5 people going.</small>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">NOS Alive '19</h5>
+                                    <small class="text-muted">In 91 days</small>
+                                </div>
+                                <p class="mb-1">NOS Alive 2019.</p>
+                                <small>Public.</small>
+                                <small class="text-muted">126 people going.</small>
+                            </a>
+                            <nav aria-label="...">
+                                <ul class="pagination justify-content-center mt-0 pt-2">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">1</a>
+                                    </li>
+                                    <li class="page-item active">
+                                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">3</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer container py-5">
+            <div class="row">
+                <div class="col-sm">
+                    <small class="d-block mb-3 text-muted">Eventually &copy; 2018</small>
+                </div>
+                <div class="col">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled text-small">
+                        <li>
+                            <a class="text-muted" href="./FAQ.html">Frequently asked questions</a>
+                        </li>
+                        <li>
+                            <a class="text-muted" href="./terms.html">Terms and conditions</a>
+                        </li>
+                        <li>
+                            <a class="text-muted" href="./privacy.html">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h5>About us</h5>
+                    <ul class="list-unstyled text-small">
+                        <li>
+                            <a class="text-muted" href="./about.html">About us</a>
+                        </li>
+                        <li>
+                            <a class="text-muted" href="./team.html">Our team</a>
+                        </li>
+                        <li>
+                            <a class="text-muted" href="./contacts.html">Contact us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </html>
