@@ -1,125 +1,125 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="shortcut icon" type="image/png" href="./assets/brand/favicon.png">
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script defer="" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-        <title>Eventually: Notifications</title>
-        <link href="event.css" rel="stylesheet">
-        <link href="landing.css" rel="stylesheet">
-    </head>
-    <body class="bg-light">
-        <nav class="navbar navbar-expand-md fixed-top navbar-light bg-white box-shadow">
-            <a class="navbar-brand mb-0 h1" href="./home.html">
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <!-- Required meta tags -->         
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+        <link rel="shortcut icon" type="image/png" href="./assets/brand/favicon.png"> 
+        <!-- Bootstrap CSS -->         
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+        <script defer="" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>         
+        <title>Eventually: Notifications</title>         
+        <link href="event.css" rel="stylesheet"> 
+        <link href="landing.css" rel="stylesheet"> 
+    </head>     
+    <body class="bg-light"> 
+        <nav class="navbar navbar-expand-md fixed-top navbar-light bg-white box-shadow"> 
+            <a class="navbar-brand mb-0 h1" href="./home.html"> 
                 <img src="./assets/brand/logo.svg" width="30" height="30" class="d-inline-block align-top" alt=""> Eventually
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Find an event..." aria-label="Search">
-                    <button class="btn btn-outline-secondary my-2 my-sm-0 mr-3" type="submit">Search</button>
-                </form>
-                <a href="./createevent.html">
-                    <button type="button" class="btn btn-primary ">
+            </a>             
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> 
+                <span class="navbar-toggler-icon"></span> 
+            </button>             
+            <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
+                <form class="form-inline my-2 my-lg-0"> 
+                    <input class="form-control mr-sm-2" type="search" placeholder="Find an event..." aria-label="Search"> 
+                    <button class="btn btn-outline-secondary my-2 my-sm-0 mr-3" type="submit">Search</button>                     
+                </form>                 
+                <a href="./createevent.html"> 
+                    <button type="button" class="btn btn-primary "> 
                         <i class="fas fa-plus"></i> Create event
-                    </button>
-                </a>
-                <ul class="navbar-nav ml-auto pr-2">
-                    <li class="nav-item">
-                        <a class="nav-link text-primary" href="./profile.html">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-primary" href="./myevents.html">My events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-primary" href="./notifications.html"> <i class="fas fa-bell"></i> </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./index.html">Sign out</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <div class="container mt-3">
-            <div class="card">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item font-weight-bold bg-light" style="background-color: rgba(0, 0, 0, 0.08);">
-                        <div class="btn-group btn-group-sm float-right" role="group" aria-label="Small button group">
-                            <button type="button" class="btn btn-success btn-outline-success">Accept</button>
-                            <button type="button" class="btn btn-danger btn-outline-danger">Ignore</button>
-                        </div>
+                    </button>                     
+                </a>                 
+                <ul class="navbar-nav ml-auto pr-2"> 
+                    <li class="nav-item"> 
+                        <a class="nav-link text-primary" href="./profile.html">Profile</a> 
+                    </li>                     
+                    <li class="nav-item"> 
+                        <a class="nav-link text-primary" href="./myevents.html">My events</a> 
+                    </li>                     
+                    <li class="nav-item"> 
+                        <a class="nav-link text-primary" href="./notifications.html"> <i class="fas fa-bell"></i> </a> 
+                    </li>                     
+                    <li class="nav-item"> 
+                        <a class="nav-link" href="./index.html">Sign out</a> 
+                    </li>                     
+                </ul>                 
+            </div>             
+        </nav>         
+        <div class="container mt-3"> 
+            <div class="card"> 
+                <ul class="list-group list-group-flush"> 
+                    <li class="list-group-item font-weight-bold bg-white" style="background-color: rgba(0, 0, 0, 0.08);"> 
+                        <div class="btn-group btn-group-sm float-right" role="group" aria-label="Small button group"> 
+                            <button type="button" class="btn btn-success btn-outline-success">Accept</button>                             
+                            <button type="button" class="btn btn-danger btn-outline-danger">Ignore</button>                             
+                        </div>                         
                         John Halmond has sent you a friend request
-                    </li>
-                    <li class="list-group-item font-weight-bold bg-light" style="background-color: rgba(0, 0, 0, 0.08);">The event you are interested in 
+                    </li>                     
+                    <li class="list-group-item font-weight-bold bg-white" style="background-color: rgba(0, 0, 0, 0.08);">The event you are interested in 
                         <a href="./event.html">Pine watching event</a> changed its location to Mount Paramont.
-                        <div class="btn-group btn-group-sm float-right" role="group" aria-label="Small button group">
-                            <button type="button" class="btn btn-success btn-outline-success">Going</button>
-                            <button type="button" class="btn btn-primary btn-outline-primary active">Interested</button>
-                            <button type="button" class="btn btn-danger btn-outline-danger">Not going</button>
-                        </div>
-                    </li>
-                    <li class="list-group-item bg-white">You were invited to participate in the event 
+                        <div class="btn-group btn-group-sm float-right" role="group" aria-label="Small button group"> 
+                            <button type="button" class="btn btn-success btn-outline-success">Going</button>                             
+                            <button type="button" class="btn btn-primary btn-outline-primary active">Interested</button>                             
+                            <button type="button" class="btn btn-danger btn-outline-danger">Not going</button>                             
+                        </div>                         
+                    </li>                     
+                    <li class="list-group-item bg-light">You were invited to participate in the event 
                         <a href="./event.html">Sweet Banquet at the Beach</a>.
-                        <div class="btn-group btn-group-sm float-right" role="group" aria-label="Small button group">
-                            <button type="button" class="btn btn-success btn-outline-success">Going</button>
-                            <button type="button" class="btn btn-primary btn-outline-primary">Interested</button>
-                            <button type="button" class="btn btn-danger btn-outline-danger active">Not going</button>
-                        </div>
-                    </li>
-                    <li class="list-group-item bg-white">You were invited to participate in the event 
+                        <div class="btn-group btn-group-sm float-right" role="group" aria-label="Small button group"> 
+                            <button type="button" class="btn btn-success btn-outline-success">Going</button>                             
+                            <button type="button" class="btn btn-primary btn-outline-primary">Interested</button>                             
+                            <button type="button" class="btn btn-danger btn-outline-danger active">Not going</button>                             
+                        </div>                         
+                    </li>                     
+                    <li class="list-group-item bg-light">You were invited to participate in the event 
                         <a href="./event.html">Pine watching event</a>.
-                        <div class="btn-group btn-group-sm float-right" role="group" aria-label="Small button group">
-                            <button type="button" class="btn btn-success btn-outline-success">Going</button>
-                            <button type="button" class="btn btn-primary btn-outline-primary active">Interested</button>
-                            <button type="button" class="btn btn-danger btn-outline-danger">Not going</button>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <footer class="footer container py-5">
-            <div class="row">
-                <div class="col-sm">
-                    <small class="d-block mb-3 text-muted">Eventually &copy; 2018</small>
-                </div>
-                <div class="col">
-                    <h5>Resources</h5>
-                    <ul class="list-unstyled text-small">
-                        <li>
-                            <a class="text-muted" href="./FAQ.html">Frequently asked questions</a>
-                        </li>
-                        <li>
-                            <a class="text-muted" href="./terms.html">Terms and conditions</a>
-                        </li>
-                        <li>
-                            <a class="text-muted" href="./privacy.html">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col">
-                    <h5>About us</h5>
-                    <ul class="list-unstyled text-small">
-                        <li>
-                            <a class="text-muted" href="./about.html">About us</a>
-                        </li>
-                        <li>
-                            <a class="text-muted" href="./team.html">Our team</a>
-                        </li>
-                        <li>
-                            <a class="text-muted" href="./contacts.html">Contact us</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </footer>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    </body>
+                        <div class="btn-group btn-group-sm float-right" role="group" aria-label="Small button group"> 
+                            <button type="button" class="btn btn-success btn-outline-success">Going</button>                             
+                            <button type="button" class="btn btn-primary btn-outline-primary active">Interested</button>                             
+                            <button type="button" class="btn btn-danger btn-outline-danger">Not going</button>                             
+                        </div>                         
+                    </li>                     
+                </ul>                 
+            </div>             
+        </div>         
+        <footer class="footer container py-5"> 
+            <div class="row"> 
+                <div class="col-sm"> 
+                    <small class="d-block mb-3 text-muted">Eventually &copy; 2018</small> 
+                </div>                 
+                <div class="col"> 
+                    <h5>Resources</h5> 
+                    <ul class="list-unstyled text-small"> 
+                        <li> 
+                            <a class="text-muted" href="./FAQ.html">Frequently asked questions</a> 
+                        </li>                         
+                        <li> 
+                            <a class="text-muted" href="./terms.html">Terms and conditions</a> 
+                        </li>                         
+                        <li> 
+                            <a class="text-muted" href="./privacy.html">Privacy</a> 
+                        </li>                         
+                    </ul>                     
+                </div>                 
+                <div class="col"> 
+                    <h5>About us</h5> 
+                    <ul class="list-unstyled text-small"> 
+                        <li> 
+                            <a class="text-muted" href="./about.html">About us</a> 
+                        </li>                         
+                        <li> 
+                            <a class="text-muted" href="./team.html">Our team</a> 
+                        </li>                         
+                        <li> 
+                            <a class="text-muted" href="./contacts.html">Contact us</a> 
+                        </li>                         
+                    </ul>                     
+                </div>                 
+            </div>             
+        </footer>         
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>         
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>         
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>         
+    </body>     
 </html>
