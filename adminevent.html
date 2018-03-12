@@ -52,10 +52,15 @@
                     <div class="card">
                         <img class="card-img-top" alt="Card image cap" src="http://pinegrow.com/placeholders/img20.jpg">
                         <div class="card-body">
-                            <label style="float: right;" class="mr-2 font-weight-normal float-right">
-                                <a href="#">Edit</a>
+                            <div class="float-right col-sm-auto pr-0 pl-0 pb-2">
+                                <button type="button" class="btn btn-outline-primary">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                                <button type="button" class="btn btn-outline-danger ml-1">
+                                    <i class="fas fa-trash-alt"></i> Delete event
+                                </button>
                                 <!-- <i class="fas fa-comment text-primary"></i> -->
-                            </label>
+                            </div>
                             <h4 class="card-title">Pine watching event</h4>
                             <div class="h5">Tomorrow at 6pm</div>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -68,13 +73,7 @@
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Pinewatching Street, 123</li>
-                            <li class="list-group-item">
-                                <button type="button" class="btn btn-outline-danger">Delete Event</button>
-                            </li>
                         </ul>
-                    </div>
-                    <div class="text-danger card-body w-100">
-                        <a href="./index.html">  </a>
                     </div>
                 </div>
                 <div class="col-md-5">
@@ -89,55 +88,71 @@
                             </button>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item pr-0">
-                                <div class="media">
-                                    <img class="d-flex mr-3" src="http://pinegrow.com/placeholders/img19.jpg" alt="Generic placeholder image" width="150" style="width: 32px;
-    height: 32px;">
-                                    <div class="media-body mb-0">
-                                        <h5 class="mt-0">TheLegendary27</h5> Retarded event...
-                                    </div>
-                                    <label style="float: right;" class="mr-2">
-                                        <i class="fas fa-comment text-primary"></i> 1
-                                    </label>
-                                    <label style="float: right;" class="mr-2">
-                                        <i class="fas fa-heart text-danger"> </i> 3
-                                    </label>
-                                    <label style="float: right;" class="mr-2 text-primary pl-2">
-                                        <i class="fas fa-times"></i>
-                                    </label>
-                                </div>
-                                <li class="list-group-item pr-0 border-top-0 pl-5">
-                                    <div class="media">
-                                        <img class="d-flex mr-3" src="http://pinegrow.com/placeholders/img19.jpg" alt="Generic placeholder image" width="150" style="width: 32px;
-    height: 32px;">
-                                        <div class="media-body mb-0">
-                                            <h5 class="mt-0">John Alvard</h5> Don't be like that.
-                                        </div>
-                                        <label style="float: right;" class="mr-2">
+                            <li class="list-group-item p-0">
+                                <div class="container pb-0 pl-3 pt-2 pr-1">
+                                    <img src="https://images.unsplash.com/photo-1499651681375-8afc5a4db253?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjIwOTIyfQ&s=eadad6ab3e4b92c6066ee4bfa73e9cc7q=85&fm=jpg&crop=faces&cs=srgb&w=100&h=100&fit=crop" class="mr-2 float-left rounded-circle" height="55" width="55">
+                                    <div class="float-right">
+                                        <label class="mr-2">
+                                            <i class="fas fa-comment text-primary"></i> 1
+                                        </label>
+                                        <label class="mr-2">
                                             <i class="fas fa-heart text-danger"> </i> 3
                                         </label>
-                                        <label style="float: right;" class="mr-2 text-primary pl-2">
+                                        <label class="mr-2 text-primary">
                                             <i class="fas fa-times"></i>
                                         </label>
                                     </div>
-                                </li>
-                            </li>
-                            <li class="list-group-item pr-0">
-                                <div class="media">
-                                    <img class="d-flex mr-3" src="http://pinegrow.com/placeholders/img19.jpg" alt="Generic placeholder image" width="150" style="width: 32px;
-    height: 32px;">
-                                    <div class="media-body mb-0">
-                                        <h5 class="mt-0">John Alvard</h5> Hyped for this event!
+                                    <h5>Rocky Balboa</h5>
+                                    <p class="pr-1">Watching pines? More like fighting them Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar faucibus neque, nec rhoncus nunc ultrices sit amet.</p>
+                                    <div class="container pr-0 pl-4">
+                                        <img src="https://images.unsplash.com/photo-1499651681375-8afc5a4db253?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjIwOTIyfQ&s=eadad6ab3e4b92c6066ee4bfa73e9cc7q=85&fm=jpg&crop=faces&cs=srgb&w=100&h=100&fit=crop" class="mr-2 float-left rounded-circle" height="55" width="55">
+                                        <div class="float-right">
+                                            <label class="mr-2">
+                                                <i class="fas fa-heart text-danger"> </i> 3
+                                            </label>
+                                            <label class="mr-2 text-primary">
+                                                <i class="fas fa-times"></i>
+                                            </label>
+                                        </div>
+                                        <h5>Rocky Balboa</h5>
+                                        <p class="pr-1">Watching pines? More like fighting them Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar faucibus neque, nec rhoncus nunc ultrices sit amet.</p>
                                     </div>
-                                    <label style="float: right;" class="mr-2">
-                                        <i class="fas fa-comment text-primary"></i> 0
-                                    </label>
-                                    <label style="float: right;" class="mr-2">
-                                        <i class="fas fa-heart text-danger"> </i> 3
-                                    </label>
-                                    <label style="float: right;" class="mr-2 text-primary pl-2">
-                                        <i class="fas fa-times"></i>
-                                    </label>
+                                </div>
+                            </li>
+                            <li class="list-group-item p-0">
+                                <div class="container pb-0 pl-3 pt-2 pr-1">
+                                    <img src="https://images.unsplash.com/photo-1499651681375-8afc5a4db253?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjIwOTIyfQ&s=eadad6ab3e4b92c6066ee4bfa73e9cc7q=85&fm=jpg&crop=faces&cs=srgb&w=100&h=100&fit=crop" class="mr-2 float-left rounded-circle" height="55" width="55">
+                                    <div class="float-right">
+                                        <label class="mr-2">
+                                            <i class="fas fa-comment text-primary"></i> 1
+                                        </label>
+                                        <label class="mr-2">
+                                            <i class="fas fa-heart text-danger"> </i> 3
+                                        </label>
+                                        <label class="mr-2 text-primary">
+                                            <i class="fas fa-times"></i>
+                                        </label>
+                                    </div>
+                                    <h5>Rocky Balboa</h5>
+                                    <p class="pr-1">Watching pines? More like fighting them Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar faucibus neque, nec rhoncus nunc ultrices sit amet. Curabitur ac sagittis neque, vel egestas est.</p>
+                                </div>
+                            </li>
+                            <li class="list-group-item p-0">
+                                <div class="container pb-0 pl-3 pt-2 pr-1">
+                                    <img src="https://images.unsplash.com/photo-1499651681375-8afc5a4db253?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjIwOTIyfQ&s=eadad6ab3e4b92c6066ee4bfa73e9cc7q=85&fm=jpg&crop=faces&cs=srgb&w=100&h=100&fit=crop" class="mr-2 float-left rounded-circle" height="55" width="55">
+                                    <div class="float-right">
+                                        <label class="mr-2">
+                                            <i class="fas fa-comment text-primary"></i> 1
+                                        </label>
+                                        <label class="mr-2">
+                                            <i class="fas fa-heart text-danger"> </i> 3
+                                        </label>
+                                        <label class="mr-2 text-primary">
+                                            <i class="fas fa-times"></i>
+                                        </label>
+                                    </div>
+                                    <h5>Rocky Balboa</h5>
+                                    <p class="pr-1">Do you think the Nazis did well?</p>
                                 </div>
                             </li>
                         </ul>
