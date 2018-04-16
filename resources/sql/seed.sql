@@ -1,39 +1,221 @@
-DROP TABLE IF EXISTS users CASCADE;
-DROP TABLE IF EXISTS cards CASCADE;
-DROP TABLE IF EXISTS items CASCADE;
-
-CREATE TABLE users (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR NOT NULL,
-  email VARCHAR UNIQUE NOT NULL,
-  password VARCHAR NOT NULL,
-  remember_token VARCHAR
+CREATE TYPE changes AS ENUM (
+    'Location',
+    'Date',
+    'Name'
 );
 
-CREATE TABLE cards (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR NOT NULL,
-  user_id INTEGER REFERENCES users NOT NULL
+CREATE TYPE roles AS ENUM (
+    'Participant',
+    'Manager',
+    'Owner'
 );
 
-CREATE TABLE items (
-  id SERIAL PRIMARY KEY,
-  card_id INTEGER NOT NULL REFERENCES cards ON DELETE CASCADE,
-  description VARCHAR NOT NULL,
-  done BOOLEAN NOT NULL DEFAULT FALSE
+CREATE TYPE status AS ENUM (
+    'Going',
+    'Interested',
+    'NotGoing'
 );
 
-INSERT INTO users VALUES (
-  DEFAULT,
-  'John Doe',
-  'john@example.com',
-  '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W'
-); -- Password is 1234. Generated using Hash::make('1234')
+CREATE TYPE visibilities AS ENUM (
+    'Private',
+    'Public'
+);
 
-INSERT INTO cards VALUES (DEFAULT, 'Things to do', 1);
-INSERT INTO items VALUES (DEFAULT, 1, 'Buy milk');
-INSERT INTO items VALUES (DEFAULT, 1, 'Walk the dog', true);
+CREATE TABLE event (
+    id SERIAL NOT NULL,
+    title character varying(128) NOT NULL,
+    date timestamp without time zone NOT NULL,
+    location character varying(128) NOT NULL,
+    description text,
+    image character varying(256),
+    visibility visibilities NOT NULL,
+    CONSTRAINT event_pkey PRIMARY KEY (id)
+);
 
-INSERT INTO cards VALUES (DEFAULT, 'Things not to do', 1);
-INSERT INTO items VALUES (DEFAULT, 2, 'Break a leg');
-INSERT INTO items VALUES (DEFAULT, 2, 'Crash the car');
+CREATE TABLE country (
+    id SERIAL NOT NULL,
+    name character varying(64) NOT NULL,
+    CONSTRAINT country_country_key UNIQUE (name),
+    CONSTRAINT country_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE member (
+    id serial NOT NULL,
+    name character varying(64) NOT NULL,
+    password character varying(128) NOT NULL,
+    description text,
+    contact character varying(20),
+    image character varying,
+    email character varying(254) NOT NULL,
+    birthdate date,
+    age smallint,
+    admin boolean DEFAULT false NOT NULL,
+    id_country integer NOT NULL,
+    CONSTRAINT member_pkey PRIMARY KEY (id),
+    CONSTRAINT member_id_county_fkey FOREIGN KEY (id_country) REFERENCES country(id)
+);
+
+CREATE TABLE blocked (
+    id_event integer NOT NULL,
+    id_member integer NOT NULL,
+    CONSTRAINT blocked_pkey PRIMARY KEY (id_event, id_member),
+    CONSTRAINT blocked_id_event_fkey FOREIGN KEY (id_event) REFERENCES event(id) ON DELETE CASCADE,
+    CONSTRAINT blocked_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id)
+);
+
+CREATE TABLE comment (
+    id SERIAL NOT NULL,
+    id_member integer NOT NULL,
+    id_event integer NOT NULL,
+    date timestamp without time zone NOT NULL,
+    CONSTRAINT comment_pkey PRIMARY KEY (id),
+    CONSTRAINT comment_id_event_fkey FOREIGN KEY (id_event) REFERENCES event(id) ON DELETE CASCADE,
+    CONSTRAINT comment_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id)
+);
+    
+CREATE TABLE notification (
+    id SERIAL NOT NULL,
+    id_member integer NOT NULL,
+    seen boolean DEFAULT false NOT NULL,
+    hidden boolean DEFAULT false NOT NULL,
+    CONSTRAINT notification_pkey PRIMARY KEY (id),
+    CONSTRAINT notification_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id)
+);
+
+CREATE TABLE event_change (
+    id_notification integer NOT NULL,
+    id_event integer NOT NULL,
+    change changes NOT NULL,
+    CONSTRAINT event_change_pkey PRIMARY KEY (id_notification),
+    CONSTRAINT event_change_id_event_fkey FOREIGN KEY (id_event) REFERENCES event(id) ON DELETE CASCADE,
+    CONSTRAINT event_change_id_notification_fkey FOREIGN KEY (id_notification) REFERENCES notification(id)
+);
+
+CREATE TABLE event_invitation (
+    id_notification integer NOT NULL,
+    id_event integer NOT NULL,
+    CONSTRAINT event_invitation_pkey PRIMARY KEY (id_notification),
+    CONSTRAINT event_invitation_id_event_fkey FOREIGN KEY (id_event) REFERENCES event(id) ON DELETE CASCADE,
+    CONSTRAINT event_invitation_id_notification_fkey FOREIGN KEY (id_notification) REFERENCES notification(id)
+);
+
+CREATE TABLE event_member (
+    id_event integer NOT NULL,
+    id_member integer NOT NULL,
+    role roles NOT NULL,
+    status status,
+    CONSTRAINT event_member_pkey PRIMARY KEY (id_event, id_member),
+    CONSTRAINT event_member_id_event_fkey FOREIGN KEY (id_event) REFERENCES event(id) ON DELETE CASCADE,
+    CONSTRAINT event_member_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id)
+);
+
+CREATE TABLE tag (
+    name character varying(30) NOT NULL,
+    CONSTRAINT tag_pkey PRIMARY KEY (name)
+);
+
+CREATE TABLE event_tags (
+    id_event integer NOT NULL,
+    name_tag character varying(30) NOT NULL,
+    CONSTRAINT event_tags_pkey PRIMARY KEY (id_event, name_tag),
+    CONSTRAINT event_tags_id_event_fkey FOREIGN KEY (id_event) REFERENCES event(id) ON DELETE CASCADE,
+    CONSTRAINT event_tags_name_tag_fkey FOREIGN KEY (name_tag) REFERENCES tag(name)
+);
+
+CREATE TABLE file (
+    id_comment integer NOT NULL,
+    path character varying(4096) NOT NULL,
+    text character varying(240),
+    CONSTRAINT file_pkey PRIMARY KEY (id_comment),
+    CONSTRAINT file_id_comment_fkey FOREIGN KEY (id_comment) REFERENCES comment(id) ON DELETE CASCADE
+);
+
+CREATE TABLE friend (
+    id_member integer NOT NULL,
+    id_friend integer NOT NULL,
+    CONSTRAINT friend_pkey PRIMARY KEY (id_member, id_friend),
+    CONSTRAINT friend_id_friend_fkey FOREIGN KEY (id_friend) REFERENCES member(id),
+    CONSTRAINT friend_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id)
+);
+
+CREATE TABLE friend_request (
+    id_notification integer NOT NULL,
+    id_member integer NOT NULL,
+    CONSTRAINT friend_request_pkey PRIMARY KEY (id_notification),
+    CONSTRAINT friend_request_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id),
+    CONSTRAINT friend_request_id_notification_fkey FOREIGN KEY (id_notification) REFERENCES notification(id)
+);
+
+CREATE TABLE liked (
+    id_member integer NOT NULL,
+    id_comment integer NOT NULL,
+    CONSTRAINT liked_pkey PRIMARY KEY (id_member, id_comment),
+    CONSTRAINT liked_id_comment_fkey FOREIGN KEY (id_comment) REFERENCES comment(id) ON DELETE CASCADE,
+    CONSTRAINT liked_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id)
+);
+
+CREATE TABLE member_tags (
+    id_member integer NOT NULL,
+    name_tag character varying(30) NOT NULL,
+    CONSTRAINT member_tags_pkey PRIMARY KEY (id_member, name_tag),
+    CONSTRAINT member_tags_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id),
+    CONSTRAINT member_tags_name_tag_fkey FOREIGN KEY (name_tag) REFERENCES tag(name)
+);
+
+CREATE TABLE option (
+    id SERIAL NOT NULL,
+    option_text character varying NOT NULL,
+    id_comment integer NOT NULL,
+    CONSTRAINT option_pkey PRIMARY KEY (id),
+    CONSTRAINT option_id_comment_fkey FOREIGN KEY (id_comment) REFERENCES comment(id) ON DELETE CASCADE
+);
+
+CREATE TABLE poll (
+    id_comment integer NOT NULL,
+    text character varying(240) NOT NULL,
+    CONSTRAINT poll_pkey PRIMARY KEY (id_comment),
+    CONSTRAINT poll_id_comment_fkey FOREIGN KEY (id_comment) REFERENCES comment(id) ON DELETE CASCADE
+);
+
+CREATE TABLE text_comment (
+    id_comment integer NOT NULL,
+    id_parent integer,
+    text character varying(240) NOT NULL,
+    CONSTRAINT text_comment_pkey PRIMARY KEY (id_comment),
+    CONSTRAINT text_comment_id_comment_fkey FOREIGN KEY (id_comment) REFERENCES comment(id) ON DELETE CASCADE,
+    CONSTRAINT text_comment_id_parent_fkey FOREIGN KEY (id_parent) REFERENCES comment(id) ON DELETE CASCADE
+);
+
+CREATE TABLE vote (
+    id_member integer NOT NULL,
+    id_option integer NOT NULL,
+    CONSTRAINT vote_pkey PRIMARY KEY (id_member, id_option),
+    CONSTRAINT vote_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id),
+    CONSTRAINT vote_id_option_fkey FOREIGN KEY (id_option) REFERENCES option(id) ON DELETE CASCADE
+);
+
+CREATE INDEX members ON member USING hash(id);
+
+CREATE INDEX events ON event USING hash(id);
+
+CREATE INDEX event_comments ON comment USING hash(id_event);
+
+CREATE INDEX member_friends ON friend USING hash(id_member);
+
+CREATE INDEX member_events ON event_member USING hash(id_member);
+
+CREATE INDEX search_event ON event USING GIST (to_tsvector('english', title));
+
+CREATE FUNCTION calculate_age() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+  NEW.age = date_part('year', age(NEW.birthdate));
+  RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+CREATE TRIGGER calculate_age
+  BEFORE INSERT OR UPDATE ON member
+  FOR EACH ROW
+    EXECUTE PROCEDURE calculate_age(); 

@@ -34,6 +34,6 @@ class User extends Authenticatable
      * The cards this user owns.
      */
      public function cards() {
-      return $this->hasMany('App\Card');
+      return $this->hasMany('App\Event');
     }
 }
