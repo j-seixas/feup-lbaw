@@ -54,10 +54,10 @@
             @else
             <ul class="navbar-nav ml-auto ">
                 <li class="nav-item">
-                    <a class="nav-link" href="./signin.html">Sign in</a>
+                    <a class="nav-link" href="{{ route('login') }}">Sign in</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="./signup.html">Sign up</a>
+                    <a class="nav-link " href="{{ route('register') }}">Sign up</a>
                 </li>
             </ul>
             @endif

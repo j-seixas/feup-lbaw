@@ -30,6 +30,8 @@ class Member extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $table = 'member';
+
     /**
      * The cards this user owns.
      */
