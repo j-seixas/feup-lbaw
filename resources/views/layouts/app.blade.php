@@ -29,7 +29,7 @@
                 <input class="form-control mr-sm-2" type="search" placeholder="Find an event..." aria-label="Search">
                 <button class="btn btn-outline-secondary my-2 my-sm-0 mr-3" type="submit">Search</button>
             </form>
-            <a href="./createevent.html">
+            <a href="{{url('event')}}">
                 <button type="button" class="btn btn-primary ">
                     <i class="fas fa-plus"></i> Create event
                 </button>

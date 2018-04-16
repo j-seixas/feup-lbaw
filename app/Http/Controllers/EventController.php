@@ -30,12 +30,22 @@ class EventController extends Controller
      *
      * @return Response
      */
-    public function list()
+    public function showList()
     {
 
       $events = event::where('visibility', 'Public');
 
       return view('pages.events', ['events' => $events]);
+    }
+
+    public function showCreateForm()
+    {
+      if (Auth::check()) {
+        return view('pages.createEvent');
+      } else {
+        return redirect('login');
+      }
+      
     }
 
     /**
