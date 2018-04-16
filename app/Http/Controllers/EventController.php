@@ -32,9 +32,8 @@ class EventController extends Controller
      */
     public function list()
     {
-      $this->authorize('list', event::class);
 
-      $events = Auth::user()->events()->orderBy('id')->get();
+      $events = event::where('visibility', 'Public');
 
       return view('pages.events', ['events' => $events]);
     }
