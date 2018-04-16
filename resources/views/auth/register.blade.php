@@ -10,27 +10,37 @@
     </div>
 
     <div class="form-label-group">
-      <input type="text" id="inputFirstName" class="form-control" placeholder="First name" required autofocus>
+      <input name="first-name" type="text" id="inputFirstName" class="form-control" placeholder="First name" required autofocus>
       <label for="inputFirstName">First name</label>
     </div>
 
     <div class="form-label-group">
-      <input type="text" id="inputLastName" class="form-control" placeholder="Last name" required>
+      <input name="last-name" type="text" id="inputLastName" class="form-control" placeholder="Last name" required>
       <label for="inputLastName">Last name</label>
     </div>
 
     <div class="form-label-group">
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+      <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" value="{{ old('email') }}" required>
       <label for="inputEmail">Email address</label>
     </div>
+    @if ($errors->has('email'))
+        <span class="error">
+          {{ $errors->first('email') }}
+        </span>
+    @endif
 
     <div class="form-label-group">
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
       <label for="inputPassword">Password</label>
     </div>
+    @if ($errors->has('password'))
+        <span class="error">
+            {{ $errors->first('password') }}
+        </span>
+    @endif
 
     <div class="form-label-group">
-      <input type="password" id="inputPasswordConfirm" class="form-control" placeholder="Confirm the password" required>
+      <input name="password_confirmation" type="password" id="inputPasswordConfirm" class="form-control" placeholder="Confirm the password" required>
       <label for="inputPasswordConfirm">Confirm the password</label>
     </div>
 

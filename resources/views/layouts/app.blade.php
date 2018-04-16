@@ -48,7 +48,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./index.html">Sign out</a>
+                    <a class="nav-link" href="{{ route('logout') }}">Sign out</a>
                 </li>
             </ul>
             @else

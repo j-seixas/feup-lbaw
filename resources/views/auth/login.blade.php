@@ -10,7 +10,7 @@
     </div>
 
     <div class="form-label-group">
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" value="{{ old('email') }}" required autofocus>
+      <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" value="{{ old('email') }}" required autofocus>
       <label for="inputEmail">Email address</label>
     </div>
     @if ($errors->has('email'))
@@ -20,7 +20,7 @@
     @endif
 
     <div class="form-label-group">
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
       <label for="inputPassword">Password</label>
     </div>
     @if ($errors->has('password'))

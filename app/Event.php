@@ -16,7 +16,7 @@ class Event extends Model
   /**
    * The user this card belongs to
    */
-  public function user() {
+  public function member() {
     return $this->belongsTo('App\Member');
   }
 

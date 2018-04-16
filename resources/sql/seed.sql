@@ -1,3 +1,9 @@
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
+
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO public;
+
 CREATE TYPE changes AS ENUM (
     'Location',
     'Date',
@@ -50,7 +56,8 @@ CREATE TABLE member (
     birthdate date,
     age smallint,
     admin boolean DEFAULT false NOT NULL,
-    id_country integer NOT NULL,
+    id_country integer,
+    remember_token character varying,
     CONSTRAINT member_pkey PRIMARY KEY (id),
     CONSTRAINT member_id_county_fkey FOREIGN KEY (id_country) REFERENCES country(id)
 );

@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\User;
+use App\Member;
 use App\Card;
 use App\Item;
 
@@ -12,21 +12,21 @@ class ItemPolicy
 {
     use HandlesAuthorization;
 
-    public function create(User $user, Item $item)
+    public function create(Member $user, Item $item)
     {
-      // User can only create items in cards they own
+      // Member can only create items in cards they own
       return $user->id == $item->card->user_id;
     }
 
-    public function update(User $user, Item $item)
+    public function update(Member $user, Item $item)
     {
-      // User can only update items in cards they own
+      // Member can only update items in cards they own
       return $user->id == $item->card->user_id;
     }
 
-    public function delete(User $user, Item $item)
+    public function delete(Member $user, Item $item)
     {
-      // User can only delete items in cards they own
+      // Member can only delete items in cards they own
       return $user->id == $item->card->user_id;
     }
 }
