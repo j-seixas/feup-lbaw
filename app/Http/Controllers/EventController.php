@@ -59,8 +59,14 @@ class EventController extends Controller
 
       $this->authorize('create', $event);
 
-      $event->name = $request->input('name');
-      $event->user_id = Auth::user()->id;
+      $event->title = $request->input('eventName');
+      $event->description = $request->input('description');
+      $event->visibility = $request->input('visibility');
+      $event->date = $request->input('date');
+      $event->location = $request->input('location');
+      $event->picture = $request->input('picture');
+
+
       $event->save();
 
       return $event;
