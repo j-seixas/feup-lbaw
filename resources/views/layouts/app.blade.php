@@ -73,13 +73,13 @@
                 <h5>Resources</h5>
                 <ul class="list-unstyled text-small">
                     <li>
-                        <a class="text-muted" href="./FAQ.html">Frequently asked questions</a>
+                        <a class="text-muted" href="./faq">Frequently asked questions</a>
                     </li>
                     <li>
-                        <a class="text-muted" href="./terms.html">Terms and conditions</a>
+                        <a class="text-muted" href="./terms">Terms and conditions</a>
                     </li>
                     <li>
-                        <a class="text-muted" href="./privacy.html">Privacy</a>
+                        <a class="text-muted" href="./privacy">Privacy</a>
                     </li>
                 </ul>
             </div>
@@ -87,13 +87,13 @@
                 <h5>About us</h5>
                 <ul class="list-unstyled text-small">
                     <li>
-                        <a class="text-muted" href="./about.html">About us</a>
+                        <a class="text-muted" href="./about">About us</a>
                     </li>
                     <li>
-                        <a class="text-muted" href="./team.html">Our team</a>
+                        <a class="text-muted" href="./team">Our team</a>
                     </li>
                     <li>
-                        <a class="text-muted" href="./contacts.html">Contact us</a>
+                        <a class="text-muted" href="./contacts">Contact us</a>
                     </li>
                 </ul>
             </div>

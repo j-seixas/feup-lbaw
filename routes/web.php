@@ -27,6 +27,18 @@ Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
+
+// Events
+
 Route::get('event', 'EventController@showCreateForm');
 Route::post('event', 'EventController@create');
 Route::get('event/id', 'EventController@showEvent');
+
+// Static pages
+
+Route::get('faq', 'StaticPagesController@showFAQ');
+Route::get('contacts', 'StaticPagesController@showContacts');
+Route::get('about', 'StaticPagesController@showAbout');
+Route::get('privacy', 'StaticPagesController@showPrivacy');
+Route::get('team', 'StaticPagesController@showTeam');
+Route::get('terms', 'StaticPagesController@showTerms');
