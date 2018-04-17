@@ -15,7 +15,7 @@
                         <button type="button" class="btn btn-outline-primary"> 
                             <i class="fas fa-edit"></i> Edit
                         </button>                                 
-                        <button type="button" class="btn btn-outline-danger ml-1"> 
+                        <button type="button" class="btn btn-outline-danger ml-1" action="/event/{{ $event->id }}"> 
                             <i class="fas fa-trash-alt"></i> Delete event
                         </button>                                                              
                     </div> 
