@@ -20,7 +20,7 @@ class EventController extends Controller
     {
       $event = Event::find($id);
 
-      $this->authorize('show', $event);
+      //$this->authorize('show', $event);
 
       return view('pages.event', ['event' => $event]);
     }
@@ -32,9 +32,11 @@ class EventController extends Controller
      */
     public function showList()
     {
-
-      $events = Event::where('visibility', 'Public')->inRandomOrder()->take(3)->get();
-
+      if (Auth::check()) {
+        $events = Event::where('visibility', 'Public')->inRandomOrder()->take(6)->get();
+      } else {
+        $events = Event::where('visibility', 'Public')->inRandomOrder()->take(3)->get();
+      }
       return view('pages.events', ['events' => $events]);
     }
 
