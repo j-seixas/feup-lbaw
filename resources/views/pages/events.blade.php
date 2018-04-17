@@ -18,7 +18,7 @@
 
 <div class="container">
     <div class="row mt-3">
-@each('partials.event', $events, 'event')
+        @each('partials.event', $events, 'event')
     </div>
 </div>
 
