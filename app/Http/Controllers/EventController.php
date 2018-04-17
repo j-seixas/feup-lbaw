@@ -33,7 +33,7 @@ class EventController extends Controller
     public function showList()
     {
 
-      $events = Event::take(3)->get();
+      $events = Event::where('visibility', 'Public')->inRandomOrder()->take(3)->get();
 
       return view('pages.events', ['events' => $events]);
     }
