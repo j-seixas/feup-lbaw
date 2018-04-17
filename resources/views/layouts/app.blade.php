@@ -67,7 +67,7 @@
     <footer class="footer container py-5">
         <div class="row">
             <div class="col-sm">
-                <small class="d-block mb-3 text-muted">Eventually &copy; 2018<br>build 1</small>
+                <small class="d-block mb-3 text-muted">Eventually &copy; 2018<br>build 2</small>
             </div>
             <div class="col">
                 <h5>Resources</h5>

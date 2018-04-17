@@ -33,7 +33,7 @@ class EventController extends Controller
     public function showList()
     {
 
-      $events = Event::findAll();
+      $events = Event::all();
 
       return view('pages.events', ['events' => $events]);
     }
