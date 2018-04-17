@@ -29,17 +29,15 @@
                         <button type="button" class="btn btn-outline-primary">Interested</button>
                         <button type="button" class="btn btn-outline-danger flex-wrap">Not going</button>
                     </div>
-                    <p class="card-text" style="padding-top: 8px;">13 people going.</p>
+                    <p class="card-text" style="padding-top: 8px;">{{ $participants }} people going.</p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">{{ $event->location }}</li>
-                    <li class="list-group-item"> 
+                    <li class="list-group-item">
+                        @foreach ($eventTags as $tag)
                         <span style="font-size: 1rem;"> </span> 
-                        <span class="badge badge-pill badge-success">pines</span> 
-                        <span style="font-size: 1rem;"> </span> 
-                        <span class="badge badge-primary badge-pill">plants</span> 
-                        <span style="font-size: 1rem;"> </span> 
-                        <span class="badge badge-pill badge-danger">sightseeing</span> 
+                        <span class="badge badge-primary badge-pill">{{ $tag->name_tag }}</span>
+                        @endforeach
                     </li>
                 </ul>
             </div>
