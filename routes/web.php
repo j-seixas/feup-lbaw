@@ -29,3 +29,4 @@ Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('re
 Route::post('register', 'Auth\RegisterController@register');
 Route::get('event', 'EventController@showCreateForm');
 Route::post('event', 'EventController@create');
+Route::get('event/id', 'EventController@showEvent');

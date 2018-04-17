@@ -38,6 +38,11 @@ class EventController extends Controller
       return view('pages.events', ['events' => $events]);
     }
 
+    public function showEvent()
+    {
+      return view('pages.event');
+    }
+
     public function showCreateForm()
     {
       if (Auth::check()) {
@@ -60,16 +65,18 @@ class EventController extends Controller
       $this->authorize('create', $event);
 
       $event->title = $request->input('eventName');
-      $event->description = $request->input('description');
-      $event->visibility = $request->input('visibility');
-      $event->date = $request->input('date');
-      $event->location = $request->input('location');
-      $event->picture = $request->input('picture');
+      $event->description = $request->input('eventDescription');
+      $event->visibility = $request->input('eventPrivacy');
+      $event->date = $request->input('eventDate');
+      $event->location = $request->input('eventLocation');
+      //$event->picture = $request->input('picture');
 
 
       $event->save();
 
-      return $event;
+      return redirect('event/id');
+
+      
     }
 
     public function delete(Request $request, $id)
