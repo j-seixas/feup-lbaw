@@ -23,6 +23,10 @@ class EventController extends Controller
       //$this->authorize('show', $event);
 
       $idOwner = DB::select('SELECT id_member FROM event_member WHERE role = ? AND id_event = ?', ['Owner', $id]);
+
+      $eventTags = DB::select('select name_tag from event_tags where id_event = ?', [$id]);
+
+      print_r($eventTags);
       
       $isOwner = $idOwner[0]->id_member == Auth::user()->id;
 
