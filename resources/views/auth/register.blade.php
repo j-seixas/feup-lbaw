@@ -9,6 +9,18 @@
       <p>Sign up to be able to participate in the community and create events!</p>
     </div>
 
+    @if ($errors->has('email'))
+    <div class="alert alert-danger" role="alert">
+      {{ $errors->first('email') }}
+    </div>
+    @endif
+
+    @if ($errors->has('password'))
+    <div class="alert alert-danger" role="alert">
+      {{ $errors->first('password') }}
+    </div>
+    @endif
+
     <div class="form-label-group">
       <input name="first-name" type="text" id="inputFirstName" class="form-control" placeholder="First name" required autofocus>
       <label for="inputFirstName">First name</label>
@@ -23,21 +35,11 @@
       <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" value="{{ old('email') }}" required>
       <label for="inputEmail">Email address</label>
     </div>
-    @if ($errors->has('email'))
-        <span class="error">
-          {{ $errors->first('email') }}
-        </span>
-    @endif
 
     <div class="form-label-group">
       <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
       <label for="inputPassword">Password</label>
     </div>
-    @if ($errors->has('password'))
-        <span class="error">
-            {{ $errors->first('password') }}
-        </span>
-    @endif
 
     <div class="form-label-group">
       <input name="password_confirmation" type="password" id="inputPasswordConfirm" class="form-control" placeholder="Confirm the password" required>
