@@ -16,7 +16,7 @@
     </div>
 @endif
 
-<div class="container ">
+<div class="container">
 @each('partials.event', $events, 'event')
 </div>
 
