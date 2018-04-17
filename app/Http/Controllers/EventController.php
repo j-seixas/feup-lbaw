@@ -59,7 +59,7 @@ class EventController extends Controller
     {
       $event = new Event();
 
-      $this->authorize('create', $event);
+      //$this->authorize('create', $event);
 
       $event->title = $request->input('eventName');
       $event->description = $request->input('eventDescription');
@@ -71,7 +71,7 @@ class EventController extends Controller
 
       $event->save();
 
-      return redirect("event/$event->id");
+      return redirect()->route('event',['id' => $event->id]);
 
       
     }

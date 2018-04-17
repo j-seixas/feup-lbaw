@@ -10,6 +10,7 @@
     <ul class="list-group list-group-flush">
       <li class="list-group-item ">
         <form method="POST" action="{{url('event')}}" id="form1">
+        {{ csrf_field() }}
           <div class="form-group">
             <label class="col-form-label" for="eventName">Event name
             </label>
@@ -27,11 +28,11 @@
             <div class="row pl-3 pb-0">
               <div class="btn-group float-none" data-toggle="buttons">
                 <label class="btn btn-secondary active">
-                  <input type="radio" name="eventPrivacy" autocomplete="off" checked="checked" value="public">
+                  <input type="radio" name="eventPrivacy" autocomplete="off" checked="checked" value="Public">
                   <i class="fas fa-users"></i> Public
                 </label>
                 <label class="btn btn-secondary">
-                  <input type="radio" name="eventPrivacy" autocomplete="off" value="private">
+                  <input type="radio" name="eventPrivacy" autocomplete="off" value="Private">
                   <i class="fas fa-lock"></i> Private
                 </label>
               </div>
