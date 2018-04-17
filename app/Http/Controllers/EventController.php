@@ -38,11 +38,6 @@ class EventController extends Controller
       return view('pages.events', ['events' => $events]);
     }
 
-    public function showEvent()
-    {
-      return view('pages.event');
-    }
-
     public function showCreateForm()
     {
       if (Auth::check()) {
@@ -74,7 +69,7 @@ class EventController extends Controller
 
       $event->save();
 
-      return redirect('event/id');
+      return redirect("event/$event->id");
 
       
     }
