@@ -76,17 +76,9 @@ class EventController extends Controller
 
       $event->save();
 
-      $event_member = new Event_member();
-
-      $event_member->id_event = $event->id;
-      $event_member->id_member = Auth::user()->id;
-      $event_member->role = 'Owner';
-
-      $event_member->save();
+      DB::insert('insert into event_member (id_event, id_member, role) values (?, ?, ?)', [$event->id, Auth::user()->id, 'Owner']);
 
       return redirect()->route('event',['id' => $event->id]);
-
-      
     }
 
     public function delete(Request $request, $id)
