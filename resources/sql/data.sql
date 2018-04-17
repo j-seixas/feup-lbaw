@@ -298,13 +298,13 @@ INSERT INTO member VALUES (50, 'Bertha Meadley', '$2y$10$VBDxHCt6ABeGJQpCqRTEU.6
 
 
 INSERT INTO event VALUES (1, 'Maroon convention', '2017-11-09 08:50:47', '3 Calypso Way, Oesapa', 'Donec semper sapien a libero. Nam dui.', 'LacusCurabitur.jpeg', 'Private');
-INSERT INTO event VALUES (2, 'Yellow convention', '2018-01-18 12:18:46', '2 Paget Terrace, Shiziling', 'Vestibulum sed magna at nunc commodo placerat.', 'Magnis.tiff', 'Private');
-INSERT INTO event VALUES (3, 'Aquamarine convention', '2017-06-06 08:19:53', '3 Waubesa Plaza, Burunday', 'Praesent id massa id nisl venenatis lacinia.', 'SapienIaculis.tiff', 'Private');
+INSERT INTO event VALUES (2, 'Yellow convention', '2018-01-18 12:18:46', '2 Paget Terrace, Shiziling', 'Vestibulum sed magna at nunc commodo placerat.', 'Magnis.tiff', 'Public');
+INSERT INTO event VALUES (3, 'Aquamarine convention', '2017-06-06 08:19:53', '3 Waubesa Plaza, Burunday', 'Praesent id massa id nisl venenatis lacinia.', 'SapienIaculis.tiff', 'Public');
 INSERT INTO event VALUES (4, 'Violet convention', '2018-03-14 22:20:59', '36 Vahlen Trail, Iriga City', 'Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.', 'Mauris.gif', 'Public');
-INSERT INTO event VALUES (5, 'Puce convention', '2018-01-26 01:04:25', '49911 Roxbury Drive, Kolaka', 'Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus.', 'Id.tiff', 'Private');
+INSERT INTO event VALUES (5, 'Puce convention', '2018-01-26 01:04:25', '49911 Roxbury Drive, Kolaka', 'Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus.', 'Id.tiff', 'Public');
 INSERT INTO event VALUES (6, 'Indigo convention', '2017-10-13 01:46:28', '89604 Katie Park, Moutnice', 'Maecenas pulvinar lobortis est.', 'Urna.jpeg', 'Public');
 INSERT INTO event VALUES (7, 'Crimson convention', '2017-09-17 23:29:01', '075 Stone Corner Pass, Pajung', 'Donec dapibus.', 'LectusPellentesqueAt.jpeg', 'Private');
-INSERT INTO event VALUES (8, 'Fuscia convention', '2017-10-13 16:03:38', '395 Russell Road, Nelazskoye', 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.', 'Amet.jpeg', 'Private');
+INSERT INTO event VALUES (8, 'Fuscia convention', '2017-10-13 16:03:38', '395 Russell Road, Nelazskoye', 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.', 'Amet.jpeg', 'Public');
 INSERT INTO event VALUES (9, 'Indigo convention', '2017-10-17 03:20:09', '622 7th Parkway, Czestochowa', 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.', 'LuctusEtUltrices.png', 'Private');
 INSERT INTO event VALUES (10, 'Turquoise convention', '2017-08-16 16:33:00', '9927 Texas Plaza, Gulu', 'Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.', 'DonecQuisOrci.png', 'Public');
 

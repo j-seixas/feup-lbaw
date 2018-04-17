@@ -4,25 +4,24 @@
 
 @section('content')
 
-<!DOCTYPE html>
 <div class="container pr-null pb-null pl-null pt-3">
     <div class="row">
         <div class="col-md-7 pb-3">
             <div class="card">
                 <img class="card-img-top" alt="Card image cap" src="http://pinegrow.com/placeholders/img20.jpg">
                 <div class="card-body">
-                    <h4 class="card-title">Pine watching event</h4>
-                    <div class="h5">Tomorrow at 6pm</div>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h4 class="card-title">{{ $event->title }}</h4>
+                    <div class="h5">{{ $event->time }}</div>
+                    <p class="card-text">{{ $event->description }}</p>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-outline-success active">Going</button>
+                        <button type="button" class="btn btn-outline-success">Going</button>
                         <button type="button" class="btn btn-outline-primary">Interested</button>
                         <button type="button" class="btn btn-outline-danger flex-wrap">Not going</button>
                     </div>
                     <p class="card-text" style="padding-top: 8px;">13 people going.</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Pinewatching Street, 123</li>
+                    <li class="list-group-item">{{ $event->location }}</li>
                     <li class="list-group-item"> 
                         <span style="font-size: 1rem;"> </span> 
                         <span class="badge badge-pill badge-success">pines</span> 
@@ -39,16 +38,10 @@
                 <div class="card-header bg-white"> 
                     <input type="text" class="form-control" placeholder="Comment..."> 
                     <button type="button" class="btn btn-secondary mt-2 mr-2" style="margin-top: 1;">
-                        <svg class="svg-inline--fa fa-chart-pie fa-w-18" aria-hidden="true" data-prefix="fas" data-icon="chart-pie" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512" data-fa-i2svg="">
-                            <path fill="currentColor" d="M288 12.3V240h227.7c6.9 0 12.3-5.8 12-12.7-6.4-122.4-104.5-220.6-227-227-6.9-.3-12.7 5.1-12.7 12zM552.7 288c6.9 0 12.3 5.8 12 12.7-2.8 53.2-23.2 105.6-61.2 147.8-4.6 5.1-12.6 5.4-17.5.5L325 288h227.7zM401 433c4.8 4.8 4.7 12.8-.4 17.3-42.6 38.4-99 61.7-160.8 61.7C107.6 511.9-.2 403.8 0 271.5.2 143.4 100.8 38.9 227.3 32.3c6.9-.4 12.7 5.1 12.7 12V272l161 161z"></path>
-                        </svg>
-                        <!-- <i class="fas fa-chart-pie"></i> -->                                 Add poll
+                       <i class="fas fa-chart-pie"></i>Add poll
                     </button>                             
                     <button type="button" class="btn btn-secondary mt-2" style="margin-top: 1;">
-                        <svg class="svg-inline--fa fa-file fa-w-12" aria-hidden="true" data-prefix="fas" data-icon="file" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512" data-fa-i2svg="">
-                            <path fill="currentColor" d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm160-14.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"></path>
-                        </svg>
-                        <!-- <i class="fas fa-file"></i> -->                                 Add file
+                        <i class="fas fa-file"></i>Add file
                     </button>                             
                 </div>                         
                 <ul class="list-group list-group-flush"> 
@@ -88,10 +81,7 @@
                             <img src="https://images.unsplash.com/photo-1499651681375-8afc5a4db253?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjIwOTIyfQ&s=eadad6ab3e4b92c6066ee4bfa73e9cc7q=85&fm=jpg&crop=faces&cs=srgb&w=100&h=100&fit=crop" class="mr-2 float-left rounded-circle" height="55" width="55"> 
                             <div class="float-right"> 
                                 <label class="mr-2">
-                                    <svg class="svg-inline--fa fa-comment fa-w-18 text-primary" aria-hidden="true" data-prefix="fas" data-icon="comment" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512" data-fa-i2svg="">
-                                        <path fill="currentColor" d="M576 240c0 115-129 208-288 208-48.3 0-93.9-8.6-133.9-23.8-40.3 31.2-89.8 50.3-142.4 55.7-5.2.6-10.2-2.8-11.5-7.7-1.3-5 2.7-8.1 6.6-11.8 19.3-18.4 42.7-32.8 51.9-94.6C21.9 330.9 0 287.3 0 240 0 125.1 129 32 288 32s288 93.1 288 208z"></path>
-                                    </svg>
-                                    <!-- <i class="fas fa-comment text-primary"></i> -->                                                                         0
+                                    <i class="fas fa-comment text-primary"></i>0
                                 </label>                                         
                                 <label class="mr-2"> 
                                     <i class="fas fa-heart text-danger"> </i> 3
@@ -109,10 +99,7 @@
                             <img src="https://images.unsplash.com/photo-1499651681375-8afc5a4db253?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjIwOTIyfQ&s=eadad6ab3e4b92c6066ee4bfa73e9cc7q=85&fm=jpg&crop=faces&cs=srgb&w=100&h=100&fit=crop" class="mr-2 float-left rounded-circle" height="55" width="55"> 
                             <div class="float-right"> 
                                 <label class="mr-2">
-                                    <svg class="svg-inline--fa fa-comment fa-w-18 text-primary" aria-hidden="true" data-prefix="fas" data-icon="comment" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512" data-fa-i2svg="">
-                                        <path fill="currentColor" d="M576 240c0 115-129 208-288 208-48.3 0-93.9-8.6-133.9-23.8-40.3 31.2-89.8 50.3-142.4 55.7-5.2.6-10.2-2.8-11.5-7.7-1.3-5 2.7-8.1 6.6-11.8 19.3-18.4 42.7-32.8 51.9-94.6C21.9 330.9 0 287.3 0 240 0 125.1 129 32 288 32s288 93.1 288 208z"></path>
-                                    </svg>
-                                    <!-- <i class="fas fa-comment text-primary"></i> -->                                                                             0
+                                    <i class="fas fa-comment text-primary"></i>0
                                 </label>                                         
                                 <label class="mr-2"> 
                                     <i class="fas fa-heart text-danger"> </i> 3
