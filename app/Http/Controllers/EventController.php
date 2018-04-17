@@ -72,8 +72,6 @@ class EventController extends Controller
       $event->location = $request->input('eventLocation');
       //$event->picture = $request->input('picture');
 
-     
-
       $event->save();
 
       DB::insert('insert into event_member (id_event, id_member, role) values (?, ?, ?)', [$event->id, Auth::user()->id, 'Owner']);
