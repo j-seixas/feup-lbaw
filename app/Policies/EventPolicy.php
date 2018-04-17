@@ -15,7 +15,7 @@ class EventPolicy
     public function show(Member $member, Event $event)
     {
       // TODO check if user is in private event, else let everyone see
-      return true;
+      return $event->visibility == 'Public';
     }
 
     public function list(Member $member)
