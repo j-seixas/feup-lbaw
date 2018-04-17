@@ -1,5 +1,4 @@
-
-<div class="card ">
+<div class="card">
     <img class="card-img-top" alt="Card image cap" src="http://pinegrow.com/placeholders/img17.jpg" />
     <div class="card-body">
         <h4 class="card-title">Blow some flowers</h4>

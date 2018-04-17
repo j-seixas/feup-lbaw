@@ -18,7 +18,7 @@ class EventController extends Controller
      */
     public function show($id)
     {
-      $event = event::find($id);
+      $event = Event::find($id);
 
       $this->authorize('show', $event);
 
@@ -33,7 +33,7 @@ class EventController extends Controller
     public function showList()
     {
 
-      $events = event::where('visibility', 'Public');
+      $events = Event::findAll();
 
       return view('pages.events', ['events' => $events]);
     }
@@ -55,7 +55,7 @@ class EventController extends Controller
      */
     public function create(Request $request)
     {
-      $event = new event();
+      $event = new Event();
 
       $this->authorize('create', $event);
 
@@ -74,7 +74,7 @@ class EventController extends Controller
 
     public function delete(Request $request, $id)
     {
-      $event = event::find($id);
+      $event = Event::find($id);
 
       $this->authorize('delete', $event);
       $event->delete();
