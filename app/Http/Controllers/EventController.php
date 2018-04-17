@@ -22,7 +22,11 @@ class EventController extends Controller
 
       //$this->authorize('show', $event);
 
-      return view('pages.event', ['event' => $event]);
+      $idOwner = DB::select('SELECT id_member FROM event_member WHERE role = ? AND id_event = ?', ['Owner', $id]);
+      
+      $isOwner = $idOwner[0]->id_member == Auth::user()->id;
+
+      return view('pages.event', ['event' => $event, 'isOwner' => $isOwner]);
     }
 
     /**
@@ -68,8 +72,17 @@ class EventController extends Controller
       $event->location = $request->input('eventLocation');
       //$event->picture = $request->input('picture');
 
+     
 
       $event->save();
+
+      $event_member = new Event_member();
+
+      $event_member->id_event = $event->id;
+      $event_member->id_member = Auth::user()->id;
+      $event_member->role = 'Owner';
+
+      $event_member->save();
 
       return redirect()->route('event',['id' => $event->id]);
 

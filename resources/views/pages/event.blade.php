@@ -10,6 +10,17 @@
             <div class="card">
                 <img class="card-img-top" alt="Card image cap" src="http://pinegrow.com/placeholders/img20.jpg">
                 <div class="card-body">
+                    @if($isOwner)
+                    <div class="float-right col-sm-auto pr-0 pl-0 pb-2"> 
+                        <button type="button" class="btn btn-outline-primary"> 
+                            <i class="fas fa-edit"></i> Edit
+                        </button>                                 
+                        <button type="button" class="btn btn-outline-danger ml-1"> 
+                            <i class="fas fa-trash-alt"></i> Delete event
+                        </button>                                                              
+                    </div> 
+                    @endif
+
                     <h4 class="card-title">{{ $event->title }}</h4>
                     <div class="h5">{{ $event->date }}</div>
                     <p class="card-text">{{ $event->description }}</p>
