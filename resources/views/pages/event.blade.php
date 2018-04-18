@@ -12,9 +12,9 @@
                 <div class="card-body">
                     @if($isOwner)
                     <div class="float-right col-sm-auto pr-0 pl-0 pb-2"> 
-                        <button type="button" class="btn btn-outline-primary"> 
+                        <a class="btn btn-outline-primary" href="/event/{{  $event->id  }}/edit"> 
                             <i class="fas fa-edit"></i> Edit
-                        </button>                                 
+                        </a>                                 
                         <button type="button" class="btn btn-outline-danger ml-1" id="deleteButton" value="{{  $event->id  }}"> 
                             <i class="fas fa-trash-alt"></i> Delete event
                         </button>                                                              

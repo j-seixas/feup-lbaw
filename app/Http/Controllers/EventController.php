@@ -51,7 +51,7 @@ class EventController extends Controller
     public function showCreateForm()
     {
       if (Auth::check()) {
-        return view('pages.createEvent');
+        return view('pages.createEvent', ['edit' => false]);
       } else {
         return redirect('login');
       }
@@ -100,5 +100,20 @@ class EventController extends Controller
       
 
       return response('Bad Request', 400);
+    }
+
+    public function showEditForm($id) {
+      $event = Event::findOrFail($id);
+
+      $idOwner = DB::select('SELECT id_member FROM event_member WHERE role = ? AND id_event = ?', ['Owner', $id])[0]->id_member;
+
+      $isOwner = Auth::check() ? ($idOwner == Auth::user()->id) : false;
+      //$this->authorize('delete', $event);
+
+      if($isOwner) {
+        return view('pages.createEvent', ['event' => $event, 'edit' => true]);
+      } else {
+        return redirect('login');
+      }
     }
 }

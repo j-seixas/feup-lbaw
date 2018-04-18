@@ -1,5 +1,6 @@
 function addEventListeners() {
   document.getElementById("deleteButton").addEventListener('click', sendDeleteEventRequest);
+  //document.getElementById("editButton").addEventListener('click', sendEditEventRequest);
 }
 
 function encodeForAjax(data) {
@@ -19,6 +20,13 @@ function sendAjaxRequest(method, url, data, handler) {
   request.send(encodeForAjax(data));
 }
 
+function sendEditEventRequest(event) {
+  let id = event.target.value;
+
+  sendAjaxRequest('get', '/event/' + id + '/edit', null, eventEditHandler);
+
+}
+
 function sendDeleteEventRequest(event) {
   let id = event.target.value;
 
@@ -28,6 +36,12 @@ function sendDeleteEventRequest(event) {
 function eventDeletedHandler() {
   if(this.status == 200) {
     window.location = '/';
+  }
+}
+
+function eventEditHandler() {
+  if(this.status == 200) {
+    window.location = '/event/' + id;
   }
 }
 

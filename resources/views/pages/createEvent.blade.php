@@ -9,7 +9,7 @@
     <div class="card-header">Event Settings</div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item ">
-        <form method="POST" action="{{url('event')}}" id="form1">
+        <form @unless($edit)method="POST" action="{{url('event')}}"@endunless id="form1">
         {{ csrf_field() }}
           <div class="form-group">
             <label class="col-form-label" for="eventName">Event name
@@ -226,7 +226,11 @@
       </li>
     </ul>
   </div>
+  @if($edit)
+  <button class="btn btn-primary mt-2 btn-lg" form="form1" type="submit" id="updateButton">Update your event</button>
+  @else
   <button class="btn btn-primary mt-2 btn-lg" form="form1" type="submit">Create your event</button>
+  @endif
 </div>
 
 
