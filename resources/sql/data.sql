@@ -1,3 +1,10 @@
+SELECT pg_catalog.setval('comment_id_seq', 51, false);
+SELECT pg_catalog.setval('country_id_seq', 246, false);
+SELECT pg_catalog.setval('event_id_seq', 11, false);
+SELECT pg_catalog.setval('member_id_seq', 51, false);
+SELECT pg_catalog.setval('notification_id_seq', 21, false);
+SELECT pg_catalog.setval('option_id_seq', 31, false);
+
 INSERT INTO country VALUES (1, 'Afghanistan');
 INSERT INTO country VALUES (2, 'Albania');
 INSERT INTO country VALUES (3, 'Algeria');
