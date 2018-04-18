@@ -18,11 +18,19 @@ class EventController extends Controller
      */
     public function show($id)
     {
-      $event = Event::find($id);
+      $event = Event::findOrFail($id);
 
       //$this->authorize('show', $event);
 
-      return view('pages.event', ['event' => $event]);
+      $idOwner = DB::select('SELECT id_member FROM event_member WHERE role = ? AND id_event = ?', ['Owner', $id])[0]->id_member;
+
+      $eventTags = DB::select('select name_tag from event_tags where id_event = ?', [$id]);
+
+      $participants = DB::select('select count(*) from event_member where id_event = ? AND status = ?', [$id, 'Going'])[0]->count;
+      
+      $isOwner = Auth::check() ? ($idOwner == Auth::user()->id) : false;
+
+      return view('pages.event', ['event' => $event, 'isOwner' => $isOwner, 'eventTags' => $eventTags, 'participants' => $participants]);
     }
 
     /**
@@ -43,7 +51,7 @@ class EventController extends Controller
     public function showCreateForm()
     {
       if (Auth::check()) {
-        return view('pages.createEvent');
+        return view('pages.createEvent', ['edit' => false]);
       } else {
         return redirect('login');
       }
@@ -68,21 +76,44 @@ class EventController extends Controller
       $event->location = $request->input('eventLocation');
       //$event->picture = $request->input('picture');
 
-
       $event->save();
 
-      return redirect()->route('event',['id' => $event->id]);
+      DB::insert('insert into event_member (id_event, id_member, role) values (?, ?, ?)', [$event->id, Auth::user()->id, 'Owner']);
 
-      
+      return redirect()->route('event',['id' => $event->id]);
     }
 
     public function delete(Request $request, $id)
     {
       $event = Event::find($id);
 
-      $this->authorize('delete', $event);
-      $event->delete();
 
-      return $event;
+      $idOwner = DB::select('SELECT id_member FROM event_member WHERE role = ? AND id_event = ?', ['Owner', $id])[0]->id_member;
+
+      $isOwner = Auth::check() ? ($idOwner == Auth::user()->id) : false;
+      //$this->authorize('delete', $event);
+
+      if($isOwner) {
+        $event->delete();
+        return response('OK' , 200);
+      }
+      
+
+      return response('Bad Request', 400);
+    }
+
+    public function showEditForm($id) {
+      $event = Event::findOrFail($id);
+
+      $idOwner = DB::select('SELECT id_member FROM event_member WHERE role = ? AND id_event = ?', ['Owner', $id])[0]->id_member;
+
+      $isOwner = Auth::check() ? ($idOwner == Auth::user()->id) : false;
+      //$this->authorize('delete', $event);
+
+      if($isOwner) {
+        return view('pages.createEvent', ['event' => $event, 'edit' => true]);
+      } else {
+        return redirect('login');
+      }
     }
 }

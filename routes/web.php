@@ -33,6 +33,8 @@ Route::post('register', 'Auth\RegisterController@register');
 Route::get('event', 'EventController@showCreateForm');
 Route::post('event', 'EventController@create');
 Route::get('event/{id}', 'EventController@show')->name('event');
+Route::delete('event/{id}', 'EventController@delete');
+Route::get('event/{id}/edit', 'EventController@showEditForm');
 
 // Static pages
 

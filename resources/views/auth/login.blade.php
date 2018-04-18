@@ -9,29 +9,31 @@
       <p>Sign in to come back to the community and participate in events!</p>
     </div>
 
+    @if ($errors->has('email'))
+    <div class="alert alert-danger" role="alert">
+      {{ $errors->first('email') }}
+    </div>
+    @endif
+
+    @if ($errors->has('password'))
+    <div class="alert alert-danger" role="alert">
+      {{ $errors->first('password') }}
+    </div>
+    @endif
+
     <div class="form-label-group">
       <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" value="{{ old('email') }}" required autofocus>
       <label for="inputEmail">Email address</label>
     </div>
-    @if ($errors->has('email'))
-        <span class="error">
-          {{ $errors->first('email') }}
-        </span>
-    @endif
 
     <div class="form-label-group">
       <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
       <label for="inputPassword">Password</label>
     </div>
-    @if ($errors->has('password'))
-        <span class="error">
-            {{ $errors->first('password') }}
-        </span>
-    @endif
 
     <div class="checkbox mb-3">
       <label>
-        <input type="checkbox" value="remember-me" {{ old('remember') ? 'checked' : '' }}> Remember me
+        <input name="remember" type="checkbox" value="remember" {{ old('remember') ? 'checked' : '' }}> Remember me
       </label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
