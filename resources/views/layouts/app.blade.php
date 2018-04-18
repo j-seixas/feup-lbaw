@@ -37,13 +37,13 @@
             @if (Auth::check())
             <ul class="navbar-nav ml-auto ">
                 <li class="nav-item">
-                    <a class="nav-link text-primary" href="./profile.html">Profile</a>
+                    <a class="nav-link text-primary" href="/profile">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-primary" href="./myevents.html">My events</a>
+                    <a class="nav-link text-primary" href="/myevents">My events</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-primary" href="./notifications.html">
+                    <a class="nav-link text-primary" href="/notifications">
                         <i class="fas fa-bell"></i>
                     </a>
                 </li>

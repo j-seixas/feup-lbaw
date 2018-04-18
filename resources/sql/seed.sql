@@ -226,3 +226,34 @@ CREATE TRIGGER calculate_age
   BEFORE INSERT OR UPDATE ON member
   FOR EACH ROW
     EXECUTE PROCEDURE calculate_age(); 
+
+CREATE FUNCTION clear_choice() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+  IF EXISTS (
+    SELECT old_vote.id_option FROM
+    vote as old_vote,
+    option as old_option,
+    option as new_option
+    WHERE NEW.id_member = old_vote.id_member
+    AND old_vote.id_option = old_option.id
+    AND NEW.id_option = new_option.id
+    AND old_option.id_comment = new_option.id_comment) THEN
+  DELETE FROM vote WHERE vote.id_member = NEW.id_member AND vote.id_option = (SELECT old_vote.id_option FROM
+    vote as old_vote,
+    option as old_option,
+    option as new_option
+    WHERE NEW.id_member = old_vote.id_member
+    AND old_vote.id_option = old_option.id
+    AND NEW.id_option = new_option.id
+    AND old_option.id_comment = new_option.id_comment);
+  END IF;
+  RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+CREATE TRIGGER clear_choice
+  BEFORE INSERT ON vote
+  FOR EACH ROW
+    EXECUTE PROCEDURE clear_choice();
