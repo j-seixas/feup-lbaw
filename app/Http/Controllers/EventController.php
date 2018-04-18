@@ -18,7 +18,7 @@ class EventController extends Controller
      */
     public function show($id)
     {
-      $event = Event::find($id);
+      $event = Event::findOrFail($id);
 
       //$this->authorize('show', $event);
 
@@ -87,9 +87,18 @@ class EventController extends Controller
     {
       $event = Event::find($id);
 
-      $this->authorize('delete', $event);
-      $event->delete();
 
-      return $event;
+      $idOwner = DB::select('SELECT id_member FROM event_member WHERE role = ? AND id_event = ?', ['Owner', $id])[0]->id_member;
+
+      $isOwner = Auth::check() ? ($idOwner == Auth::user()->id) : false;
+      //$this->authorize('delete', $event);
+
+      if($isOwner) {
+        $event->delete();
+        return response('OK' , 200);
+      }
+      
+
+      return response('Bad Request', 400);
     }
 }
