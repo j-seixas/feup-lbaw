@@ -1,8 +1,5 @@
 function addEventListeners() {
   document.getElementById("deleteButton").addEventListener('click', sendDeleteEventRequest);
-  document.getElementById("goingButton").addEventListener('click', sendGoingEventRequest);
-  document.getElementById("interestedButton").addEventListener('click', sendInterestedEventRequest);
-  document.getElementById("goingNotButton").addEventListener('click', sendNotGoingEventRequest);
   //document.getElementById("editButton").addEventListener('click', sendEditEventRequest);
 }
 
@@ -36,17 +33,11 @@ function sendDeleteEventRequest(event) {
   sendAjaxRequest('delete', '/event/' + id, null, eventDeletedHandler);
 }
 
-function sendGoingEventRequest(event) {
+function sendEditAttendanceRequest(attendance, id) {
 
+  sendAjaxRequest('post', 'api/' + id + '/attendance', {"attendance":attendance}, updateAttendanceEditHandler);
 }
 
-function sendInterestedEventRequest(event) {
-  
-}
-
-function sendNotGoingEventRequest(event) {
-  
-}
 
 function eventDeletedHandler() {
   if(this.status == 200) {
@@ -59,5 +50,11 @@ function eventEditHandler() {
     window.location = '/event/' + id;
   }
 }
+
+function updateAttendanceEditHandler(){
+  
+}
+
+
 
 addEventListeners();
