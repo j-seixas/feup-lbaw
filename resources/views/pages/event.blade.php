@@ -25,9 +25,9 @@
                     <div class="h5">{{ $event->date }}</div>
                     <p class="card-text">{{ $event->description }}</p>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-outline-success">Going</button>
-                        <button type="button" class="btn btn-outline-primary">Interested</button>
-                        <button type="button" class="btn btn-outline-danger flex-wrap">Not going</button>
+                        <button type="button" class="btn btn-outline-success" id="goingButton" value="{{  Auth::user()->id  }}">Going</button>
+                        <button type="button" class="btn btn-outline-primary" id="interestedButton" value="{{  Auth::user()->id  }}">Interested</button>
+                        <button type="button" class="btn btn-outline-danger flex-wrap" id="notGoingButton" value="{{  Auth::user()->id  }}">Not going</button>
                     </div>
                     <p class="card-text" style="padding-top: 8px;">{{ $participants }} people going.</p>
                 </div>

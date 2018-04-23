@@ -1,5 +1,8 @@
 function addEventListeners() {
   document.getElementById("deleteButton").addEventListener('click', sendDeleteEventRequest);
+  document.getElementById("goingButton").addEventListener('click', sendGoingEventRequest);
+  document.getElementById("interestedButton").addEventListener('click', sendInterestedEventRequest);
+  document.getElementById("goingNotButton").addEventListener('click', sendNotGoingEventRequest);
   //document.getElementById("editButton").addEventListener('click', sendEditEventRequest);
 }
 
@@ -31,6 +34,18 @@ function sendDeleteEventRequest(event) {
   let id = event.target.value;
 
   sendAjaxRequest('delete', '/event/' + id, null, eventDeletedHandler);
+}
+
+function sendGoingEventRequest(event) {
+
+}
+
+function sendInterestedEventRequest(event) {
+  
+}
+
+function sendNotGoingEventRequest(event) {
+  
 }
 
 function eventDeletedHandler() {
