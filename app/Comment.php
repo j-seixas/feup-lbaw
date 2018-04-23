@@ -10,7 +10,7 @@ class Comment extends Model
   public $timestamps  = false;
 
   /**
-   * The comment this item belongs to.
+   * The event this comment belongs to.
    */
   public function comment() {
     return $this->belongsTo('App\Event');
