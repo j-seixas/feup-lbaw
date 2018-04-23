@@ -9,7 +9,11 @@
     <div class="card-header">Event Settings</div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item ">
-        <form @unless($edit)method="POST" action="{{url('event')}}"@endunless id="form1">
+        @if($edit)
+        <form method="POST" action="{{route('event',['id' => $event->id])}}" id="form1">
+        @else
+        <form method="POST" action="{{url('event')}}" id="form1">
+        @endif
         {{ csrf_field() }}
           <div class="form-group">
             <label class="col-form-label" for="eventName">Event name

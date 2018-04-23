@@ -113,7 +113,25 @@ class EventController extends Controller
       if($isOwner) {
         return view('pages.createEvent', ['event' => $event, 'edit' => true]);
       } else {
-        return redirect('login');
+        return redirect()->route('event',['id' => $event->id]);
       }
+    }
+
+    public function edit(Request $request, $id)
+    {
+      $event = Event::findOrFail($id);
+
+      //$this->authorize('create', $event);
+
+      $event->title = $request->input('eventName');
+      $event->description = $request->input('eventDescription');
+      $event->visibility = $request->input('eventPrivacy');
+      $event->date = $request->input('eventDate');
+      $event->location = $request->input('eventLocation');
+      //$event->picture = $request->input('picture');
+
+      $event->save();
+
+      return redirect()->route('event',['id' => $id]);
     }
 }
