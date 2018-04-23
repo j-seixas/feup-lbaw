@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 use App\Event;
+use App\EventMember;
 
 class EventController extends Controller
 {
@@ -65,6 +66,7 @@ class EventController extends Controller
      */
     public function create(Request $request)
     {
+
       $event = new Event();
 
       //$this->authorize('create', $event);
@@ -78,7 +80,16 @@ class EventController extends Controller
 
       $event->save();
 
-      DB::insert('insert into event_member (id_event, id_member, role) values (?, ?, ?)', [$event->id, Auth::user()->id, 'Owner']);
+      $event_member = new EventMember();
+
+      $event_member->id_event = $event->id;
+      $event_member->id_member = Auth::user()->id;
+      $event_member->role = 'Owner';
+
+      $event_member->save();
+
+
+      //DB::insert('insert into event_member (id_event, id_member, role) values (?, ?, ?)', [$event->id, Auth::user()->id, 'Owner']);
 
       return redirect()->route('event',['id' => $event->id]);
     }
