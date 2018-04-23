@@ -14,16 +14,16 @@ class Event extends Model
   protected $table = 'event';
 
   /**
-   * The user this card belongs to
+   * The user this event belongs to
    */
   public function member() {
     return $this->belongsTo('App\Member');
   }
 
   /**
-   * Items inside this card
+   * Comments inside this event
    */
-  public function items() {
+  public function comments() {
     return $this->hasMany('App\Comments');
   }
 }

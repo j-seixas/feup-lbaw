@@ -12,18 +12,4 @@ class EventMember extends Model
   protected $primaryKey = 'id_event';
 
   protected $table = 'event_member';
-
-  /**
-   * The user this card belongs to
-   */
-  public function member() {
-    return $this->belongsTo('App\Member');
-  }
-
-  /**
-   * Items inside this card
-   */
-  public function items() {
-    return $this->hasMany('App\Comments');
-  }
 }

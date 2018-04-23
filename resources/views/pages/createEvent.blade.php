@@ -45,7 +45,7 @@
           </div>
           <div class="form-group">
             <label class="col-form-label" for="eventTime">Time</label>
-            <label class="col-form-label pl-3 font-weight-light" for="eventName">At what time does it start? If it's the whole day just leave it at 00:00.&nbsp;</label>
+            <label class="col-form-label pl-3 font-weight-light" for="eventName">At what time does it start? If it's the whole day just leave it at 12:00 AM.&nbsp;</label>
             <input type="time" class="form-control" id="eventTime" style="max-width: 175px;" required value="00:00">
           </div>
           <div class="form-group">
