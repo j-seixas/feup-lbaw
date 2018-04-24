@@ -19,12 +19,20 @@
             <label class="col-form-label" for="eventName">Event name
             </label>
             <label class="col-form-label pl-3 font-weight-light" for="eventName">Be creative! No one will want to join an event called 'My Event'.&nbsp;</label>
-            <input type="text" class="form-control" id="eventName" name="eventName" required>
+            @if($edit)
+            <input type="text" class="form-control" id="eventName" name="eventName" value="{{ $event->title }}" required="required">
+            @else
+            <input type="text" class="form-control" id="eventName" name="eventName" required="required">
+            @endif
           </div>
           <div class="form-group">
             <label class="col-form-label" for="eventDescription">Event description</label>
             <label class="col-form-label pl-3 font-weight-light" for="eventName">What is this event about? Make it simple, but effective!&nbsp;</label>
+            @if($edit)
+            <textarea class="form-control" id="eventDescription" name="eventDescription">{{ $event->description }}</textarea>
+            @else
             <textarea class="form-control" id="eventDescription" name="eventDescription"></textarea>
+            @endif
           </div>
           <label class="col-form-label" for="eventPrivacy">Privacy Settings</label>
           <label class="col-form-label pl-3 font-weight-light" for="eventName">Can anyone join this event? Or is it just you and your buddies?&nbsp;</label>
@@ -45,7 +53,7 @@
           <div class="form-group">
             <label class="col-form-label" for="eventDate">Date</label>
             <label class="col-form-label pl-3 font-weight-light" for="eventName">When is this Masterpiece happening?&nbsp;&nbsp;</label>
-            <input type="date" class="form-control" id="eventDate" name="eventDate" style="max-width: 175px;" required>
+            <input type="date" class="form-control" id="eventDate" name="eventDate" style="max-width: 175px;" required="required">
           </div>
           <div class="form-group">
             <label class="col-form-label" for="eventTime">Time</label>
@@ -55,7 +63,11 @@
           <div class="form-group">
             <label class="col-form-label" for="eventLocation">Location</label>
             <label class="col-form-label pl-3 font-weight-light" for="eventName">Where will the gathering take place?&nbsp;</label>
-            <input type="text" class="form-control" id="eventLocation" name="eventLocation" required>
+            @if($edit)
+            <input type="text" class="form-control" id="eventLocation" name="eventLocation" value="{{ $event->location }}" required="required">
+            @else
+            <input type="text" class="form-control" id="eventLocation" name="eventLocation" required="required">
+            @endif
           </div>
           <div class="form-group">
             <label class="col-form-label" for="eventAttendants">Manage attendants</label>
