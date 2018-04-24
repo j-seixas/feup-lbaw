@@ -14,11 +14,7 @@
 Route::get('/', 'EventController@showList');
 
 // API
-// Route::put('api/cards', 'CardController@create');
-// Route::delete('api/cards/{card_id}', 'CardController@delete');
-// Route::put('api/cards/{card_id}/', 'ItemController@create');
-// Route::post('api/item/{id}', 'ItemController@update');
-// Route::delete('api/item/{id}', 'ItemController@delete');
+Route::post('api/event/{id}/attendance', 'EventMemberController@editStatus');
 
 // Authentication
 
@@ -36,7 +32,6 @@ Route::get('event/{id}', 'EventController@show')->name('event');
 Route::delete('event/{id}', 'EventController@delete');
 Route::get('event/{id}/edit', 'EventController@showEditForm');
 Route::post('event/{id}', 'EventController@edit');
-Route::post('api/event/{id}/attendance', 'EventMemberController@editStatus');
 
 // Static pages
 
