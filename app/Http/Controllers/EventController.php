@@ -28,10 +28,12 @@ class EventController extends Controller
       $eventTags = DB::select('select name_tag from event_tags where id_event = ?', [$id]);
 
       $participants = DB::select('select count(*) from event_member where id_event = ? AND status = ?', [$id, 'Going'])[0]->count;
+
+      $interested = DB::select('select count(*) from event_member where id_event = ? AND status = ?', [$id, 'Interested'])[0]->count;
       
       $isOwner = Auth::check() ? ($idOwner == Auth::user()->id) : false;
 
-      return view('pages.event', ['event' => $event, 'isOwner' => $isOwner, 'eventTags' => $eventTags, 'participants' => $participants]);
+      return view('pages.event', ['event' => $event, 'isOwner' => $isOwner, 'eventTags' => $eventTags, 'participants' => $participants, 'interested' => $interested]);
     }
 
     /**

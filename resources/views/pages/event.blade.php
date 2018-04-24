@@ -30,7 +30,7 @@
                         <button type="button" class="btn btn-outline-primary attendanceButton" value="Interested">Interested</button>
                         <button type="button" class="btn btn-outline-danger flex-wrap attendanceButton" value="NotGoing">Not going</button>
                     </div>
-                    <p class="card-text" style="padding-top: 8px;">{{ $participants }} people going.</p>
+                    <p class="card-text" style="padding-top: 8px;">{{ $participants }} going. {{ $interested }} interested.</p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">{{ $event->location }}</li>
