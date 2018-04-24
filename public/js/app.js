@@ -1,6 +1,8 @@
 function addEventListeners() {
   document.getElementById("deleteButton").addEventListener('click', sendDeleteEventRequest);
-  //document.getElementById("editButton").addEventListener('click', sendEditEventRequest);
+  document.querySelector(".attendanceButton").forEach(function(attendanceButton) {
+    attendanceButton.addEventListener('click', sendEditEventRequest);
+  });
 }
 
 function encodeForAjax(data) {
@@ -21,21 +23,22 @@ function sendAjaxRequest(method, url, data, handler) {
 }
 
 function sendEditEventRequest(event) {
-  let id = event.target.value;
+  let id = document.getElementById("eventId").value;
 
   sendAjaxRequest('get', '/event/' + id + '/edit', null, eventEditHandler);
 
 }
 
 function sendDeleteEventRequest(event) {
-  let id = event.target.value;
+  let id = document.getElementById("eventId").value;
 
   sendAjaxRequest('delete', '/event/' + id, null, eventDeletedHandler);
 }
 
-function sendEditAttendanceRequest(attendance, id) {
-
-  sendAjaxRequest('post', 'api/' + id + '/attendance', {"attendance":attendance}, updateAttendanceEditHandler);
+function sendEditAttendanceRequest(event) {
+  let id = document.getElementById("eventId").value;
+  let attendance = event.target.value;
+  sendAjaxRequest('post', '/api/event/' + id + '/attendance', {'attendance': attendance}, updateAttendanceEditHandler);
 }
 
 

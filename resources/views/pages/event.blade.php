@@ -15,7 +15,7 @@
                         <a class="btn btn-outline-primary" href="/event/{{  $event->id  }}/edit"> 
                             <i class="fas fa-edit"></i> Edit
                         </a>                                 
-                        <button type="button" class="btn btn-outline-danger ml-1" id="deleteButton" value="{{  $event->id  }}"> 
+                        <button type="button" class="btn btn-outline-danger ml-1" id="deleteButton"> 
                             <i class="fas fa-trash-alt"></i> Delete event
                         </button>                                                              
                     </div> 
@@ -24,10 +24,11 @@
                     <h4 class="card-title">{{ $event->title }}</h4>
                     <div class="h5">{{ $event->date }}</div>
                     <p class="card-text">{{ $event->description }}</p>
+                    <span id="eventId" value="{{  $event->id  }}" hidden></span>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-outline-success" onclick="sendEditAttendanceRequest('Going',{{  $event->id  }})" id="goingButton">Going</button>
-                        <button type="button" class="btn btn-outline-primary" onclick="sendEditAttendanceRequest('Interested',{{  $event->id  }})" id="interestedButton">Interested</button>
-                        <button type="button" class="btn btn-outline-danger flex-wrap" onclick="sendEditAttendanceRequest('NotGoing',{{  $event->id  }})" id="notGoingButton">Not going</button>
+                        <button type="button" class="btn btn-outline-success attendanceButton" value="Going">Going</button>
+                        <button type="button" class="btn btn-outline-primary attendanceButton" value="Interested">Interested</button>
+                        <button type="button" class="btn btn-outline-danger flex-wrap attendanceButton" value="NotGoing">Not going</button>
                     </div>
                     <p class="card-text" style="padding-top: 8px;">{{ $participants }} people going.</p>
                 </div>
