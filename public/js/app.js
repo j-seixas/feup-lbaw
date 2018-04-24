@@ -5,11 +5,11 @@ function addEventListeners() {
     eventDeleteButton.addEventListener('click', sendDeleteEventRequest);
   }
   
-  let attendanceEditButtons = document.querySelector(".attendanceButton");
+  let attendanceEditButtons = document.querySelectorAll(".attendanceButton");
   
   if (attendanceEditButtons != null) {
     [].forEach.call(attendanceEditButtons, function(attendanceButton) {
-      attendanceButton.addEventListener('click', sendEditEventRequest);
+      attendanceButton.addEventListener('click', sendEditAttendanceRequest);
     });
   }
 }
@@ -58,6 +58,7 @@ function eventDeletedHandler() {
 }
 
 function eventEditHandler() {
+  let id = document.getElementById("eventId").value;
   if(this.status == 200) {
     window.location = '/event/' + id;
   }
