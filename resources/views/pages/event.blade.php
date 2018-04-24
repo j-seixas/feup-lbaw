@@ -24,7 +24,7 @@
                     <h4 class="card-title">{{ $event->title }}</h4>
                     <div class="h5">{{ $event->date }}</div>
                     <p class="card-text">{{ $event->description }}</p>
-                    <span id="eventId" value="{{  $event->id  }}" hidden></span>
+                    <input id="eventId" value="{{  $event->id  }}" hidden>
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-outline-success attendanceButton" value="Going">Going</button>
                         <button type="button" class="btn btn-outline-primary attendanceButton" value="Interested">Interested</button>

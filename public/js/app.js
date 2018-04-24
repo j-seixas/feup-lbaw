@@ -1,8 +1,17 @@
 function addEventListeners() {
-  document.getElementById("deleteButton").addEventListener('click', sendDeleteEventRequest);
-  document.querySelector(".attendanceButton").forEach(function(attendanceButton) {
-    attendanceButton.addEventListener('click', sendEditEventRequest);
-  });
+  let eventDeleteButton = document.getElementById("deleteButton");
+
+  if (eventDeleteButton != null) {
+    eventDeleteButton.addEventListener('click', sendDeleteEventRequest);
+  }
+  
+  let attendanceEditButtons = document.querySelector(".attendanceButton");
+  
+  if (attendanceEditButtons != null) {
+    [].forEach.call(attendanceEditButtons, function(attendanceButton) {
+      attendanceButton.addEventListener('click', sendEditEventRequest);
+    });
+  }
 }
 
 function encodeForAjax(data) {
