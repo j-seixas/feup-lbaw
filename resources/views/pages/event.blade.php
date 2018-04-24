@@ -25,7 +25,8 @@
                     <div class="h5">{{ $event->date }}</div>
                     <p class="card-text">{{ $event->description }}</p>
                     <input id="eventId" value="{{  $event->id  }}" hidden>
-                    <div class="btn-group" role="group" aria-label="Basic example">
+                    @if(Auth::check())
+                    <div class="btn-group" role="group" aria-label="Attendance">
                         @if($status == 'Going')
                         <button type="button" class="btn btn-outline-success attendanceButton active" value="Going">Going</button>
                         @else
@@ -42,6 +43,7 @@
                         <button type="button" class="btn btn-outline-danger flex-wrap attendanceButton" value="NotGoing">Not going</button>
                         @endif
                     </div>
+                    @endif
                     <p class="card-text" style="padding-top: 8px;">{{ $participants }} going. {{ $interested }} interested.</p>
                 </div>
                 <ul class="list-group list-group-flush">

@@ -33,9 +33,12 @@ class EventController extends Controller
       
       $isOwner = Auth::check() ? ($idOwner == Auth::user()->id) : false;
 
-      $statusList = DB::select('SELECT status FROM event_member WHERE id_event = ? AND id_member = ?', [$id, Auth::user()->id]);
+      if (Auth::check()) {
+        $statusList = DB::select('SELECT status FROM event_member WHERE id_event = ? AND id_member = ?', [$id, Auth::user()->id]);
+      }
 
-      $status = 'default';
+      $status = null;
+
       if(!empty($statusList)) {
         $status = $statusList[0]->status;
       }

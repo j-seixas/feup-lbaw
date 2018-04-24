@@ -31,13 +31,6 @@ function sendAjaxRequest(method, url, data, handler) {
   request.send(encodeForAjax(data));
 }
 
-function sendEditEventRequest(event) {
-  let id = document.getElementById("eventId").value;
-
-  sendAjaxRequest('get', '/event/' + id + '/edit', null, eventEditHandler);
-
-}
-
 function sendDeleteEventRequest(event) {
   let id = document.getElementById("eventId").value;
 
@@ -47,11 +40,14 @@ function sendDeleteEventRequest(event) {
 function sendEditAttendanceRequest(event) {
   let id = document.getElementById("eventId").value;
   let attendance = event.target.value;
-  let activeButtons = document.getElementsByClassName("active");
-  if(activeButtons.length != 0) {
-    activeButtons[0].classList.toggle("active");
+  let activeButtons = document.querySelector(".active.attendanceButton");
+
+  if (activeButtons) {
+    activeButtons.classList.toggle("active");
   }
-  event.target.classList.toggle("active");  
+
+  event.target.classList.toggle("active");
+  
   sendAjaxRequest('post', '/api/event/' + id + '/attendance', {'attendance': attendance}, updateAttendanceEditHandler);
 }
 
@@ -59,13 +55,6 @@ function sendEditAttendanceRequest(event) {
 function eventDeletedHandler() {
   if(this.status == 200) {
     window.location = '/';
-  }
-}
-
-function eventEditHandler() {
-  let id = document.getElementById("eventId").value;
-  if(this.status == 200) {
-    window.location = '/event/' + id;
   }
 }
 
