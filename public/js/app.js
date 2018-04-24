@@ -47,7 +47,10 @@ function sendDeleteEventRequest(event) {
 function sendEditAttendanceRequest(event) {
   let id = document.getElementById("eventId").value;
   let attendance = event.target.value;
-  document.getElementsByClassName("active")[0].classList.toggle("active");
+  let activeButtons = document.getElementsByClassName("active");
+  if(activeButtons.length != 0) {
+    activeButtons[0].classList.toggle("active");
+  }
   event.target.classList.toggle("active");  
   sendAjaxRequest('post', '/api/event/' + id + '/attendance', {'attendance': attendance}, updateAttendanceEditHandler);
 }
