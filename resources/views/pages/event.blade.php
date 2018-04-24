@@ -26,9 +26,21 @@
                     <p class="card-text">{{ $event->description }}</p>
                     <input id="eventId" value="{{  $event->id  }}" hidden>
                     <div class="btn-group" role="group" aria-label="Basic example">
+                        @if($status == 'Going')
+                        <button type="button" class="btn btn-outline-success attendanceButton active" value="Going">Going</button>
+                        @else
                         <button type="button" class="btn btn-outline-success attendanceButton" value="Going">Going</button>
+                        @endif
+                        @if($status == 'Interested')
+                        <button type="button" class="btn btn-outline-primary attendanceButton active" value="Interested">Interested</button>
+                        @else
                         <button type="button" class="btn btn-outline-primary attendanceButton" value="Interested">Interested</button>
+                        @endif
+                        @if($status == 'NotGoing')
+                        <button type="button" class="btn btn-outline-danger flex-wrap attendanceButton active" value="NotGoing">Not going</button>
+                        @else
                         <button type="button" class="btn btn-outline-danger flex-wrap attendanceButton" value="NotGoing">Not going</button>
+                        @endif
                     </div>
                     <p class="card-text" style="padding-top: 8px;">{{ $participants }} going. {{ $interested }} interested.</p>
                 </div>

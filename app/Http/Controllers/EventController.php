@@ -33,7 +33,14 @@ class EventController extends Controller
       
       $isOwner = Auth::check() ? ($idOwner == Auth::user()->id) : false;
 
-      return view('pages.event', ['event' => $event, 'isOwner' => $isOwner, 'eventTags' => $eventTags, 'participants' => $participants, 'interested' => $interested]);
+      $statusList = DB::select('SELECT status FROM event_member WHERE id_event = ? AND id_member = ?', [$id, Auth::user()->id]);
+
+      $status = 'default';
+      if(!empty($statusList)) {
+        $status = $statusList[0]->status;
+      }
+
+      return view('pages.event', ['event' => $event, 'isOwner' => $isOwner, 'eventTags' => $eventTags, 'participants' => $participants, 'interested' => $interested, 'status' => $status]);
     }
 
     /**
