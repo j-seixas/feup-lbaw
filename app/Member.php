@@ -33,7 +33,7 @@ class Member extends Authenticatable
     protected $table = 'member';
 
     /**
-     * The cards this user owns.
+     * The events this user owns.
      */
      public function events() {
       return $this->hasMany('App\Event');

@@ -1,4 +1,4 @@
-<div class="col-md-4">
+<div class="col-md-4 pb-3">
     <div class="card">
         <img class="card-img-top" alt="Card image cap" src="http://pinegrow.com/placeholders/img17.jpg" />
         <div class="card-body">

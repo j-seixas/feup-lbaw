@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 use App\Event;
+use App\EventMember;
 
 class EventController extends Controller
 {
@@ -27,10 +28,22 @@ class EventController extends Controller
       $eventTags = DB::select('select name_tag from event_tags where id_event = ?', [$id]);
 
       $participants = DB::select('select count(*) from event_member where id_event = ? AND status = ?', [$id, 'Going'])[0]->count;
+
+      $interested = DB::select('select count(*) from event_member where id_event = ? AND status = ?', [$id, 'Interested'])[0]->count;
       
       $isOwner = Auth::check() ? ($idOwner == Auth::user()->id) : false;
 
-      return view('pages.event', ['event' => $event, 'isOwner' => $isOwner, 'eventTags' => $eventTags, 'participants' => $participants]);
+      if (Auth::check()) {
+        $statusList = DB::select('SELECT status FROM event_member WHERE id_event = ? AND id_member = ?', [$id, Auth::user()->id]);
+      }
+
+      $status = null;
+
+      if(!empty($statusList)) {
+        $status = $statusList[0]->status;
+      }
+
+      return view('pages.event', ['event' => $event, 'isOwner' => $isOwner, 'eventTags' => $eventTags, 'participants' => $participants, 'interested' => $interested, 'status' => $status]);
     }
 
     /**
@@ -65,6 +78,7 @@ class EventController extends Controller
      */
     public function create(Request $request)
     {
+
       $event = new Event();
 
       //$this->authorize('create', $event);
@@ -78,7 +92,16 @@ class EventController extends Controller
 
       $event->save();
 
-      DB::insert('insert into event_member (id_event, id_member, role) values (?, ?, ?)', [$event->id, Auth::user()->id, 'Owner']);
+      $event_member = new EventMember();
+
+      $event_member->id_event = $event->id;
+      $event_member->id_member = Auth::user()->id;
+      $event_member->role = 'Owner';
+
+      $event_member->save();
+
+
+      //DB::insert('insert into event_member (id_event, id_member, role) values (?, ?, ?)', [$event->id, Auth::user()->id, 'Owner']);
 
       return redirect()->route('event',['id' => $event->id]);
     }
@@ -113,7 +136,25 @@ class EventController extends Controller
       if($isOwner) {
         return view('pages.createEvent', ['event' => $event, 'edit' => true]);
       } else {
-        return redirect('login');
+        return redirect()->route('event',['id' => $event->id]);
       }
+    }
+
+    public function edit(Request $request, $id)
+    {
+      $event = Event::findOrFail($id);
+
+      //$this->authorize('create', $event);
+
+      $event->title = $request->input('eventName');
+      $event->description = $request->input('eventDescription');
+      $event->visibility = $request->input('eventPrivacy');
+      $event->date = $request->input('eventDate');
+      $event->location = $request->input('eventLocation');
+      //$event->picture = $request->input('picture');
+
+      $event->save();
+
+      return redirect()->route('event',['id' => $id]);
     }
 }

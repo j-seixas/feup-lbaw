@@ -1,6 +1,17 @@
 function addEventListeners() {
-  document.getElementById("deleteButton").addEventListener('click', sendDeleteEventRequest);
-  //document.getElementById("editButton").addEventListener('click', sendEditEventRequest);
+  let eventDeleteButton = document.getElementById("deleteButton");
+
+  if (eventDeleteButton != null) {
+    eventDeleteButton.addEventListener('click', sendDeleteEventRequest);
+  }
+  
+  let attendanceEditButtons = document.querySelectorAll(".attendanceButton");
+  
+  if (attendanceEditButtons != null) {
+    [].forEach.call(attendanceEditButtons, function(attendanceButton) {
+      attendanceButton.addEventListener('click', sendEditAttendanceRequest);
+    });
+  }
 }
 
 function encodeForAjax(data) {
@@ -20,18 +31,26 @@ function sendAjaxRequest(method, url, data, handler) {
   request.send(encodeForAjax(data));
 }
 
-function sendEditEventRequest(event) {
-  let id = event.target.value;
-
-  sendAjaxRequest('get', '/event/' + id + '/edit', null, eventEditHandler);
-
-}
-
 function sendDeleteEventRequest(event) {
-  let id = event.target.value;
+  let id = document.getElementById("eventId").value;
 
   sendAjaxRequest('delete', '/event/' + id, null, eventDeletedHandler);
 }
+
+function sendEditAttendanceRequest(event) {
+  let id = document.getElementById("eventId").value;
+  let attendance = event.target.value;
+  let activeButtons = document.querySelector(".active.attendanceButton");
+
+  if (activeButtons) {
+    activeButtons.classList.toggle("active");
+  }
+
+  event.target.classList.toggle("active");
+  
+  sendAjaxRequest('post', '/api/event/' + id + '/attendance', {'attendance': attendance}, updateAttendanceEditHandler);
+}
+
 
 function eventDeletedHandler() {
   if(this.status == 200) {
@@ -39,10 +58,10 @@ function eventDeletedHandler() {
   }
 }
 
-function eventEditHandler() {
-  if(this.status == 200) {
-    window.location = '/event/' + id;
-  }
+function updateAttendanceEditHandler(){
+  
 }
+
+
 
 addEventListeners();

@@ -15,7 +15,7 @@
                         <a class="btn btn-outline-primary" href="/event/{{  $event->id  }}/edit"> 
                             <i class="fas fa-edit"></i> Edit
                         </a>                                 
-                        <button type="button" class="btn btn-outline-danger ml-1" id="deleteButton" value="{{  $event->id  }}"> 
+                        <button type="button" class="btn btn-outline-danger ml-1" id="deleteButton"> 
                             <i class="fas fa-trash-alt"></i> Delete event
                         </button>                                                              
                     </div> 
@@ -24,12 +24,27 @@
                     <h4 class="card-title">{{ $event->title }}</h4>
                     <div class="h5">{{ $event->date }}</div>
                     <p class="card-text">{{ $event->description }}</p>
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-outline-success">Going</button>
-                        <button type="button" class="btn btn-outline-primary">Interested</button>
-                        <button type="button" class="btn btn-outline-danger flex-wrap">Not going</button>
+                    <input id="eventId" value="{{  $event->id  }}" hidden>
+                    @if(Auth::check())
+                    <div class="btn-group" role="group" aria-label="Attendance">
+                        @if($status == 'Going')
+                        <button type="button" class="btn btn-outline-success attendanceButton active" value="Going">Going</button>
+                        @else
+                        <button type="button" class="btn btn-outline-success attendanceButton" value="Going">Going</button>
+                        @endif
+                        @if($status == 'Interested')
+                        <button type="button" class="btn btn-outline-primary attendanceButton active" value="Interested">Interested</button>
+                        @else
+                        <button type="button" class="btn btn-outline-primary attendanceButton" value="Interested">Interested</button>
+                        @endif
+                        @if($status == 'NotGoing')
+                        <button type="button" class="btn btn-outline-danger flex-wrap attendanceButton active" value="NotGoing">Not going</button>
+                        @else
+                        <button type="button" class="btn btn-outline-danger flex-wrap attendanceButton" value="NotGoing">Not going</button>
+                        @endif
                     </div>
-                    <p class="card-text" style="padding-top: 8px;">{{ $participants }} people going.</p>
+                    @endif
+                    <p class="card-text" style="padding-top: 8px;">{{ $participants }} going. {{ $interested }} interested.</p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">{{ $event->location }}</li>

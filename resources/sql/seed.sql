@@ -63,9 +63,10 @@ CREATE TABLE member (
 );
 
 CREATE TABLE blocked (
+    id SERIAL NOT NULL,
     id_event integer NOT NULL,
     id_member integer NOT NULL,
-    CONSTRAINT blocked_pkey PRIMARY KEY (id_event, id_member),
+    CONSTRAINT blocked_pkey PRIMARY KEY (id),
     CONSTRAINT blocked_id_event_fkey FOREIGN KEY (id_event) REFERENCES event(id) ON DELETE CASCADE,
     CONSTRAINT blocked_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id)
 );
@@ -107,11 +108,12 @@ CREATE TABLE event_invitation (
 );
 
 CREATE TABLE event_member (
+    id SERIAL NOT NULL,
     id_event integer NOT NULL,
     id_member integer NOT NULL,
     role roles NOT NULL,
     status status,
-    CONSTRAINT event_member_pkey PRIMARY KEY (id_event, id_member),
+    CONSTRAINT event_member_pkey PRIMARY KEY (id),
     CONSTRAINT event_member_id_event_fkey FOREIGN KEY (id_event) REFERENCES event(id) ON DELETE CASCADE,
     CONSTRAINT event_member_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id)
 );
@@ -122,9 +124,10 @@ CREATE TABLE tag (
 );
 
 CREATE TABLE event_tags (
+    id SERIAL NOT NULL,
     id_event integer NOT NULL,
     name_tag character varying(30) NOT NULL,
-    CONSTRAINT event_tags_pkey PRIMARY KEY (id_event, name_tag),
+    CONSTRAINT event_tags_pkey PRIMARY KEY (id),
     CONSTRAINT event_tags_id_event_fkey FOREIGN KEY (id_event) REFERENCES event(id) ON DELETE CASCADE,
     CONSTRAINT event_tags_name_tag_fkey FOREIGN KEY (name_tag) REFERENCES tag(name)
 );
@@ -138,9 +141,10 @@ CREATE TABLE file (
 );
 
 CREATE TABLE friend (
+    id SERIAL NOT NULL,
     id_member integer NOT NULL,
     id_friend integer NOT NULL,
-    CONSTRAINT friend_pkey PRIMARY KEY (id_member, id_friend),
+    CONSTRAINT friend_pkey PRIMARY KEY (id),
     CONSTRAINT friend_id_friend_fkey FOREIGN KEY (id_friend) REFERENCES member(id),
     CONSTRAINT friend_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id)
 );
@@ -154,17 +158,19 @@ CREATE TABLE friend_request (
 );
 
 CREATE TABLE liked (
+    id SERIAL NOT NULL,
     id_member integer NOT NULL,
     id_comment integer NOT NULL,
-    CONSTRAINT liked_pkey PRIMARY KEY (id_member, id_comment),
+    CONSTRAINT liked_pkey PRIMARY KEY (id),
     CONSTRAINT liked_id_comment_fkey FOREIGN KEY (id_comment) REFERENCES comment(id) ON DELETE CASCADE,
     CONSTRAINT liked_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id)
 );
 
 CREATE TABLE member_tags (
+    id SERIAL NOT NULL,
     id_member integer NOT NULL,
     name_tag character varying(30) NOT NULL,
-    CONSTRAINT member_tags_pkey PRIMARY KEY (id_member, name_tag),
+    CONSTRAINT member_tags_pkey PRIMARY KEY (id),
     CONSTRAINT member_tags_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id),
     CONSTRAINT member_tags_name_tag_fkey FOREIGN KEY (name_tag) REFERENCES tag(name)
 );
@@ -194,9 +200,10 @@ CREATE TABLE text_comment (
 );
 
 CREATE TABLE vote (
+    id SERIAL NOT NULL,
     id_member integer NOT NULL,
     id_option integer NOT NULL,
-    CONSTRAINT vote_pkey PRIMARY KEY (id_member, id_option),
+    CONSTRAINT vote_pkey PRIMARY KEY (id),
     CONSTRAINT vote_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id),
     CONSTRAINT vote_id_option_fkey FOREIGN KEY (id_option) REFERENCES option(id) ON DELETE CASCADE
 );
