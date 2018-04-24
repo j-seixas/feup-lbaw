@@ -11,10 +11,6 @@ use App\EventMember;
 
 class EventMemberController extends Controller
 {
-  
-
-
-
     /**
      * Creates a new eventMember.
      *
@@ -27,19 +23,6 @@ class EventMemberController extends Controller
       $event_member->id_event = $event->id;
       $event_member->id_member = Auth::user()->id;
       $event_member->role = 'Owner';
-
-      $event_member->save();
-
-      return $event_member;
-    }
-
-    public function createParticipant()
-    {
-      $event_member = new EventMember();
-
-      $event_member->id_event = $event->id;
-      $event_member->id_member = Auth::user()->id;
-      $event_member->role = 'Participant';
 
       $event_member->save();
 
@@ -65,7 +48,13 @@ class EventMemberController extends Controller
       
 
       if(empty($id_member_event_list)) {
-        $event_member = createParticipant();
+        $event_member = new EventMember();
+
+        $event_member->id_event = $id_event;
+        $event_member->id_member = Auth::user()->id;
+        $event_member->role = 'Participant';
+
+        $event_member->save();
       } else {
         $id_member_event = $id_member_event_list[0]->id;
         $event_member = EventMember::find($id_member_event);
