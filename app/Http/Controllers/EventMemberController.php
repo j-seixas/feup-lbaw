@@ -20,13 +20,26 @@ class EventMemberController extends Controller
      *
      * @return eventMember The eventMember created.
      */
-    public function create()
+    public function createOwner()
     {
       $event_member = new EventMember();
 
       $event_member->id_event = $event->id;
       $event_member->id_member = Auth::user()->id;
       $event_member->role = 'Owner';
+
+      $event_member->save();
+
+      return $event_member;
+    }
+
+    public function createParticipant()
+    {
+      $event_member = new EventMember();
+
+      $event_member->id_event = $event->id;
+      $event_member->id_member = Auth::user()->id;
+      $event_member->role = 'Participant';
 
       $event_member->save();
 
@@ -48,9 +61,15 @@ class EventMemberController extends Controller
 
       $id_event = $id;
 
-      $id_member_event = DB::select('SELECT id FROM event_member WHERE id_member = ? AND id_event = ?', [Auth::user()->id, $id_event])[0]->id;
+      $id_member_event_list = DB::select('SELECT id FROM event_member WHERE id_member = ? AND id_event = ?', [Auth::user()->id, $id_event]);
       
-      $event_member = EventMember::findOrFail($id_member_event);
+
+      if(empty($id_member_event_list)) {
+        $event_member = createParticipant();
+      } else {
+        $id_member_event = $id_member_event_list[0]->id;
+        $event_member = EventMember::find($id_member_event);
+      }
 
       $event_member->status = $request->input('attendance');
 
