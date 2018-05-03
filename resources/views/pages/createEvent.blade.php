@@ -34,17 +34,17 @@
             <textarea class="form-control" id="eventDescription" name="eventDescription"></textarea>
             @endif
           </div>
-          <label class="col-form-label" for="eventPrivacy">Privacy Settings</label>
-          <label class="col-form-label pl-3 font-weight-light" for="eventName">Can anyone join this event? Or is it just you and your buddies?&nbsp;</label>
           <div class="form-group">
+            <label class="col-form-label">Privacy Settings</label>
+            <label class="col-form-label pl-3 font-weight-light">Can anyone join this event? Or is it just you and your buddies?&nbsp;</label>
             <div class="row pl-3 pb-0">
               <div class="btn-group float-none" data-toggle="buttons">
                 <label class="btn btn-secondary active">
-                  <input type="radio" name="eventPrivacy" autocomplete="off" checked="checked" value="Public">
+                  <input type="radio" name="eventPrivacy" checked="checked" value="Public">
                   <i class="fas fa-users"></i> Public
                 </label>
                 <label class="btn btn-secondary">
-                  <input type="radio" name="eventPrivacy" autocomplete="off" value="Private">
+                  <input type="radio" name="eventPrivacy" value="Private">
                   <i class="fas fa-lock"></i> Private
                 </label>
               </div>
@@ -70,7 +70,7 @@
             @endif
           </div>
           <div class="form-group">
-            <label class="col-form-label" for="eventAttendants">Manage attendants</label>
+            <label class="col-form-label">Manage attendants</label>
             <label class="col-form-label pl-3 font-weight-light" for="eventName">Who is going to have the pleasure of joining?&nbsp;</label>
             <div class="row">
               <div class="col-md-4">
