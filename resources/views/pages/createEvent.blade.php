@@ -74,7 +74,7 @@
             <label class="col-form-label pl-3 font-weight-light" for="eventName">Who is going to have the pleasure of joining?&nbsp;</label>
             <div class="row">
               <div class="col-md-4">
-                <label class="col-form-label" for="eventTags">Tags</label>
+                <label class="col-form-label">Tags</label>
                 <input class="form-control mr-sm-2" type="text" placeholder="Insert tag..." aria-label="Tags">
                 <button class="btn btn-outline-secondary my-2 my-sm-0 mr-3" type="submit">Add</button>
                 <div class="card mt-2">
@@ -113,7 +113,7 @@
                 </div>
               </div>
               <div class="col-md-4">
-                <label class="col-form-label" for="eventMembers">Participants</label>
+                <label class="col-form-label">Participants</label>
                 <input class="form-control mr-sm-2" type="text" placeholder="Insert user..." aria-label="Tags">
                 <button class="btn btn-outline-secondary my-2 my-sm-0 mr-3" type="submit">Add</button>
                 <div class="card mt-2">
@@ -182,7 +182,7 @@
                 </div>
               </div>
               <div class="col-md-4">
-                <label class="col-form-label" for="eventTags">Friends</label>
+                <label class="col-form-label">Friends</label>
                 <div class="card">
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item p-0 pt-0 pb-0">
