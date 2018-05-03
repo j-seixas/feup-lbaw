@@ -78,7 +78,10 @@ class EventController extends Controller
      */
     public function create(Request $request)
     {
-
+      if (!Auth::check()) {
+        return redirect()->route('login');
+      }
+      
       $event = new Event();
 
       //$this->authorize('create', $event);
@@ -92,16 +95,7 @@ class EventController extends Controller
 
       $event->save();
 
-      $event_member = new EventMember();
-
-      $event_member->id_event = $event->id;
-      $event_member->id_member = Auth::user()->id;
-      $event_member->role = 'Owner';
-
-      $event_member->save();
-
-
-      //DB::insert('insert into event_member (id_event, id_member, role) values (?, ?, ?)', [$event->id, Auth::user()->id, 'Owner']);
+      $event_member = EventMember::createOwner();
 
       return redirect()->route('event',['id' => $event->id]);
     }

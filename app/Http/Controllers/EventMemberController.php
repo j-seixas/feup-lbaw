@@ -64,6 +64,10 @@ class EventMemberController extends Controller
 
       $event_member->save();
 
-      return $event_member;
+      $response = new \stdClass();
+
+      $response->attendance = $request->input('attendance');
+
+      return json_encode($response);
     }
 }
