@@ -61,17 +61,17 @@
             <div class="card">
                 <div class="card-header bg-white">
                     <input type="text" class="form-control" placeholder="Comment...">
-                    <button type="button" class="btn btn-secondary mt-2 mr-2" style="margin-top: 1;">
+                    <button type="button" class="btn btn-secondary mt-2 mr-2">
                         <i class="fas fa-chart-pie"></i> Add poll
                     </button>
-                    <button type="button" class="btn btn-secondary mt-2" style="margin-top: 1;">
+                    <button type="button" class="btn btn-secondary mt-2">
                         <i class="fas fa-file"></i> Add file
                     </button>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item p-0">
                         <div class="container pb-0 pl-3 pt-2 pr-1">
-                            <img src="https://images.unsplash.com/photo-1499651681375-8afc5a4db253?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjIwOTIyfQ&s=eadad6ab3e4b92c6066ee4bfa73e9cc7q=85&fm=jpg&crop=faces&cs=srgb&w=100&h=100&fit=crop" class="mr-2 float-left rounded-circle" height="55" width="55">
+                            <img alt="Profile picture" src="https://images.unsplash.com/photo-1499651681375-8afc5a4db253?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjIwOTIyfQ&s=eadad6ab3e4b92c6066ee4bfa73e9cc7q=85&fm=jpg&crop=faces&cs=srgb&w=100&h=100&fit=crop" class="mr-2 float-left rounded-circle" height="55" width="55">
                             <div class="float-right">
                                 <label class="mr-2">
                                     <i class="fas fa-comment text-primary"></i> 1
@@ -86,7 +86,7 @@
                             <h5>Rocky Balboa</h5>
                             <p class="pr-1">Watching pines? More like fighting them Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar faucibus neque, nec rhoncus nunc ultrices sit amet.</p>
                             <div class="container pr-0 pl-4">
-                                <img src="https://images.unsplash.com/photo-1499651681375-8afc5a4db253?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjIwOTIyfQ&s=eadad6ab3e4b92c6066ee4bfa73e9cc7q=85&fm=jpg&crop=faces&cs=srgb&w=100&h=100&fit=crop" class="mr-2 float-left rounded-circle" height="55" width="55">
+                                <img alt="Profile picture" src="https://images.unsplash.com/photo-1499651681375-8afc5a4db253?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjIwOTIyfQ&s=eadad6ab3e4b92c6066ee4bfa73e9cc7q=85&fm=jpg&crop=faces&cs=srgb&w=100&h=100&fit=crop" class="mr-2 float-left rounded-circle" height="55" width="55">
                                 <div class="float-right">
                                     <label class="mr-2">
                                         <i class="fas fa-heart text-danger"> </i> 3
@@ -102,7 +102,7 @@
                     </li>                                                        
                     <li class="list-group-item p-0">
                         <div class="container pb-0 pl-3 pt-2 pr-1">
-                            <img src="https://images.unsplash.com/photo-1499651681375-8afc5a4db253?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjIwOTIyfQ&s=eadad6ab3e4b92c6066ee4bfa73e9cc7q=85&fm=jpg&crop=faces&cs=srgb&w=100&h=100&fit=crop" class="mr-2 float-left rounded-circle" height="55" width="55">
+                            <img alt="Profile picture" src="https://images.unsplash.com/photo-1499651681375-8afc5a4db253?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjIwOTIyfQ&s=eadad6ab3e4b92c6066ee4bfa73e9cc7q=85&fm=jpg&crop=faces&cs=srgb&w=100&h=100&fit=crop" class="mr-2 float-left rounded-circle" height="55" width="55">
                             <div class="float-right">
                                 <label class="mr-2">
                                     <i class="fas fa-comment text-primary"></i> 0
@@ -152,7 +152,7 @@
                     </li>
                     <li class="list-group-item p-0">
                         <div class="container pb-0 pl-3 pt-2 pr-1">
-                            <img src="https://images.unsplash.com/photo-1499651681375-8afc5a4db253?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjIwOTIyfQ&s=eadad6ab3e4b92c6066ee4bfa73e9cc7q=85&fm=jpg&crop=faces&cs=srgb&w=100&h=100&fit=crop" class="mr-2 float-left rounded-circle" height="55" width="55">
+                            <img alt="Profile picture" src="https://images.unsplash.com/photo-1499651681375-8afc5a4db253?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjIwOTIyfQ&s=eadad6ab3e4b92c6066ee4bfa73e9cc7q=85&fm=jpg&crop=faces&cs=srgb&w=100&h=100&fit=crop" class="mr-2 float-left rounded-circle" height="55" width="55">
                             <div class="float-right">
                                 <label class="mr-2">
                                     <i class="fas fa-comment text-primary"></i> 0
