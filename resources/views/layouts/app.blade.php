@@ -36,7 +36,7 @@
             @if (Auth::check())
             <ul class="navbar-nav ml-auto ">
                 <li class="nav-item">
-                    <a class="nav-link text-primary" href="/profile">Profile</a>
+                    <a class="nav-link text-primary" href="/profile/{{ Auth::user()->id }}">Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-primary" href="/myevents">My events</a>
