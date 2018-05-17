@@ -43,7 +43,14 @@ class EventController extends Controller
         $status = $statusList[0]->status;
       }
 
-      return view('pages.event', ['event' => $event, 'isOwner' => $isOwner, 'eventTags' => $eventTags, 'participants' => $participants, 'interested' => $interested, 'status' => $status]);
+      $comments = DB::select('SELECT c.id, id_member, id_event, date, id_parent, concat(tc.text::text, fc.text::text, pc.text::text) AS text, path, m.name, m.image AS profile_pic FROM comment c
+      LEFT JOIN member m ON id_member = m.id
+      LEFT JOIN text_comment tc ON tc.id_comment = c.id
+      LEFT JOIN file fc ON fc.id_comment = c.id
+      LEFT JOIN poll pc ON pc.id_comment = c.id
+      WHERE id_event=?;', [$id]);
+
+      return view('pages.event', ['event' => $event, 'isOwner' => $isOwner, 'eventTags' => $eventTags, 'participants' => $participants, 'interested' => $interested, 'status' => $status, 'comments' => $comments]);
     }
 
     /**
