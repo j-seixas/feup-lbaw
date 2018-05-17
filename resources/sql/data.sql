@@ -623,10 +623,15 @@ INSERT INTO file VALUES (15, 'EratQuisque.doc', 'Proin risus.');
 
 
 INSERT INTO friend VALUES (1, 2, 5);
-INSERT INTO friend VALUES (2, 26, 32);
-INSERT INTO friend VALUES (3, 9, 10);
-INSERT INTO friend VALUES (4, 1, 11);
-INSERT INTO friend VALUES (5, 27, 43);
+INSERT INTO friend VALUES (2, 5, 2);
+INSERT INTO friend VALUES (3, 26, 32);
+INSERT INTO friend VALUES (4, 32, 26);
+INSERT INTO friend VALUES (5, 9, 10);
+INSERT INTO friend VALUES (6, 10, 9);
+INSERT INTO friend VALUES (7, 1, 11);
+INSERT INTO friend VALUES (8, 11, 1);
+INSERT INTO friend VALUES (9, 27, 43);
+INSERT INTO friend VALUES (10, 43, 27);
 
 
 INSERT INTO friend_request VALUES (16, 18);

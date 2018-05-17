@@ -1,0 +1,48 @@
+/* Show it is fixed to the top */
+body {
+  padding-top: 3.5rem;
+}
+
+#myTab {
+  padding-top: 1.5rem;
+  background-color: #e9ecef;
+}
+
+#myTab a.nav-link.active {
+  background-color: #f8f9fa;
+  border-bottom-color: #f8f9fa;
+}
+
+#myTab a.nav-link {
+  color: var(--secondary);
+}
+#myTab a.nav-link.active {
+  color: inherit;
+}
+
+#myTabContent {
+  max-width: 60em;
+  margin: auto;
+  padding-top: 3.5rem;
+}
+
+#carouselExampleIndicators {
+  max-width: 40em;
+  margin: auto;
+}
+
+#searchContainer{
+  padding-top: 1.5rem;
+}
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.paddingClass {
+  padding-top: 1.25rem;
+  padding-bottom: 0.25rem;
+}
+
+#profile {
+  max-width: 30em;
+}

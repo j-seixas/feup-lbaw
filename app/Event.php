@@ -24,6 +24,6 @@ class Event extends Model
    * Comments inside this event
    */
   public function comments() {
-    return $this->hasMany('App\Comments');
+    return $this->hasMany('App\Comment', 'id_event');
   }
 }

@@ -38,4 +38,8 @@ class Member extends Authenticatable
      public function events() {
       return $this->hasMany('App\Event');
     }
+
+    public function friends() {
+        return $this->hasMany('App\Friend', 'id_member');
+    }
 }
