@@ -16,7 +16,7 @@ class EventMemberController extends Controller
      *
      * @return eventMember The eventMember created.
      */
-    public function createOwner()
+    static public function createOwner($event)
     {
       $event_member = new EventMember();
 

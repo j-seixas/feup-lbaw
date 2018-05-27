@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 use App\Event;
-use App\EventMember;
 
 class EventController extends Controller
 {
@@ -96,13 +95,16 @@ class EventController extends Controller
       $event->title = $request->input('eventName');
       $event->description = $request->input('eventDescription');
       $event->visibility = $request->input('eventPrivacy');
-      $event->date = $request->input('eventDate');
+      $date = new \DateTime($request->input('eventDate'));
+      $time = new \DateTime($request->input('eventTime'));
+      $merge = new \DateTime($date->format('Y-m-d').' '.$time->format('H:i:s'));
+      $event->date = $merge->format('Y-m-d H:i:s');
       $event->location = $request->input('eventLocation');
       //$event->picture = $request->input('picture');
 
       $event->save();
 
-      $event_member = EventMember::createOwner();
+      $event_member = EventMemberController::createOwner($event);
 
       return redirect()->route('event',['id' => $event->id]);
     }
