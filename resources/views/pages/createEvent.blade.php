@@ -40,11 +40,11 @@
             <div class="row pl-3 pb-0">
               <div class="btn-group float-none" data-toggle="buttons">
                 <label class="btn btn-secondary active">
-                  <input type="radio" name="eventPrivacy" checked="checked" value="Public">
+                  <input type="radio" name="eventPrivacy" @if($edit && $event->visibility == "Public") checked="checked" @endif value="Public" required="required">
                   <i class="fas fa-users"></i> Public
                 </label>
                 <label class="btn btn-secondary">
-                  <input type="radio" name="eventPrivacy" value="Private">
+                  <input type="radio" name="eventPrivacy" @if($edit && $event->visibility == "Private") checked="checked" @endif value="Private">
                   <i class="fas fa-lock"></i> Private
                 </label>
               </div>
