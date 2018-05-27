@@ -53,12 +53,12 @@
           <div class="form-group">
             <label class="col-form-label" for="eventDate">Date</label>
             <label class="col-form-label pl-3 font-weight-light" for="eventName">When is this Masterpiece happening?&nbsp;&nbsp;</label>
-            <input type="date" class="form-control" id="eventDate" name="eventDate" style="max-width: 175px;" required="required">
+            <input type="date" class="form-control" id="eventDate" name="eventDate" style="max-width: 175px;" required="required" @if($edit) value="{{ explode(' ', $event->date)[0] }}" @endif>
           </div>
           <div class="form-group">
             <label class="col-form-label" for="eventTime">Time</label>
             <label class="col-form-label pl-3 font-weight-light" for="eventName">At what time does it start? If it's the whole day just leave it at 12:00 AM.&nbsp;</label>
-            <input type="time" class="form-control" id="eventTime" style="max-width: 175px;" required value="00:00">
+            <input type="time" class="form-control" id="eventTime" style="max-width: 175px;" required="required" @if($edit) value="{{ explode(' ', $event->date)[1] }}" @else value="00:00" @endif>
           </div>
           <div class="form-group">
             <label class="col-form-label" for="eventLocation">Location</label>
