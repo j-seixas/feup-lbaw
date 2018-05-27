@@ -90,17 +90,15 @@ class EventController extends Controller
       
       $event = new Event();
 
-      //$this->authorize('create', $event);
-
       $event->title = $request->input('eventName');
       $event->description = $request->input('eventDescription');
       $event->visibility = $request->input('eventPrivacy');
       $date = new \DateTime($request->input('eventDate'));
       $time = new \DateTime($request->input('eventTime'));
       $merge = new \DateTime($date->format('Y-m-d').' '.$time->format('H:i:s'));
+      $event->image = $request->hasFile('eventPicture') ? $request->file('eventPicture')->store('public') : null;
       $event->date = $merge->format('Y-m-d H:i:s');
       $event->location = $request->input('eventLocation');
-      //$event->picture = $request->input('picture');
 
       $event->save();
 
@@ -147,14 +145,15 @@ class EventController extends Controller
     {
       $event = Event::findOrFail($id);
 
-      //$this->authorize('create', $event);
-
       $event->title = $request->input('eventName');
       $event->description = $request->input('eventDescription');
       $event->visibility = $request->input('eventPrivacy');
-      $event->date = $request->input('eventDate');
+      $date = new \DateTime($request->input('eventDate'));
+      $time = new \DateTime($request->input('eventTime'));
+      $merge = new \DateTime($date->format('Y-m-d').' '.$time->format('H:i:s'));
+      $event->image = $request->hasFile('eventPicture') ? $request->file('eventPicture')->store('public') : $event->image;
+      $event->date = $merge->format('Y-m-d H:i:s');
       $event->location = $request->input('eventLocation');
-      //$event->picture = $request->input('picture');
 
       $event->save();
 

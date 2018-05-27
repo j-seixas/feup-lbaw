@@ -10,9 +10,9 @@
     <ul class="list-group list-group-flush">
       <li class="list-group-item ">
         @if($edit)
-        <form method="POST" action="{{route('event',['id' => $event->id])}}" id="form1">
+        <form method="POST" action="{{route('event',['id' => $event->id])}}" id="form1" enctype="multipart/form-data">
         @else
-        <form method="POST" action="{{url('event')}}" id="form1">
+        <form method="POST" action="{{url('event')}}" id="form1" enctype="multipart/form-data">
         @endif
         {{ csrf_field() }}
           <div class="form-group">
@@ -24,6 +24,12 @@
             @else
             <input type="text" class="form-control" id="eventName" name="eventName" required="required">
             @endif
+          </div>
+          <div class="form-group">
+            <label class="col-form-label" for="eventPicture">Event picture
+            </label>
+            <label class="col-form-label pl-3 font-weight-light" for="eventPicture">Hmm.</label>
+            <input type="file" class="form-control" id="eventPicture" name="eventPicture">
           </div>
           <div class="form-group">
             <label class="col-form-label" for="eventDescription">Event description</label>

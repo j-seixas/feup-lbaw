@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-md-7 pb-3">
             <div class="card">
-                <img class="card-img-top" alt="Card image cap" src="http://pinegrow.com/placeholders/img20.jpg">
+                <img class="card-img-top" alt="Event image" src="{{ Storage::url($event->image) }}">
                 <div class="card-body">
                     @if($isOwner)
                     <div class="float-right col-sm-auto pr-0 pl-0 pb-2"> 
