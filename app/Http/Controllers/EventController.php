@@ -34,22 +34,57 @@ class EventController extends Controller
 
       if (Auth::check()) {
         $statusList = DB::select('SELECT status FROM event_member WHERE id_event = ? AND id_member = ?', [$id, Auth::user()->id]);
+        $roleList = DB::select('SELECT role FROM event_member WHERE id_event = ? AND id_member = ?', [$id, Auth::user()->id]);
       }
 
       $status = null;
+      $role = null;
 
       if(!empty($statusList)) {
         $status = $statusList[0]->status;
       }
+      if(!empty($roleList)){
+        $role = $roleList[0]->role;
+      }
 
-      $comments = DB::select('SELECT c.id, id_member, id_event, date, id_parent, concat(tc.text::text, fc.text::text, pc.text::text) AS text, path, m.name, m.image AS profile_pic FROM comment c
+      $comments = DB::select('SELECT c.id, id_member, id_event, date, id_parent, concat(tc.text::text, fc.text::text, pc.text::text) AS text, 
+      path, m.name, m.image AS profile_pic, (select count(*) from text_comment where c.id = id_parent) as num_comments, null as sub_comments,
+      (select count(*) from liked where c.id=id_comment) as num_likes FROM comment c
       LEFT JOIN member m ON id_member = m.id
       LEFT JOIN text_comment tc ON tc.id_comment = c.id
       LEFT JOIN file fc ON fc.id_comment = c.id
       LEFT JOIN poll pc ON pc.id_comment = c.id
-      WHERE id_event=?;', [$id]);
+      WHERE id_event=? AND id_parent ISNULL
+      ORDER BY c.id;', [$id]);
 
-      return view('pages.event', ['event' => $event, 'isOwner' => $isOwner, 'eventTags' => $eventTags, 'participants' => $participants, 'interested' => $interested, 'status' => $status, 'comments' => $comments]);
+      $subComments = DB::select('SELECT c.id, id_member, id_event, date, id_parent, tc.text AS text, 
+      m.name, m.image AS profile_pic, (select count(*) from liked where c.id=id_comment) as num_likes FROM comment c
+      LEFT JOIN member m ON id_member = m.id
+      LEFT JOIN text_comment tc ON tc.id_comment = c.id
+      WHERE id_event=? AND id_parent NOTNULL
+      ORDER BY c.id;', [$id]);
+      
+      $i = 0;
+      $j = 0;
+      for($i = 0; $i < sizeof($comments); $i++){
+        $comments[$i]->sub_comments = array();
+      }
+
+      for($i = 0; $i < sizeof($comments); $i++){
+        if($j >= sizeof($subComments))
+          break;
+        if($comments[$i]->id == $subComments[$j]->id_parent){
+          array_push($comments[$i]->sub_comments, $subComments[$j]);
+          $i--;
+          $j++;
+        }
+        
+        else if($comments[$i]->id > $subComments[$j]->id_parent)
+          $j++;
+      }
+
+      return view('pages.event', ['event' => $event, 'isOwner' => $isOwner, 'eventTags' => $eventTags, 'participants' => $participants, 
+      'interested' => $interested, 'status' => $status, 'role' => $role, 'comments' => $comments]);
     }
 
     /**
