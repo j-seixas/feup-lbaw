@@ -8,7 +8,7 @@
             <label class="mr-2">
                 <i class="fas fa-heart text-danger"> </i> {{ $comment->num_likes}}
             </label>
-            @if(Auth::check() && (($role != "Participant" && $role != null) || Auth::user()->id == $comment->id_member)))
+            @if(Auth::check() && (($role != "Participant" && $role != null) || Auth::user()->id == $comment->id_member))
             <label class="mr-2 text-primary">
                 <i class="fas fa-times"></i>
             </label>
@@ -24,9 +24,11 @@
                     <label class="mr-2">
                         <i class="fas fa-heart text-danger"> </i> {{ $sub->num_likes }}
                     </label>
+                    @if(Auth::check() && (($role != "Participant" && $role != null) || Auth::user()->id == $sub->id_member))
                     <label class="mr-2 text-primary">
                         <i class="fas fa-times"></i>
                     </label>
+                    @endif
                 </div>
                 <h5>{{ $sub->name }}</h5>
                 <p class="pr-1">{{ $sub->text }}</p>
