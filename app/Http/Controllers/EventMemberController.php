@@ -67,7 +67,9 @@ class EventMemberController extends Controller
       $response = new \stdClass();
 
       $response->attendance = $request->input('attendance');
+      $response->participants = DB::select('select count(*) from event_member where id_event = ? AND status = ?', [$id_event, 'Going'])[0]->count;
+      $response->interested = DB::select('select count(*) from event_member where id_event = ? AND status = ?', [$id_event, 'Interested'])[0]->count;
 
-      return json_encode($response);
+      return response()->json($response);
     }
 }

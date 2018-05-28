@@ -40,14 +40,6 @@ function sendDeleteEventRequest(event) {
 function sendEditAttendanceRequest(event) {
   let id = document.getElementById("eventId").value;
   let attendance = event.target.value;
-  let activeButtons = document.querySelector(".active.attendanceButton");
-
-  if (activeButtons) {
-    activeButtons.classList.toggle("active");
-  }
-
-  event.target.classList.toggle("active");
-  
   sendAjaxRequest('post', '/api/event/' + id + '/attendance', {'attendance': attendance}, updateAttendanceEditHandler);
 }
 
@@ -59,9 +51,17 @@ function eventDeletedHandler() {
 }
 
 function updateAttendanceEditHandler(){
-  
+  let activeButtons = document.querySelectorAll('.attendanceButton.active');
+
+  [].forEach.call(activeButtons, function(activeButton) {
+    activeButton.classList.toggle('active');
+  });
+
+  let attendanceInfo = JSON.parse(this.responseText);
+
+  document.querySelector('#' + attendanceInfo.attendance + 'Button').classList.toggle('active');
+  document.querySelector('#participants').innerHTML = attendanceInfo.participants;
+  document.querySelector('#interested').innerHTML = attendanceInfo.interested;
 }
-
-
 
 addEventListeners();

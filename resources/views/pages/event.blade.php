@@ -27,24 +27,12 @@
                     <input id="eventId" value="{{  $event->id  }}" hidden>
                     @if(Auth::check())
                     <div class="btn-group" role="group" aria-label="Attendance">
-                        @if($status == 'Going')
-                        <button type="button" class="btn btn-outline-success attendanceButton active" value="Going">Going</button>
-                        @else
-                        <button type="button" class="btn btn-outline-success attendanceButton" value="Going">Going</button>
-                        @endif
-                        @if($status == 'Interested')
-                        <button type="button" class="btn btn-outline-primary attendanceButton active" value="Interested">Interested</button>
-                        @else
-                        <button type="button" class="btn btn-outline-primary attendanceButton" value="Interested">Interested</button>
-                        @endif
-                        @if($status == 'NotGoing')
-                        <button type="button" class="btn btn-outline-danger flex-wrap attendanceButton active" value="NotGoing">Not going</button>
-                        @else
-                        <button type="button" class="btn btn-outline-danger flex-wrap attendanceButton" value="NotGoing">Not going</button>
-                        @endif
+                        <button type="button" id="GoingButton" class="btn btn-outline-success attendanceButton @if($status == 'Going') active @endif" value="Going">Going</button>
+                        <button type="button" id="InterestedButton" class="btn btn-outline-primary attendanceButton @if($status == 'Interested') active @endif" value="Interested">Interested</button>
+                        <button type="button" id="NotGoingButton" class="btn btn-outline-danger flex-wrap attendanceButton @if($status == 'NotGoing') active @endif" value="NotGoing">Not going</button>                        
                     </div>
                     @endif
-                    <p class="card-text" style="padding-top: 8px;">{{ $participants }} going. {{ $interested }} interested.</p>
+                    <p class="card-text" style="padding-top: 8px;"><span id="participants">{{ $participants }}</span> going. <span id="interested">{{ $interested }}</span> interested.</p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">{{ $event->location }}</li>
