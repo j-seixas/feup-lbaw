@@ -1,6 +1,6 @@
 <div class="col-md-4 pb-3">
     <div class="card">
-        <img class="card-img-top" alt="Card image cap" src="http://pinegrow.com/placeholders/img17.jpg" />
+        <img class="card-img-top" alt="Event image" src="@if($event->image) {{ Storage::url($event->image) }} @else {{ asset('img/event_placeholder.png') }} @endif" />
         <div class="card-body">
             <h4 class="card-title">{{ $event->title }}</h4>
             <div class="h5">{{ $event->time }}</div>

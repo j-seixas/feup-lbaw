@@ -28,12 +28,12 @@
           <div class="form-group">
             <label class="col-form-label" for="eventPicture">Event picture
             </label>
-            <label class="col-form-label pl-3 font-weight-light" for="eventPicture">Hmm.</label>
+            <label class="col-form-label pl-3 font-weight-light" for="eventPicture">Add a picture to promote your event! If you don't add one, @if($edit) you'll keep the one you had before. @else we'll give you a placeholder. @endif</label>
             <input type="file" class="form-control" id="eventPicture" name="eventPicture">
           </div>
           <div class="form-group">
             <label class="col-form-label" for="eventDescription">Event description</label>
-            <label class="col-form-label pl-3 font-weight-light" for="eventName">What is this event about? Make it simple, but effective!&nbsp;</label>
+            <label class="col-form-label pl-3 font-weight-light" for="eventDescription">What is this event about? Make it simple, but effective!&nbsp;</label>
             @if($edit)
             <textarea class="form-control" id="eventDescription" name="eventDescription">{{ $event->description }}</textarea>
             @else
@@ -41,16 +41,16 @@
             @endif
           </div>
           <div class="form-group">
-            <label class="col-form-label">Privacy Settings</label>
-            <label class="col-form-label pl-3 font-weight-light">Can anyone join this event? Or is it just you and your buddies?&nbsp;</label>
+            <label class="col-form-label" for="eventPrivacy">Privacy Settings</label>
+            <label class="col-form-label pl-3 font-weight-light" for="eventPrivacy">Can anyone join this event? Or is it just you and your buddies?&nbsp;</label>
             <div class="row pl-3 pb-0">
               <div class="btn-group float-none" data-toggle="buttons">
                 <label class="btn btn-secondary active">
-                  <input type="radio" name="eventPrivacy" @if($edit && $event->visibility == "Public") checked="checked" @endif value="Public" required="required">
+                  <input type="radio" id="eventPrivacy" name="eventPrivacy" @if($edit && $event->visibility == "Public") checked="checked" @endif value="Public" required="required">
                   <i class="fas fa-users"></i> Public
                 </label>
                 <label class="btn btn-secondary">
-                  <input type="radio" name="eventPrivacy" @if($edit && $event->visibility == "Private") checked="checked" @endif value="Private">
+                  <input type="radio" id="eventPrivacy" name="eventPrivacy" @if($edit && $event->visibility == "Private") checked="checked" @endif value="Private">
                   <i class="fas fa-lock"></i> Private
                 </label>
               </div>
@@ -58,17 +58,17 @@
           </div>
           <div class="form-group">
             <label class="col-form-label" for="eventDate">Date</label>
-            <label class="col-form-label pl-3 font-weight-light" for="eventName">When is this Masterpiece happening?&nbsp;&nbsp;</label>
+            <label class="col-form-label pl-3 font-weight-light" for="eventDate">When is this Masterpiece happening?&nbsp;&nbsp;</label>
             <input type="date" class="form-control" id="eventDate" name="eventDate" style="max-width: 175px;" required="required" @if($edit) value="{{ explode(' ', $event->date)[0] }}" @endif>
           </div>
           <div class="form-group">
             <label class="col-form-label" for="eventTime">Time</label>
-            <label class="col-form-label pl-3 font-weight-light" for="eventName">At what time does it start? If it's the whole day just leave it at 12:00 AM.&nbsp;</label>
-            <input type="time" class="form-control" id="eventTime" style="max-width: 175px;" required="required" @if($edit) value="{{ explode(' ', $event->date)[1] }}" @else value="00:00" @endif>
+            <label class="col-form-label pl-3 font-weight-light" for="eventTime">At what time does it start? If it's the whole day just leave it at 12:00 AM.&nbsp;</label>
+            <input type="time" class="form-control" id="eventTime" style="max-width: 175px;" required="required" @if($edit) value="{{ substr(explode(' ', $event->date)[1], 0, -3) }}" @else value="00:00" @endif>
           </div>
           <div class="form-group">
             <label class="col-form-label" for="eventLocation">Location</label>
-            <label class="col-form-label pl-3 font-weight-light" for="eventName">Where will the gathering take place?&nbsp;</label>
+            <label class="col-form-label pl-3 font-weight-light" for="eventLocation">Where will the gathering take place?&nbsp;</label>
             @if($edit)
             <input type="text" class="form-control" id="eventLocation" name="eventLocation" value="{{ $event->location }}" required="required">
             @else
@@ -77,7 +77,7 @@
           </div>
           <div class="form-group">
             <label class="col-form-label">Manage attendants</label>
-            <label class="col-form-label pl-3 font-weight-light" for="eventName">Who is going to have the pleasure of joining?&nbsp;</label>
+            <label class="col-form-label pl-3 font-weight-light">Who is going to have the pleasure of joining?&nbsp;</label>
             <div class="row">
               <div class="col-md-4">
                 <label class="col-form-label">Tags</label>

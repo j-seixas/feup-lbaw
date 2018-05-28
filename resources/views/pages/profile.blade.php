@@ -17,7 +17,7 @@
                         <h4 class="card-title">{{ $member->name }}</h4>
                         <h6 class="card-subtitle text-muted">{{ $member->age }} years old</h6>
                     </div>
-                    <img style="width: 100%; display: block;" src="https://rafaeldamasceno.github.io/lbaw1724/ani.png" alt="Card image">  <!-- Pic: {{ $member->image }} -->
+                    <img style="width: 100%; display: block;" src="@if($member->image) {{ Storage::url($member->image) }} @else {{ asset('img/person_placeholder.png') }} @endif" alt="Profile picture">
                     <div class="card-body ">
                         <p class="card-text">{{ $member->description }}</p>
                     </div>
@@ -76,8 +76,7 @@
                         @foreach ($friends as $friend)
                         <li class="list-group-item p-0 pt-0 pb-0">
                             <div class="media m-2">
-                                <img class="d-flex m-auto rounded-circle" src="http://pinegrow.com/placeholders/img19.jpg" alt="Generic placeholder image"
-                                    width="150" style="width: 32px; height: 32px;">
+                                <img class="d-flex m-auto rounded-circle" src="@if($friend->image) {{ Storage::url($friend->image) }} @else {{ asset('img/person_placeholder.png') }} @endif" alt="Profile picture" style="width: 32px; height: 32px;">
                                 <div class="media-body mb-0">
                                     <p class="pl-2 mb-0 mt-1">
                                         @if ($isOwner)

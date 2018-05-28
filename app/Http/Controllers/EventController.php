@@ -70,7 +70,7 @@ class EventController extends Controller
     public function showCreateForm()
     {
       if (Auth::check()) {
-        return view('pages.createEvent', ['edit' => false]);
+        return view('pages.eventForm', ['edit' => false]);
       } else {
         return redirect('login');
       }
@@ -135,7 +135,7 @@ class EventController extends Controller
       //$this->authorize('delete', $event);
 
       if($isOwner) {
-        return view('pages.createEvent', ['event' => $event, 'edit' => true]);
+        return view('pages.eventForm', ['event' => $event, 'edit' => true]);
       } else {
         return redirect()->route('event',['id' => $event->id]);
       }

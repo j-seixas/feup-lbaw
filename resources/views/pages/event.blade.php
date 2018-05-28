@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-md-7 pb-3">
             <div class="card">
-                <img class="card-img-top" alt="Event image" src="{{ Storage::url($event->image) }}">
+                <img class="card-img-top" alt="Event image" src="@if($event->image) {{ Storage::url($event->image) }} @else {{ asset('img/event_placeholder.png') }} @endif">
                 <div class="card-body">
                     @if($isOwner)
                     <div class="float-right col-sm-auto pr-0 pl-0 pb-2"> 
