@@ -40,7 +40,7 @@ Route::post('event/{id}', 'EventController@edit');
 
 // Search
 
-Route::get('search', 'EventController@search');
+Route::get('search', 'SearchController@search');
 
 // Static pages
 

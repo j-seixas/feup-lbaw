@@ -13,10 +13,6 @@
                     <span class="badge badge-light badge-pill">{{ sizeof($events) }}</span>
                 </button>
                 <button type="button" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                    Tags
-                    <span class="badge badge-light badge-pill">4</span>
-                </button>
-                <button type="button" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                     Users
                     <span class="badge badge-light badge-pill">7</span>
                 </button>
