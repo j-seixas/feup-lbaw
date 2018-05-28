@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-md-7 pb-3">
             <div class="card">
-                <img class="card-img-top" alt="Card image cap" src="http://pinegrow.com/placeholders/img20.jpg">
+                <img class="card-img-top" alt="Event image" src="@if($event->image) {{ Storage::url($event->image) }} @else {{ asset('img/event_placeholder.png') }} @endif">
                 <div class="card-body">
                     @if($isOwner)
                     <div class="float-right col-sm-auto pr-0 pl-0 pb-2"> 
@@ -27,24 +27,12 @@
                     <input id="eventId" value="{{  $event->id  }}" hidden>
                     @if(Auth::check())
                     <div class="btn-group" role="group" aria-label="Attendance">
-                        @if($status == 'Going')
-                        <button type="button" class="btn btn-outline-success attendanceButton active" value="Going">Going</button>
-                        @else
-                        <button type="button" class="btn btn-outline-success attendanceButton" value="Going">Going</button>
-                        @endif
-                        @if($status == 'Interested')
-                        <button type="button" class="btn btn-outline-primary attendanceButton active" value="Interested">Interested</button>
-                        @else
-                        <button type="button" class="btn btn-outline-primary attendanceButton" value="Interested">Interested</button>
-                        @endif
-                        @if($status == 'NotGoing')
-                        <button type="button" class="btn btn-outline-danger flex-wrap attendanceButton active" value="NotGoing">Not going</button>
-                        @else
-                        <button type="button" class="btn btn-outline-danger flex-wrap attendanceButton" value="NotGoing">Not going</button>
-                        @endif
+                        <button type="button" id="GoingButton" class="btn btn-outline-success attendanceButton @if($status == 'Going') active @endif" value="Going">Going</button>
+                        <button type="button" id="InterestedButton" class="btn btn-outline-primary attendanceButton @if($status == 'Interested') active @endif" value="Interested">Interested</button>
+                        <button type="button" id="NotGoingButton" class="btn btn-outline-danger flex-wrap attendanceButton @if($status == 'NotGoing') active @endif" value="NotGoing">Not going</button>                        
                     </div>
                     @endif
-                    <p class="card-text" style="padding-top: 8px;">{{ $participants }} going. {{ $interested }} interested.</p>
+                    <p class="card-text" style="padding-top: 8px;"><span id="participants">{{ $participants }}</span> going. <span id="interested">{{ $interested }}</span> interested.</p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">{{ $event->location }}</li>

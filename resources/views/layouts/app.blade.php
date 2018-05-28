@@ -13,7 +13,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
     <script defer src="{{ asset('js/app.js') }}"></script>
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <link href="{{ asset('css/landing.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body class="bg-light">
@@ -36,7 +36,7 @@
             @if (Auth::check())
             <ul class="navbar-nav ml-auto ">
                 <li class="nav-item">
-                    <a class="nav-link text-primary" href="/profile">Profile</a>
+                    <a class="nav-link text-primary" href="/profile/{{ Auth::user()->id }}">Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-primary" href="/myevents">My events</a>
@@ -72,13 +72,13 @@
                 <h5>Resources</h5>
                 <ul class="list-unstyled text-small">
                     <li>
-                        <a class="text-muted" href="./faq">Frequently asked questions</a>
+                        <a class="text-muted" href="/faq">Frequently asked questions</a>
                     </li>
                     <li>
-                        <a class="text-muted" href="./terms">Terms and conditions</a>
+                        <a class="text-muted" href="/terms">Terms and conditions</a>
                     </li>
                     <li>
-                        <a class="text-muted" href="./privacy">Privacy</a>
+                        <a class="text-muted" href="/privacy">Privacy</a>
                     </li>
                 </ul>
             </div>
@@ -86,13 +86,13 @@
                 <h5>About us</h5>
                 <ul class="list-unstyled text-small">
                     <li>
-                        <a class="text-muted" href="./about">About us</a>
+                        <a class="text-muted" href="/about">About us</a>
                     </li>
                     <li>
-                        <a class="text-muted" href="./team">Our team</a>
+                        <a class="text-muted" href="/team">Our team</a>
                     </li>
                     <li>
-                        <a class="text-muted" href="./contacts">Contact us</a>
+                        <a class="text-muted" href="/contacts">Contact us</a>
                     </li>
                 </ul>
             </div>

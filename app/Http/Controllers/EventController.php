@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 use App\Event;
-use App\EventMember;
 
 class EventController extends Controller
 {
@@ -106,7 +105,7 @@ class EventController extends Controller
     public function showCreateForm()
     {
       if (Auth::check()) {
-        return view('pages.createEvent', ['edit' => false]);
+        return view('pages.eventForm', ['edit' => false]);
       } else {
         return redirect('login');
       }
@@ -126,18 +125,19 @@ class EventController extends Controller
       
       $event = new Event();
 
-      //$this->authorize('create', $event);
-
       $event->title = $request->input('eventName');
       $event->description = $request->input('eventDescription');
       $event->visibility = $request->input('eventPrivacy');
-      $event->date = $request->input('eventDate');
+      $date = new \DateTime($request->input('eventDate'));
+      $time = new \DateTime($request->input('eventTime'));
+      $merge = new \DateTime($date->format('Y-m-d').' '.$time->format('H:i:s'));
+      $event->image = $request->hasFile('eventPicture') ? $request->file('eventPicture')->store('public') : null;
+      $event->date = $merge->format('Y-m-d H:i:s');
       $event->location = $request->input('eventLocation');
-      //$event->picture = $request->input('picture');
 
       $event->save();
 
-      $event_member = EventMember::createOwner();
+      $event_member = EventMemberController::createOwner($event);
 
       return redirect()->route('event',['id' => $event->id]);
     }
@@ -170,7 +170,7 @@ class EventController extends Controller
       //$this->authorize('delete', $event);
 
       if($isOwner) {
-        return view('pages.createEvent', ['event' => $event, 'edit' => true]);
+        return view('pages.eventForm', ['event' => $event, 'edit' => true]);
       } else {
         return redirect()->route('event',['id' => $event->id]);
       }
@@ -180,14 +180,15 @@ class EventController extends Controller
     {
       $event = Event::findOrFail($id);
 
-      //$this->authorize('create', $event);
-
       $event->title = $request->input('eventName');
       $event->description = $request->input('eventDescription');
       $event->visibility = $request->input('eventPrivacy');
-      $event->date = $request->input('eventDate');
+      $date = new \DateTime($request->input('eventDate'));
+      $time = new \DateTime($request->input('eventTime'));
+      $merge = new \DateTime($date->format('Y-m-d').' '.$time->format('H:i:s'));
+      $event->image = $request->hasFile('eventPicture') ? $request->file('eventPicture')->store('public') : $event->image;
+      $event->date = $merge->format('Y-m-d H:i:s');
       $event->location = $request->input('eventLocation');
-      //$event->picture = $request->input('picture');
 
       $event->save();
 
