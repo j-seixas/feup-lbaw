@@ -64,7 +64,7 @@
           <div class="form-group">
             <label class="col-form-label" for="eventTime">Time</label>
             <label class="col-form-label pl-3 font-weight-light" for="eventTime">At what time does it start? If it's the whole day just leave it at 12:00 AM.&nbsp;</label>
-            <input type="time" class="form-control" id="eventTime" style="max-width: 175px;" required="required" @if($edit) value="{{ substr(explode(' ', $event->date)[1], 0, -3) }}" @else value="00:00" @endif>
+            <input type="time" class="form-control" id="eventTime" name="eventTime" style="max-width: 175px;" required="required" @if($edit) value="{{ substr(explode(' ', $event->date)[1], 0, -3) }}" @else value="00:00" @endif>
           </div>
           <div class="form-group">
             <label class="col-form-label" for="eventLocation">Location</label>
