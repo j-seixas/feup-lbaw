@@ -26,8 +26,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Find an event..." aria-label="Search">
+            <form class="form-inline my-2 my-lg-0" action="/search" method="GET">
+                <input class="form-control mr-sm-2" type="search" placeholder="Find an event..." aria-label="Search" name="query">
                 <button class="btn btn-outline-secondary my-2 my-sm-0 mr-3" type="submit">Search</button>
             </form>
             <a href="{{url('event')}}" class="btn btn-primary ">

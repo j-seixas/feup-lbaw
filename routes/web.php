@@ -38,6 +38,10 @@ Route::delete('event/{id}', 'EventController@delete');
 Route::get('event/{id}/edit', 'EventController@showEditForm');
 Route::post('event/{id}', 'EventController@edit');
 
+// Search
+
+Route::get('search', 'EventController@search');
+
 // Static pages
 
 Route::get('faq', 'StaticPagesController@showFAQ');
