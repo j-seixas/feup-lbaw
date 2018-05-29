@@ -15,8 +15,8 @@
                         </button>
                         @else
                         @unless(in_array($auth,$friends))
-                        <button type="button" id="memberEditButton" class="btn btn-outline-primary float-right">
-                            <i class="fas fa-user-plus"></i> Send friend request
+                        <button type="button" id="addFriendButton" class="btn btn-outline-primary float-right">
+                            <i class="fas fa-user-plus"></i>
                         </button>
                         @endunless
                         @endif
