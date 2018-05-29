@@ -14,7 +14,7 @@
             <img class="card-img-top" alt="Card image cap" src="https://avatars2.githubusercontent.com/u/19241121?s=400&v=4">
             <div class="card-body">
                 <h4 class="card-title">João Seixas</h4>
-                <p class="card-text">SQL God</p>
+                <p class="card-text">SQL God.</p>
             </div>
         </div>
         <div class="card">
@@ -28,14 +28,14 @@
             <img class="card-img-top" alt="Card image cap" src="https://avatars2.githubusercontent.com/u/6492427?s=400&v=4">
             <div class="card-body">
                 <h4 class="card-title">Rafael Damasceno</h4>
-                <p class="card-text">Brasileiro</p>
+                <p class="card-text">Martelador de código.</p>
             </div>
         </div>
         <div class="card">
             <img class="card-img-top" alt="Card image cap" src="https://avatars1.githubusercontent.com/u/19344861?s=400&v=4">
             <div class="card-body">
                 <h4 class="card-title">Tiago Carvalho</h4>
-                <p class="card-text">A jogar POE</p>
+                <p class="card-text">A jogar POE.</p>
             </div>
         </div>
     </div>
