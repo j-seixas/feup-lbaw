@@ -31,7 +31,11 @@ Route::get('profile/{id}', 'ProfileController@showProfile');
 
 // MyEvents
 
-Route::get('myevents/', 'MyEventsController@showMyEvents');
+Route::get('myevents', 'MyEventsController@showMyEvents');
+
+// Notifications
+
+Route::get('notifications', 'NotificationsController@showNotifications');
 
 // Events
 
