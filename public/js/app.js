@@ -70,10 +70,12 @@ function updateAttendanceEditHandler() {
   document.querySelector('#interested').innerHTML = attendanceInfo.interested;
 }
 
-function changeUserPageToEdit() {
-
+function changeUserPageToEdit(event) {
   document.getElementById('deleteUserCard').hidden = false;
-
+  event.target.innerHTML = '<i class="fas fa-check"></i> Done';
+  event.target.classList.toggle('btn-outline-primary');
+  event.target.classList.toggle('btn-outline-success');
+  event.target.removeEventListener('click', changeUserPageToEdit);
 }
 
 addEventListeners();
