@@ -22,11 +22,11 @@
                         <p class="card-text">{{ $member->description }}</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Portugal</li>
+                        <li class="list-group-item">{{ $country->name }}</li>
                         <li class="list-group-item">
                             @foreach($tags as $tag)
                             <span style="font-size: 1rem;"> </span>
-                            <span class="badge badge-pill badge-success">{{ $tag->name_tag }}</span>
+                            <span class="badge badge-pill badge-primary">{{ $tag->name_tag }}</span>
                             @endforeach
                         </li>
                     </ul>
