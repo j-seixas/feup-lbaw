@@ -68,8 +68,6 @@ function updateAttendanceEditHandler() {
     activeButton.classList.toggle('active');
   });
 
-  let attendanceInfo = JSON.parse(this.responseText);
-
   document.querySelector('#attendanceEventId'  + attendanceInfo.id + ' button[value=' + attendanceInfo.attendance + ']').classList.toggle('active');
 
   if(document.querySelector('#participants')) document.querySelector('#participants').innerHTML = attendanceInfo.participants;
