@@ -24,12 +24,12 @@
                     <h4 class="card-title">{{ $event->title }}</h4>
                     <div class="h5">{{ $event->date }}</div>
                     <p class="card-text">{{ $event->description }}</p>
-                    <input id="eventId" value="{{  $event->id  }}" hidden>
+                    <input name="eventId" value="{{  $event->id  }}" hidden>
                     @if(Auth::check())
-                    <div class="btn-group" role="group" aria-label="Attendance">
-                        <button type="button" id="GoingButton" class="btn btn-outline-success attendanceButton @if($status == 'Going') active @endif" value="Going">Going</button>
-                        <button type="button" id="InterestedButton" class="btn btn-outline-primary attendanceButton @if($status == 'Interested') active @endif" value="Interested">Interested</button>
-                        <button type="button" id="NotGoingButton" class="btn btn-outline-danger flex-wrap attendanceButton @if($status == 'NotGoing') active @endif" value="NotGoing">Not going</button>                        
+                    <div id="attendanceEventId{{  $event->id  }}" class="btn-group" role="group" aria-label="Attendance">
+                        <button type="button" class="btn btn-outline-success attendanceButton @if($status == 'Going') active @endif" value="Going">Going</button>
+                        <button type="button" class="btn btn-outline-primary attendanceButton @if($status == 'Interested') active @endif" value="Interested">Interested</button>
+                        <button type="button" class="btn btn-outline-danger flex-wrap attendanceButton @if($status == 'NotGoing') active @endif" value="NotGoing">Not going</button>                        
                     </div>
                     @endif
                     <p class="card-text" style="padding-top: 8px;"><span id="participants">{{ $participants }}</span> going. <span id="interested">{{ $interested }}</span> interested.</p>

@@ -12,12 +12,7 @@
                     @if($notif->id_event_invite != null)
                         <li class="list-group-item font-weight-bold bg-white">You were invited to participate in the event 
                             <a href="/event/{{ $notift->id_event_invite }}">{{ $notif->title }}</a>.
-                            <input id="eventId" value="{{  $notif->id_event_invite  }}" hidden>
-                            <div class="btn-group btn-group-sm float-right" role="group" aria-label="Small button group"> 
-                                <button type="button" class="btn btn-success btn-outline-success @if($notif->status=='Going'){{ 'active'}}@endif">Going</button>                             
-                                <button type="button" class="btn btn-primary btn-outline-primary @if($notif->status=='Interested'){{ 'active'}}@endif">Interested</button>                             
-                                <button type="button" class="btn btn-danger btn-outline-danger @if($notif->status=='NotGoing'){{ 'active'}}@endif">Not going</button>                             
-                            </div>                         
+                            <input id="eventId" value="{{  $notif->id_event_invite  }}" hidden>                      
                         </li> 
                     @elseif($notif->id_friend != null)
                         <li class="list-group-item font-weight-bold bg-white"> 
@@ -30,7 +25,7 @@
                     @elseif($notif->id_event_change != null)                   
                         <li class="list-group-item font-weight-bold bg-white">The event you are 
                             @if($notif->status=='Going')
-                                going,
+                                going to,
                             @else
                                 interested in,
                             @endif 
@@ -42,12 +37,12 @@
                             @else
                                 name.
                             @endif
-                            <input id="eventId" value="{{  $notif->id_event_change  }}" hidden>
-                            <div class="btn-group btn-group-sm float-right" role="group" aria-label="Small button group"> 
-                                <button type="button" class="btn btn-success btn-outline-success @if($notif->status=='Going'){{ 'active'}}@endif">Going</button>                             
-                                <button type="button" class="btn btn-primary btn-outline-primary @if($notif->status=='Interested'){{ 'active'}}@endif">Interested</button>                             
-                                <button type="button" class="btn btn-danger btn-outline-danger @if($notif->status=='NotGoing'){{ 'active'}}@endif">Not going</button>                             
-                            </div>                         
+                            <input name="eventId" value="{{ $notif->id_event_change }}" hidden>
+                            <div id="attendanceEventId{{ $notif->id_event_change }}" class="btn-group btn-group-sm float-right" role="group" aria-label="Small button group"> 
+                                <button type="button" class="btn btn-success btn-outline-success attendanceButton @if($notif->status=='Going'){{ 'active' }}@endif" value="Going">Going</button>                             
+                                <button type="button" class="btn btn-primary btn-outline-primary attendanceButton @if($notif->status=='Interested'){{ 'active' }}@endif" value="Interested">Interested</button>                             
+                                <button type="button" class="btn btn-danger btn-outline-danger attendanceButton @if($notif->status=='NotGoing'){{ 'active' }}@endif" value="NotGoing">Not going</button>                             
+                            </div>                          
                         </li>    
                     @endif                 
                 @endforeach
@@ -57,12 +52,12 @@
                     @if($notif->id_event_invite != null)
                         <li class="list-group-item">You were invited to participate in the event 
                             <a href="/event/{{ $notift->id_event_invite }}">{{ $notif->title }}</a>.
-                            <input id="eventId" value="{{  $notift->id_event_invite  }}" hidden>
-                            <div class="btn-group btn-group-sm float-right" role="group" aria-label="Small button group"> 
-                                <button type="button" class="btn btn-success btn-outline-success @if($notif->status=='Going'){{ 'active'}}@endif">Going</button>                             
-                                <button type="button" class="btn btn-primary btn-outline-primary @if($notif->status=='Interested'){{ 'active'}}@endif">Interested</button>                             
-                                <button type="button" class="btn btn-danger btn-outline-danger @if($notif->status=='NotGoing'){{ 'active'}}@endif">Not going</button>                             
-                            </div>                         
+                            <input name="eventId" value="{{ $notif->id_event_change }}" hidden>
+                            <div id="attendanceEventId{{ $notif->id_event_change }}" class="btn-group btn-group-sm float-right" role="group" aria-label="Small button group"> 
+                                <button type="button" class="btn btn-success btn-outline-success attendanceButton @if($notif->status=='Going'){{ 'active' }}@endif" value="Going">Going</button>                             
+                                <button type="button" class="btn btn-primary btn-outline-primary attendanceButton @if($notif->status=='Interested'){{ 'active' }}@endif" value="Interested">Interested</button>                             
+                                <button type="button" class="btn btn-danger btn-outline-danger attendanceButton @if($notif->status=='NotGoing'){{ 'active' }}@endif" value="NotGoing">Not going</button>                             
+                            </div>                               
                         </li> 
                     @elseif($notif->id_friend != null)
                         <li class="list-group-item"> 
@@ -75,7 +70,7 @@
                     @elseif($notif->id_event_change != null)                   
                         <li class="list-group-item">The event you are 
                         @if($notif->status=='Going')
-                            going,
+                            going to,
                         @else
                             interested in,
                         @endif 
@@ -87,12 +82,12 @@
                             @else
                                 name.
                             @endif
-                            <input id="eventId" value="{{  $notif->id_event_change  }}" hidden>
-                            <div class="btn-group btn-group-sm float-right" role="group" aria-label="Small button group"> 
-                                <button type="button" class="btn btn-success btn-outline-success @if($notif->status=='Going'){{ 'active'}}@endif">Going</button>                             
-                                <button type="button" class="btn btn-primary btn-outline-primary @if($notif->status=='Interested'){{ 'active'}}@endif">Interested</button>                             
-                                <button type="button" class="btn btn-danger btn-outline-danger @if($notif->status=='NotGoing'){{ 'active'}}@endif">Not going</button>                             
-                            </div>                         
+                            <input name="eventId" value="{{ $notif->id_event_change }}" hidden>
+                            <div id="attendanceEventId{{ $notif->id_event_change }}" class="btn-group btn-group-sm float-right" role="group" aria-label="Small button group"> 
+                                <button type="button" class="btn btn-success btn-outline-success attendanceButton @if($notif->status=='Going'){{ 'active' }}@endif" value="Going">Going</button>                             
+                                <button type="button" class="btn btn-primary btn-outline-primary attendanceButton @if($notif->status=='Interested'){{ 'active' }}@endif" value="Interested">Interested</button>                             
+                                <button type="button" class="btn btn-danger btn-outline-danger attendanceButton @if($notif->status=='NotGoing'){{ 'active' }}@endif" value="NotGoing">Not going</button>                             
+                            </div>                               
                         </li>    
                     @endif                 
                 @endforeach

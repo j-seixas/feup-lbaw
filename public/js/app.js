@@ -44,7 +44,7 @@ function sendDeleteEventRequest(event) {
 }
 
 function sendEditAttendanceRequest(event) {
-  let id = document.getElementById("eventId").value;
+  let id = event.target.parentNode.previousElementSibling.value;
   let attendance = event.target.value;
   sendAjaxRequest('post', '/api/event/' + id + '/attendance', {'attendance': attendance}, updateAttendanceEditHandler);
 }
@@ -68,9 +68,10 @@ function updateAttendanceEditHandler() {
 
   let attendanceInfo = JSON.parse(this.responseText);
 
-  document.querySelector('#' + attendanceInfo.attendance + 'Button').classList.toggle('active');
-  document.querySelector('#participants').innerHTML = attendanceInfo.participants;
-  document.querySelector('#interested').innerHTML = attendanceInfo.interested;
+  document.querySelector('#attendanceEventId'  + attendanceInfo.id + ' button[value=' + attendanceInfo.attendance + ']').classList.toggle('active');
+
+  if(document.querySelector('#participants')) document.querySelector('#participants').innerHTML = attendanceInfo.participants;
+  if(document.querySelector('#interested')) document.querySelector('#interested').innerHTML = attendanceInfo.interested;
 }
 
 function updateCountryList() {
