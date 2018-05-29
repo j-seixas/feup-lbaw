@@ -14,8 +14,6 @@ COPY ./etc/nginx/default.conf /etc/nginx/sites-enabled/default
 COPY .env_production /var/www/.env
 COPY docker_run.sh /docker_run.sh
 RUN mkdir /var/run/php
-RUN rm -rf /var/www/public/storage
-RUN ln -s /var/www/storage/app/public /var/www/public/storage
 
 # Start command
 CMD sh /docker_run.sh
