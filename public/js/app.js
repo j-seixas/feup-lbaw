@@ -74,8 +74,28 @@ function updateAttendanceEditHandler() {
 }
 
 function updateCountryList() {
-  if (this.status == 200) {
-    
+  if (this.status != 200) {
+    return;
+  }
+
+  let memberCountry = document.getElementById('memberCountry');
+  memberCountry.hidden = true;
+
+  let memberCountryInput = document.createElement('select');
+  memberCountryInput.classList.add('form-control');
+  memberCountryInput.id = 'memberCountryInput';
+  memberCountryInput.name = 'memberCountryInput';
+  memberCountry.insertAdjacentElement('afterend', memberCountryInput);
+
+  let countries = JSON.parse(this.responseText);
+  for (let i = 0; i < countries.length; i++) {
+    let country = document.createElement('option');
+    country.value = countries[i].id;
+    country.innerText = countries[i].name;
+    if (country.innerText == memberCountry.innerText) {
+      country.selected = true;
+    }
+    memberCountryInput.appendChild(country);
   }
 }
 
@@ -83,19 +103,40 @@ function changeUserPageToEdit(event) {
   let deleteUserCard = document.getElementById('deleteUserCard');
   deleteUserCard.hidden = false;
 
-  event.target.innerHTML = '<i class="fas fa-check"></i> Done';
-  event.target.classList.toggle('btn-outline-primary');
-  event.target.classList.toggle('btn-outline-success');
+  let editButton = document.getElementById('memberEditButton');
+  editButton.innerHTML = '<i class="fas fa-check"></i> Done';
+  editButton.classList.toggle('btn-outline-primary');
+  editButton.classList.toggle('btn-outline-success');
 
-  event.target.removeEventListener('click', changeUserPageToEdit);
+  editButton.removeEventListener('click', changeUserPageToEdit);
 
   let memberName = document.getElementById('memberName');
   memberName.hidden = true;
 
   let memberNameInput = document.createElement('input');
-  memberName.insertAdjacentElement('afterend', memberNameInput);
-  memberNameInput.outerHTML = '<input type="text" class="form-control" id="eventName" name="eventName" required="required">';
+  memberNameInput.type = 'text';
+  memberNameInput.classList.add('form-control');
+  memberNameInput.classList.add('form-control-lg');
+  memberNameInput.classList.add('mb-3');
+  memberNameInput.id = 'memberNameInput';
+  memberNameInput.name = 'memberName';
+  memberNameInput.required = true;
+  memberNameInput.style = 'max-width: 75%'
+  memberNameInput.placeholder = 'Name';
   memberNameInput.value = memberName.innerText;
+  memberName.insertAdjacentElement('afterend', memberNameInput);
+
+  let memberDescription = document.getElementById('memberDescription');
+  memberDescription.hidden = true;
+
+  let memberDescriptionInput = document.createElement('textarea');
+  memberDescriptionInput.classList.add('form-control');
+  memberDescriptionInput.id = 'memberDescriptionInput';
+  memberDescriptionInput.name = 'memberDescription';
+  memberDescriptionInput.placeholder = 'Description';
+  memberDescriptionInput.value = memberDescription.innerText;
+  memberDescription.insertAdjacentElement('afterend', memberDescriptionInput);
+
   sendCountryListRequest();
 }
 

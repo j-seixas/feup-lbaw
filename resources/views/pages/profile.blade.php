@@ -34,14 +34,14 @@
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
                             @if($country)
-                            {{ $country->name }}
+                            <p class="card-text" id="memberCountry">{{ $country->name }}</p>
                             @else
-                            <p class="font-italic text-muted mb-0 empty" id="memberDescription">This individual resides nowhere...</p>
+                            <p class="font-italic text-muted mb-0 empty" id="memberCountry">This individual resides nowhere...</p>
                             @endif
                         </li>
                         <li class="list-group-item">
                             @unless(sizeof($tags))
-                            <p class="text-muted font-italic mb-0 empty" id="memberDescription">Tags are missing. You should call the tag police!</p>
+                            <p class="text-muted font-italic mb-0 empty" id="memberTags">Tags are missing. You should call the tag police!</p>
                             @endunless
                             @foreach($tags as $tag)
                             <span style="font-size: 1rem;"> </span>
