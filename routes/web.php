@@ -29,6 +29,10 @@ Route::post('register', 'Auth\RegisterController@register');
 
 Route::get('profile/{id}', 'ProfileController@showProfile');
 
+// MyEvents
+
+Route::get('myevents/', 'MyEventsController@showMyEvents');
+
 // Events
 
 Route::get('event', 'EventController@showCreateForm');
