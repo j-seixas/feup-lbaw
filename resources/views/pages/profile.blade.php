@@ -64,7 +64,7 @@
                         <li class="list-group-item p-0 pt-0 pb-0">
                             <div class="media m-2">
                                 <div class="media-body mb-0">
-                                    <p class="pl-2 mb-0 mt-1 font-italic">
+                                    <p class="pl-2 mb-0 mt-1 text-muted font-italic">
                                         No one is here...
                                     </p>
                                 </div>
