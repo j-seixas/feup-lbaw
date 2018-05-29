@@ -13,6 +13,12 @@
                         <button type="button" id="memberEditButton" class="btn btn-outline-primary float-right">
                             <i class="fas fa-edit"></i> Edit
                         </button>
+                        @else
+                        @unless(in_array($auth,$friends))
+                        <button type="button" id="memberEditButton" class="btn btn-outline-primary float-right">
+                            <i class="fas fa-user-plus"></i> Send friend request
+                        </button>
+                        @endunless
                         @endif
                         <h4 class="card-title">{{ $member->name }}</h4>
                         <h6 class="card-subtitle text-muted">{{ $member->age }} years old</h6>

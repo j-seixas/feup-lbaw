@@ -29,6 +29,6 @@ class ProfileController extends Controller
             array_push($friends, $friend->friend);
         }
 
-        return view('pages.profile', ['member' => $member, 'isOwner' => $isOwner, 'friends' => $friends, 'tags' => $tags, 'country' => $country]);
+        return view('pages.profile', ['member' => $member, 'isOwner' => $isOwner, 'friends' => $friends, 'auth' => Auth::user(), 'tags' => $tags, 'country' => $country]);
     }
 }
