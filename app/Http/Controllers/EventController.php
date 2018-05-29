@@ -48,8 +48,9 @@ class EventController extends Controller
       }
 
       $comments = DB::select('SELECT c.id, id_member, id_event, date, id_parent, concat(tc.text::text, fc.text::text, pc.text::text) AS text, 
-      path, m.name, m.image AS profile_pic, (select count(*) from text_comment where c.id = id_parent) as num_comments, 
-      (select count(*) from liked where c.id=id_comment) as num_likes FROM comment c
+      path, m.name, m.image AS profile_pic, (SELECT count(*) FROM text_comment WHERE c.id = id_parent) AS num_comments, 
+      (SELECT count(*) FROM liked WHERE c.id=id_comment) AS num_likes, (SELECT count(*) FROM option WHERE c.id=id_comment) AS num_options 
+      FROM comment c
       LEFT JOIN member m ON id_member = m.id
       LEFT JOIN text_comment tc ON tc.id_comment = c.id
       LEFT JOIN file fc ON fc.id_comment = c.id
@@ -58,11 +59,20 @@ class EventController extends Controller
       ORDER BY c.id;', [$id]);
 
       $subComments = DB::select('SELECT c.id, id_member, id_event, date, id_parent, tc.text AS text, 
-      m.name, m.image AS profile_pic, (select count(*) from liked where c.id=id_comment) as num_likes FROM comment c
+      m.name, m.image AS profile_pic, (SELECT count(*) FROM liked WHERE c.id=id_comment) AS num_likes FROM comment c
       LEFT JOIN member m ON id_member = m.id
       LEFT JOIN text_comment tc ON tc.id_comment = c.id
       WHERE id_event=? AND id_parent NOTNULL
       ORDER BY c.id;', [$id]);
+
+      $pollComments = DB::select('SELECT option.id, poll.id_comment, option_text, (SELECT count(*) FROM vote WHERE id_option=option.id) AS num_votes, t.total_votes
+      FROM comment LEFT JOIN poll ON comment.id=poll.id_comment
+      LEFT JOIN option ON poll.id_comment=option.id_comment 
+      INNER JOIN (SELECT poll.id_comment, sum((SELECT count(*) FROM vote WHERE id_option=option.id) ) AS total_votes
+        FROM poll LEFT JOIN option ON poll.id_comment=option.id_comment 
+        GROUP BY poll.id_comment ORDER BY poll.id_comment) t ON poll.id_comment=t.id_comment
+      WHERE comment.id_event=?
+      ORDER BY poll.id_comment;', [$id]); 
       
       $i = 0;
       $j = 0;
@@ -80,6 +90,24 @@ class EventController extends Controller
         }
         
         else if($comments[$i]->id > $subComments[$j]->id_parent)
+          $j++;
+      }
+
+      $j = 0;
+      for($i = 0; $i < sizeof($comments); $i++){
+        $comments[$i]->poll_options = array();
+      }
+
+      for($i = 0; $i < sizeof($comments); $i++){
+        if($j >= sizeof($pollComments))
+          break;
+        if($comments[$i]->id == $pollComments[$j]->id_comment){
+          array_push($comments[$i]->poll_options, $pollComments[$j]);
+          $i--;
+          $j++;
+        }
+        
+        else if($comments[$i]->id > $pollComments[$j]->id_comment)
           $j++;
       }
 

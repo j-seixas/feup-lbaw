@@ -22,6 +22,26 @@
                     <i class="fas fa-download"></i> {{ $comment->path }}
                 </button>
             </div>
+        @elseif($comment->poll_options != null)
+            <div class="container pt-3 p-0">
+            @foreach($comment->poll_options as $option)
+                <div class="row mb-1 align-items-center">
+                    <div class="col-4">
+                        <p class="m-0">{{ $option->option_text }}</p>
+                    </div>
+                    <div class="col-8">
+                    
+                        <div class="progress" style="height: 25px;">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" 
+                            aria-valuenow="@if($option->total_votes == 0){{0}}@else{{$option->num_votes / $option->total_votes * 100}}@endif"
+                            aria-valuemin="0" aria-valuemax="100" 
+                            style="width:@if($option->total_votes == 0){{0}}@else{{$option->num_votes / $option->total_votes * 100}}@endif%;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+            </div>
         @endif
         @if(sizeof($comment->sub_comments) > 0)
             @foreach ($comment->sub_comments as $sub)
