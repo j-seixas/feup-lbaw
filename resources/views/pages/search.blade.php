@@ -47,7 +47,7 @@
                         </div>
                         <p class="mb-1">{{ $event->description }}</p>
                         <small>{{ $event->visibility }}.</small>
-                        <small class="text-muted">28 people going.</small> {{-- Gay ass nibb --}}
+                        <small class="text-muted">28 people going.</small>
                     </a>
                     @endforeach
                     {{--<nav aria-label="...">   
