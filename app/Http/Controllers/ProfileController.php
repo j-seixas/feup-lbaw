@@ -39,7 +39,8 @@ class ProfileController extends Controller
         $memberCountry = $request->input('memberCountry');
         DB::table('member')->where('id', $id)->update(['name' => $memberName, 'description' => $memberDescription, 'id_country' => $memberCountry]);
 
-        return response()->json(['memberName' => $memberName, 'memberDescription' => $memberDescription, 'memberCountry' => $memberCountry]);
+        $nameCountry = DB::table('country')->select('name')->where('id', $memberCountry)->get();
+        return response()->json(['memberName' => $memberName, 'memberDescription' => $memberDescription, 'memberCountry' => $nameCountry]);
 
     }
 }
