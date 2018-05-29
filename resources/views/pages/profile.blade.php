@@ -10,7 +10,7 @@
                 <div class="card position-relative m-auto " id="profile">
                     <div class="card-body">
                         @if($isOwner)
-                        <button type="button" class="btn btn-outline-primary float-right">
+                        <button type="button" id="memberEditButton" class="btn btn-outline-primary float-right">
                             <i class="fas fa-edit"></i> Edit
                         </button>
                         @endif
@@ -19,11 +19,24 @@
                     </div>
                     <img style="width: 100%; display: block;" src="@if($member->image) {{ Storage::url($member->image) }} @else {{ asset('img/person_placeholder.png') }} @endif" alt="Profile picture">
                     <div class="card-body ">
+                        @if($member->description)
                         <p class="card-text">{{ $member->description }}</p>
+                        @else
+                        <p class="font-italic text-muted mb-0">No description provided yet...</p>
+                        @endif
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">{{ $country->name }}</li>
                         <li class="list-group-item">
+                            @if($country)
+                            {{ $country->name }}
+                            @else
+                            <p class="font-italic text-muted mb-0">This individual resides nowhere...</p>
+                            @endif
+                        </li>
+                        <li class="list-group-item">
+                            @unless(sizeof($tags))
+                            <p class="text-muted font-italic mb-0">Tags are missing. You should call the tag police!</p>
+                            @endunless
                             @foreach($tags as $tag)
                             <span style="font-size: 1rem;"> </span>
                             <span class="badge badge-pill badge-primary">{{ $tag->name_tag }}</span>
@@ -36,7 +49,7 @@
                     </div>
                 </div>
                 @if($isOwner)
-                <div class="card border-danger mt-3 position-relative" style="margin: auto;
+                <div hidden id="deleteUserCard" class="card border-danger mt-3 position-relative" style="margin: auto;
     max-width: 30em;">
                     <div class="text-danger card-body w-100">
                         <h4 class="card-title">Danger Zone</h4>
@@ -50,13 +63,6 @@
                 @endif
             </div>
             <div class="col-md-5 ">
-                <div class="dropdown">
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </div>
                 <div class="card">
                     <h5 class="card-header ">Friends</h5>
                     <ul class="list-group list-group-flush">

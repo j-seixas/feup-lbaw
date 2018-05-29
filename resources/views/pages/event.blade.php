@@ -15,7 +15,7 @@
                         <a class="btn btn-outline-primary" href="/event/{{  $event->id  }}/edit"> 
                             <i class="fas fa-edit"></i> Edit
                         </a>                                 
-                        <button type="button" class="btn btn-outline-danger ml-1" id="deleteButton"> 
+                        <button type="button" class="btn btn-outline-danger ml-1" id="eventDeleteButton"> 
                             <i class="fas fa-trash-alt"></i> Delete event
                         </button>                                                              
                     </div> 
@@ -37,6 +37,9 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">{{ $event->location }}</li>
                     <li class="list-group-item">
+                        @unless(sizeof($eventTags))
+                        <p class="text-muted font-italic mb-0">Tags are missing. You should call the tag police!</p>
+                        @endunless
                         @foreach ($eventTags as $tag)
                         <span style="font-size: 1rem;"> </span> 
                         <span class="badge badge-primary badge-pill">{{ $tag->name_tag }}</span>
