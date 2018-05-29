@@ -22,7 +22,7 @@
             <div>
                 <div class="justify-content-between d-flex pb-2">
                     <h5 class="align-self-center"> @if($type == 'event') {{ sizeof($events) }} @elseif($type == 'member') {{ sizeof($members) }} @endif result(s) found for "{{ $query }}"</h5>
-                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                    {{--<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                         <button type="button" class="btn btn-outline-primary active">
                             <i class="fas fa-sort-amount-down"></i>
                         </button>
@@ -36,7 +36,7 @@
                                 <a class="dropdown-item" href="#">Date</a>
                             </div>
                         </div>
-                    </div>
+                    </div>--}}
                 </div>
                 <div class="list-group">
                     @if($type == 'event')
