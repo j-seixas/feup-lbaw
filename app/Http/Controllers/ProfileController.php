@@ -17,7 +17,7 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function showProfile($id) {
+    public function show($id) {
         $member = Member::findOrFail($id);
         $isOwner = Auth::check() ? ($id == Auth::user()->id) : false;
         $friends = [];
