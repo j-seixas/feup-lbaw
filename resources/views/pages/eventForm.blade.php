@@ -29,7 +29,7 @@
             <label class="col-form-label" for="eventPicture">Event picture
             </label>
             <label class="col-form-label pl-3 font-weight-light" for="eventPicture">Add a picture to promote your event! If you don't add one, @if($edit) you'll keep the one you had before. @else we'll give you a placeholder. @endif</label>
-            <input type="file" class="form-control" id="eventPicture" name="eventPicture">
+            <input type="file" class="form-control-file" id="eventPicture" name="eventPicture">
           </div>
           <div class="form-group">
             <label class="col-form-label" for="eventDescription">Event description</label>

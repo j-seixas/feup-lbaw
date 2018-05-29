@@ -46,9 +46,12 @@ function sendDeleteEventRequest(event) {
 function sendEditAttendanceRequest(event) {
   let id = document.getElementById("eventId").value;
   let attendance = event.target.value;
-  sendAjaxRequest('post', '/api/event/' + id + '/attendance', { 'attendance': attendance }, updateAttendanceEditHandler);
+  sendAjaxRequest('post', '/api/event/' + id + '/attendance', {'attendance': attendance}, updateAttendanceEditHandler);
 }
 
+function sendCountryListRequest() {
+  sendAjaxRequest('get', '/api/country', null, updateCountryList);
+}
 
 function eventDeletedHandler() {
   if (this.status == 200) {
@@ -70,12 +73,30 @@ function updateAttendanceEditHandler() {
   document.querySelector('#interested').innerHTML = attendanceInfo.interested;
 }
 
+function updateCountryList() {
+  if (this.status == 200) {
+    
+  }
+}
+
 function changeUserPageToEdit(event) {
-  document.getElementById('deleteUserCard').hidden = false;
+  let deleteUserCard = document.getElementById('deleteUserCard');
+  deleteUserCard.hidden = false;
+
   event.target.innerHTML = '<i class="fas fa-check"></i> Done';
   event.target.classList.toggle('btn-outline-primary');
   event.target.classList.toggle('btn-outline-success');
+
   event.target.removeEventListener('click', changeUserPageToEdit);
+
+  let memberName = document.getElementById('memberName');
+  memberName.hidden = true;
+
+  let memberNameInput = document.createElement('input');
+  memberName.insertAdjacentElement('afterend', memberNameInput);
+  memberNameInput.outerHTML = '<input type="text" class="form-control" id="eventName" name="eventName" required="required">';
+  memberNameInput.value = memberName.innerText;
+  sendCountryListRequest();
 }
 
 addEventListeners();
