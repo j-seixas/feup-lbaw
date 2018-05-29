@@ -24,10 +24,12 @@ class ProfileController extends Controller
 
         $friends = [];
 
+        $tags = DB::select('SELECT * FROM member_tags WHERE id_member = ?', [$id]);
+
         foreach (Friend::where('id_member', $id)->get() as $friend) {
             array_push($friends, $friend->friend);
         }
 
-        return view('pages.profile', ['member' => $member, 'isOwner' => $isOwner, 'friends' => $friends]);
+        return view('pages.profile', ['member' => $member, 'isOwner' => $isOwner, 'friends' => $friends, 'tags' => $tags]);
     }
 }
