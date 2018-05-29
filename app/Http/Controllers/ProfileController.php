@@ -31,4 +31,16 @@ class ProfileController extends Controller
 
         return view('pages.profile', ['member' => $member, 'isOwner' => $isOwner, 'friends' => $friends, 'auth' => Auth::user(), 'tags' => $tags, 'country' => $country]);
     }
+
+    public function edit(Request $request){
+        $id == Auth::user()->id;
+        $memberName = $request->input('memberName');
+        $memberDescription = $request->input('memberDescription');
+        $memberCountry = $request->input('memberCountry');
+        DB::table('member')->where('id', $id)->update(['name' => $memberName, 'description' => $memberDescription, 'id_country' => $memberCountry]);
+
+        $nameCountry = DB::table('country')->select('name')->where('id', $memberCountry)->get();
+        return response()->json(['memberName' => $memberName, 'memberDescription' => $memberDescription, 'memberCountry' => $nameCountry]);
+
+    }
 }
