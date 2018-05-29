@@ -48,7 +48,7 @@ class EventController extends Controller
       }
 
       $comments = DB::select('SELECT c.id, id_member, id_event, date, id_parent, concat(tc.text::text, fc.text::text, pc.text::text) AS text, 
-      path, m.name, m.image AS profile_pic, (select count(*) from text_comment where c.id = id_parent) as num_comments, null as sub_comments,
+      path, m.name, m.image AS profile_pic, (select count(*) from text_comment where c.id = id_parent) as num_comments, 
       (select count(*) from liked where c.id=id_comment) as num_likes FROM comment c
       LEFT JOIN member m ON id_member = m.id
       LEFT JOIN text_comment tc ON tc.id_comment = c.id
