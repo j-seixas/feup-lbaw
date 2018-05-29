@@ -28,6 +28,7 @@ Route::post('register', 'Auth\RegisterController@register');
 // Profile
 
 Route::get('profile/{id}', 'ProfileController@show');
+Route::post('profile/{id}', 'ProfileController@edit');
 
 // MyEvents
 
