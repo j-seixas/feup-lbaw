@@ -1,4 +1,4 @@
-SELECT pg_catalog.setval('comment_id_seq', 51, false);
+SELECT pg_catalog.setval('comment_id_seq', 52, false);
 SELECT pg_catalog.setval('country_id_seq', 246, false);
 SELECT pg_catalog.setval('event_id_seq', 11, false);
 SELECT pg_catalog.setval('member_id_seq', 51, false);
@@ -304,7 +304,7 @@ INSERT INTO member VALUES (47, 'Aeriell Basketfield', '$2y$10$VBDxHCt6ABeGJQpCqR
 INSERT INTO member VALUES (48, 'Bertina Toffoletto', '$2y$10$VBDxHCt6ABeGJQpCqRTEU.6Arw2gGZK838X1Vv2Dx/uxNM9TafHIO' , 'facilitate proactive bandwidth', '9717848612', NULL, 'btoffoletto1b@oakley.com', '1951-03-07', NULL, false, 148);
 INSERT INTO member VALUES (49, 'Germaine Maccrea', '$2y$10$VBDxHCt6ABeGJQpCqRTEU.6Arw2gGZK838X1Vv2Dx/uxNM9TafHIO' , 'leverage world-class platforms', '5678979901', NULL, 'gmaccrea1c@reuters.com', '1982-11-28', NULL, false, 113);
 INSERT INTO member VALUES (50, 'Bertha Meadley', '$2y$10$VBDxHCt6ABeGJQpCqRTEU.6Arw2gGZK838X1Vv2Dx/uxNM9TafHIO' , 'e-enable holistic communities', '5076034437', NULL, 'bmeadley1d@newyorker.com', '1940-08-16', NULL, false, 242);
-
+INSERT INTO member VALUES (51, 'João Lopes', '$2y$10$gwIfQ43RYiIa4/MgHxBaEe4ncWnj65fCx4UP2hbBYQMxTi/BauFW2' , 'The one true lord.', '225082134', NULL, 'jlopes@fe.up.pt', '1971-08-16', NULL, true, 177);
 
 INSERT INTO event VALUES (1, 'Maroon convention', '2017-11-09 08:50:47', '3 Calypso Way, Oesapa', 'Donec semper sapien a libero. Nam dui.', NULL, 'Private');
 INSERT INTO event VALUES (2, 'Yellow convention', '2018-01-18 12:18:46', '2 Paget Terrace, Shiziling', 'Vestibulum sed magna at nunc commodo placerat.', NULL, 'Public');
