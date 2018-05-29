@@ -60,7 +60,9 @@ function eventDeletedHandler() {
 }
 
 function updateAttendanceEditHandler() {
-  let activeButtons = document.querySelectorAll('.attendanceButton.active');
+  let attendanceInfo = JSON.parse(this.responseText);
+  
+  let activeButtons = document.querySelectorAll('#attendanceEventId'  + attendanceInfo.id + '.attendanceButton.active');
 
   [].forEach.call(activeButtons, function (activeButton) {
     activeButton.classList.toggle('active');
