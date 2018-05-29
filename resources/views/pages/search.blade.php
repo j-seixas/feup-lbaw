@@ -48,7 +48,7 @@
                         </div>
                         <p class="mb-1">{{ $event->description }}</p>
                         <small>{{ $event->visibility }}.</small>
-                        <small class="text-muted">28 people going.</small>
+                        <small class="text-muted">{{ $event->participants }} people going.</small>
                     </a>
                     @endforeach
                     @endif

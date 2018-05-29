@@ -28,7 +28,7 @@
 <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="created" role="tabpanel" aria-labelledby="created-tab">
         @if($createdEvents == null)
-            <p class="text-muted text-center">Hmmmm... Try creating an event...</p>
+            <p class="text-muted text-center font-italic">Hmmmm... Try creating an event...</p>
         @else
             <div class="list-group">
                 @foreach($createdEvents as $event)
@@ -47,7 +47,7 @@
     </div>
     <div class="tab-pane fade" id="going" role="tabpanel" aria-labelledby="going-tab">
         @if($goingEvents == null)
-            <p class="text-muted text-center">Are you sure you don't wanna go to an event?</p>
+            <p class="text-muted text-center font-italic">Are you sure you don't wanna go to an event?</p>
         @else
             <div class="list-group">
                 @foreach($goingEvents as $event)
@@ -66,7 +66,7 @@
     </div>
     <div class="tab-pane fade" id="invited" role="tabpanel" aria-labelledby="invited-tab">
         @if($invitedEvents == null)
-            <p class="text-muted text-center">Bummer... Guess you weren't invited for any event.</p>  
+            <p class="text-muted text-center font-italic">Bummer... Guess you weren't invited for any event.</p>  
         @else
             <div class="list-group">
                 @foreach($invitedEvents as $event)
@@ -85,7 +85,7 @@
     </div>
     <div class="tab-pane fade" id="past" role="tabpanel" aria-labelledby="past-tab">
         @if($pastEvents == null)
-            <p class="text-muted text-center">Oh, the great memories you will have!</p>
+            <p class="text-muted text-center font-italic">Oh, the great memories you will have!</p>
         @else
             <div class="list-group">
                 @foreach($pastEvents as $event)
