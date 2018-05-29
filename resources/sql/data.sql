@@ -1,11 +1,12 @@
 SELECT pg_catalog.setval('comment_id_seq', 52, false);
 SELECT pg_catalog.setval('country_id_seq', 246, false);
 SELECT pg_catalog.setval('event_id_seq', 11, false);
-SELECT pg_catalog.setval('member_id_seq', 51, false);
+SELECT pg_catalog.setval('member_id_seq', 52, false);
 SELECT pg_catalog.setval('notification_id_seq', 21, false);
 SELECT pg_catalog.setval('option_id_seq', 31, false);
 SELECT pg_catalog.setval('event_member_id_seq', 49, false);
 SELECT pg_catalog.setval('friend_id_seq', 11, false);
+SELECT pg_catalog.setval('member_tag_id_seq', 54, false);
 
 INSERT INTO country VALUES (1, 'Afghanistan');
 INSERT INTO country VALUES (2, 'Albania');
@@ -582,6 +583,9 @@ INSERT INTO tag VALUES ('solution-oriented');
 INSERT INTO tag VALUES ('Synergized');
 INSERT INTO tag VALUES ('cohesive');
 INSERT INTO tag VALUES ('Multi-channelled');
+INSERT INTO tag VALUES ('God');
+INSERT INTO tag VALUES ('Sex');
+INSERT INTO tag VALUES ('UML modeling');
 
 
 INSERT INTO event_tags VALUES (1, 4, 'directional');
@@ -692,6 +696,9 @@ INSERT INTO member_tags VALUES (47, 1, 'Fully-configurable');
 INSERT INTO member_tags VALUES (48, 47, 'radical');
 INSERT INTO member_tags VALUES (49, 4, 'Triple-buffered');
 INSERT INTO member_tags VALUES (50, 49, 'modular');
+INSERT INTO member_tags VALUES (51, 51, 'God');
+INSERT INTO member_tags VALUES (52, 51, 'Sex');
+INSERT INTO member_tags VALUES (53, 51, 'UML modeling');
 
 
 INSERT INTO poll VALUES (16, 'Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat.');
