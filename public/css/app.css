@@ -26,14 +26,10 @@ body {
   padding-top: 3.5rem;
 }
 
-#carouselExampleIndicators {
-  max-width: 40em;
-  margin: auto;
-}
-
-#searchContainer{
+#searchContainer {
   padding-top: 1.5rem;
 }
+
 .box-shadow {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
