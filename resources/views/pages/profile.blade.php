@@ -10,7 +10,7 @@
                 <div class="card position-relative m-auto " id="profile">
                     <div class="card-body">
                         @if($isOwner)
-                        <button type="button" class="btn btn-outline-primary float-right">
+                        <button type="button" id="memberEditButton" class="btn btn-outline-primary float-right">
                             <i class="fas fa-edit"></i> Edit
                         </button>
                         @endif
@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 @if($isOwner)
-                <div class="card border-danger mt-3 position-relative" style="margin: auto;
+                <div hidden id="deleteUserCard" class="card border-danger mt-3 position-relative" style="margin: auto;
     max-width: 30em;">
                     <div class="text-danger card-body w-100">
                         <h4 class="card-title">Danger Zone</h4>
@@ -50,13 +50,6 @@
                 @endif
             </div>
             <div class="col-md-5 ">
-                <div class="dropdown">
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </div>
                 <div class="card">
                     <h5 class="card-header ">Friends</h5>
                     <ul class="list-group list-group-flush">
