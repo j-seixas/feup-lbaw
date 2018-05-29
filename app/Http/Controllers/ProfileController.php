@@ -19,15 +19,15 @@ class ProfileController extends Controller
      */
     public function showProfile($id) {
         $member = Member::findOrFail($id);
-
         $isOwner = Auth::check() ? ($id == Auth::user()->id) : false;
-
         $friends = [];
+        $tags = DB::select('SELECT * FROM member_tags WHERE id_member = ?', [$id]);
+        $country = DB::select('SELECT country.name FROM country, member WHERE member.id = ? AND member.id_country = country.id', [$id])[0];
 
         foreach (Friend::where('id_member', $id)->get() as $friend) {
             array_push($friends, $friend->friend);
         }
 
-        return view('pages.profile', ['member' => $member, 'isOwner' => $isOwner, 'friends' => $friends]);
+        return view('pages.profile', ['member' => $member, 'isOwner' => $isOwner, 'friends' => $friends, 'tags' => $tags, 'country' => $country]);
     }
 }

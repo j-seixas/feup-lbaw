@@ -14,14 +14,14 @@
                 </button>
                 <button type="button" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                     Users
-                    <span class="badge badge-light badge-pill">7</span>
+                    <span class="badge badge-light badge-pill">{{ sizeof($members) }}</span>
                 </button>
             </div>
         </div>
         <div class="col-md-9">
             <div>
                 <div class="justify-content-between d-flex pb-2">
-                    <h5 class="align-self-center"> {{ sizeof($events) }} results found</h5>
+                    <h5 class="align-self-center"> @if($type == "event") {{ sizeof($events) }} @elseif($type == "member") {{ sizeof($members) }} @endif result(s) found for "{{ $query }}"</h5>
                     <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                         <button type="button" class="btn btn-outline-primary active">
                             <i class="fas fa-sort-amount-down"></i>

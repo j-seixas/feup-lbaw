@@ -22,14 +22,12 @@
                         <p class="card-text">{{ $member->description }}</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Portugal</li>
+                        <li class="list-group-item">{{ $country->name }}</li>
                         <li class="list-group-item">
+                            @foreach($tags as $tag)
                             <span style="font-size: 1rem;"> </span>
-                            <span class="badge badge-pill badge-success">games</span>
-                            <span style="font-size: 1rem;"> </span>
-                            <span class="badge badge-primary badge-pill">funny</span>
-                            <span style="font-size: 1rem;"> </span>
-                            <span class="badge badge-pill badge-danger">technology</span>
+                            <span class="badge badge-pill badge-primary">{{ $tag->name_tag }}</span>
+                            @endforeach
                         </li>
                     </ul>
                     <div class="card-footer">
