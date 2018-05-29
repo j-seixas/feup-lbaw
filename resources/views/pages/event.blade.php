@@ -37,6 +37,9 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">{{ $event->location }}</li>
                     <li class="list-group-item">
+                        @unless(sizeof($eventTags))
+                        <p class="text-muted font-italic mb-0">Tags are missing. You should call the tag police!</p>
+                        @endunless
                         @foreach ($eventTags as $tag)
                         <span style="font-size: 1rem;"> </span> 
                         <span class="badge badge-primary badge-pill">{{ $tag->name_tag }}</span>
