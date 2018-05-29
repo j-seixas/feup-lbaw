@@ -194,10 +194,4 @@ class EventController extends Controller
 
       return redirect()->route('event',['id' => $id]);
     }
-
-    public function search(Request $request) {
-      $query = $request->input('query');
-      $events = DB::select('SELECT * FROM event WHERE to_tsvector(\'english\', title || \' \' || location) @@ to_tsquery(\'english\', ?) AND visibility = \'Public\'', [$query]);
-      return view('pages.search', ['events' => $events]);
-    }
 }
