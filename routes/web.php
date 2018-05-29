@@ -37,6 +37,10 @@ Route::get('myevents', 'MyEventsController@showMyEvents');
 
 Route::get('notifications', 'NotificationsController@showNotifications');
 
+// Countries
+
+Route::get('api/country', 'CountryController@list');
+
 // Events
 
 Route::get('event', 'EventController@showCreateForm');
