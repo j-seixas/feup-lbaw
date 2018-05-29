@@ -23,7 +23,6 @@ class ProfileController extends Controller
         $friends = [];
         $tags = DB::select('SELECT * FROM member_tags WHERE id_member = ?', [$id]);
         $country = DB::select('SELECT country.name FROM country, member WHERE member.id = ? AND member.id_country = country.id', [$id]);
-        print_r($country);
         if ($country != null)
             $country = $country[0];
         foreach (Friend::where('id_member', $id)->get() as $friend) {
