@@ -12,7 +12,12 @@
                     @if($notif->id_event_invite != null)
                         <li class="list-group-item font-weight-bold bg-white">You were invited to participate in the event 
                             <a href="/event/{{ $notift->id_event_invite }}">{{ $notif->title }}</a>.
-                            <input id="eventId" value="{{  $notif->id_event_invite  }}" hidden>                      
+                            <input name="eventId" value="{{ $notif->id_event_invite }}" hidden>
+                            <div id="attendanceEventId{{ $notif->id_event_invite }}" class="btn-group btn-group-sm float-right" role="group" aria-label="Small button group"> 
+                                <button type="button" class="btn btn-success btn-outline-success attendanceButton @if($notif->status=='Going'){{ 'active' }}@endif" value="Going">Going</button>                             
+                                <button type="button" class="btn btn-primary btn-outline-primary attendanceButton @if($notif->status=='Interested'){{ 'active' }}@endif" value="Interested">Interested</button>                             
+                                <button type="button" class="btn btn-danger btn-outline-danger attendanceButton @if($notif->status=='NotGoing'){{ 'active' }}@endif" value="NotGoing">Not going</button>                             
+                            </div>                               
                         </li> 
                     @elseif($notif->id_friend != null)
                         <li class="list-group-item font-weight-bold bg-white"> 
@@ -52,8 +57,8 @@
                     @if($notif->id_event_invite != null)
                         <li class="list-group-item">You were invited to participate in the event 
                             <a href="/event/{{ $notift->id_event_invite }}">{{ $notif->title }}</a>.
-                            <input name="eventId" value="{{ $notif->id_event_change }}" hidden>
-                            <div id="attendanceEventId{{ $notif->id_event_change }}" class="btn-group btn-group-sm float-right" role="group" aria-label="Small button group"> 
+                            <input name="eventId" value="{{ $notif->id_event_invite }}" hidden>
+                            <div id="attendanceEventId{{ $notif->id_event_invite }}" class="btn-group btn-group-sm float-right" role="group" aria-label="Small button group"> 
                                 <button type="button" class="btn btn-success btn-outline-success attendanceButton @if($notif->status=='Going'){{ 'active' }}@endif" value="Going">Going</button>                             
                                 <button type="button" class="btn btn-primary btn-outline-primary attendanceButton @if($notif->status=='Interested'){{ 'active' }}@endif" value="Interested">Interested</button>                             
                                 <button type="button" class="btn btn-danger btn-outline-danger attendanceButton @if($notif->status=='NotGoing'){{ 'active' }}@endif" value="NotGoing">Not going</button>                             
