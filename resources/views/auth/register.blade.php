@@ -4,7 +4,7 @@
 <form class="form-signin" method="POST" action="{{ route('register') }}">
   {{ csrf_field() }}
   <div class="text-center mb-4">
-    <img class="mb-4" src="{{ asset('img/logo.svg') }}" alt="" width="72" height="72">
+    <img class="mb-4" src="{{ asset('img/logo.svg') }}" alt="Eventually logo" width="72" height="72">
     <h1 class="h3 mb-3 font-weight-normal">Eventually</h1>
     <p>Sign up to be able to participate in the community and create events!</p>
   </div>

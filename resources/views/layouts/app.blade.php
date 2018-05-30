@@ -19,7 +19,7 @@
 <body class="bg-light">
     <nav class="navbar bg-white fixed-top navbar-expand-md box-shadow navbar-light">
         <a class="navbar-brand h1 mb-0" href="{{ url('/') }}">
-            <img src="{{ asset('img/logo.svg') }}" width="30" height="30" class="d-inline-block align-top" alt=""> Eventually
+            <img src="{{ asset('img/logo.svg') }}" width="30" height="30" class="d-inline-block align-top" alt="Eventually logo"> Eventually
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
