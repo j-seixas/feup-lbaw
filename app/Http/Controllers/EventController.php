@@ -58,14 +58,14 @@ class EventController extends Controller
       LEFT JOIN file fc ON fc.id_comment = c.id
       LEFT JOIN poll pc ON pc.id_comment = c.id
       WHERE id_event=? AND id_parent ISNULL
-      ORDER BY c.id;', [$id]);
+      ORDER BY c.id DESC;', [$id]);
 
       $subComments = DB::select('SELECT c.id, id_member, id_event, date, id_parent, tc.text AS text, 
       m.name, m.image AS profile_pic, (SELECT count(*) FROM liked WHERE c.id=id_comment) AS num_likes FROM comment c
       LEFT JOIN member m ON id_member = m.id
       LEFT JOIN text_comment tc ON tc.id_comment = c.id
       WHERE id_event=? AND id_parent NOTNULL
-      ORDER BY c.id;', [$id]);
+      ORDER BY c.id DESC;', [$id]);
 
       $pollComments = DB::select('SELECT option.id, poll.id_comment, option_text, (SELECT count(*) FROM vote WHERE id_option=option.id) AS num_votes, t.total_votes
       FROM comment LEFT JOIN poll ON comment.id=poll.id_comment
@@ -89,7 +89,8 @@ class EventController extends Controller
         
         $likedComments = DB::select('SELECT comment.id 
         FROM comment, liked 
-        WHERE id_comment=comment.id AND id_event=? AND liked.id_member=?;', [$id, $idUser]);
+        WHERE id_comment=comment.id AND id_event=? AND liked.id_member=?
+        ORDER BY comment DESC;', [$id, $idUser]);
 
         $j = 0;
         for($i = 0; $i < sizeof($comments); $i++){
@@ -99,7 +100,7 @@ class EventController extends Controller
             $comments[$i]->liked = true;
             $j++;
 
-          } else if($comments[$i]->id > $likedComments[$j]->id)
+          } else if($comments[$i]->id < $likedComments[$j]->id)
             $j++;
         }
 
@@ -111,7 +112,7 @@ class EventController extends Controller
             $subComments[$i]->liked = true;
             $j++;
 
-          } else if($subComments[$i]->id > $likedComments[$j]->id)
+          } else if($subComments[$i]->id < $likedComments[$j]->id)
             $j++;
         }
       } 
@@ -131,7 +132,7 @@ class EventController extends Controller
           $j++;
         }
         
-        else if($comments[$i]->id > $subComments[$j]->id_parent)
+        else if($comments[$i]->id < $subComments[$j]->id_parent)
           $j++;
       }
 
@@ -149,7 +150,7 @@ class EventController extends Controller
           $j++;
         }
         
-        else if($comments[$i]->id > $pollComments[$j]->id_comment)
+        else if($comments[$i]->id < $pollComments[$j]->id_comment)
           $j++;
       }
 

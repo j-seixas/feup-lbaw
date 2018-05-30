@@ -250,7 +250,39 @@ function memberDeleteHandler() {
 function sendCommentRequest() {
   let eventId = document.querySelector('input[name=eventId]').value;
   let text = document.getElementById('commentInput').value;
-  sendAjaxRequest('post', '/api/event/' + eventId + '/comment', {text: text}, null);
+  sendAjaxRequest('post', '/api/event/' + eventId + '/comment', {text: text}, sendCommentHandler);
+}
+
+function sendCommentHandler(){
+  if(this.status != 200){
+    return;
+  }
+
+  let response = JSON.parse(this.responseText);
+
+  let comment = document.createElement('li');
+  comment.className = "list-group-item p-0";
+  comment.innerHTML = '<div class="container pb-3 pl-3 pt-3 pr-1"> \
+  <img alt="Profile picture" src="' + response.profile_pic + '" class="mr-2 float-left rounded-circle" height="55" width="55">\
+  <div class="float-right">\
+      <label class="mr-2">\
+          <i class="fas fa-comment text-primary"></i> 0\
+      </label>\
+      <input name="commentId" value="' + response.id_comment + '" hidden>\
+      <label class="mr-2 likeButton">\
+          <i class="far fa-heart text-danger"> </i> 0\
+      </label>\
+      <label class="mr-2 text-primary">\
+          <i class="fas fa-times"></i>\
+      </label>\
+  </div>\
+  <h5>' + response.name + '</h5>\
+  <p class="pr-1 mb-0">' + response.text + '</p> \
+</div>';
+
+  let commentZone = document.querySelector(".comments");
+  commentZone.insertAdjacentElement("afterbegin", comment);
+
 }
 
 addEventListeners();

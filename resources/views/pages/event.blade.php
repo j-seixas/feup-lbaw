@@ -63,7 +63,7 @@
                     </button>
                 </div>
 
-                <ul class="list-group list-group-flush">
+                <ul class="comments list-group list-group-flush">
                     @foreach($comments as $comment)
                         @include('partials.comment')
                     @endforeach                                                                    
