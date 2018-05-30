@@ -66,7 +66,7 @@ function sendAjaxRequest(method, url, data, handler) {
 }
 
 function sendDeleteEventRequest(event) {
-  let id = document.getElementById("eventId").value;
+  let id = document.querySelector('input[name=eventId]').value;
 
   sendAjaxRequest('delete', '/event/' + id, null, eventDeletedHandler);
 }
