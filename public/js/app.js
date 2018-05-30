@@ -283,6 +283,9 @@ function sendCommentHandler(){
   let commentZone = document.querySelector(".comments");
   commentZone.insertAdjacentElement("afterbegin", comment);
 
+  document.getElementById("commentInput").value = "";
+  addEventListeners();
+
 }
 
 addEventListeners();
