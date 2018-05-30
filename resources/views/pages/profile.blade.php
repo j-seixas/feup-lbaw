@@ -20,6 +20,7 @@
                         </button>
                         @endunless
                         @endif
+                        <input hidden name="memberId" value="{{ $member->id }}">
                         <h4 class="card-title" id="memberName">{{ $member->name }}</h4>
                         <h6 class="card-subtitle text-muted">{{ $member->age }} years old</h6>
                     </div>
