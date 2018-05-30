@@ -19,11 +19,25 @@ function addEventListeners() {
     });
   }
 
+  let deleteMemberButton = document.getElementById("deleteMemberButton");
+
+  if (deleteMemberButton != null) {
+    deleteMemberButton.addEventListener('click', sendDeleteMemberRequest);
+  }
+
   let likeButton = document.querySelectorAll(".likeButton");
 
   if(likeButton != null){
     [].forEach.call(likeButton, function(likebutton){
       likebutton.addEventListener('click', sendCommentLikeRequest);
+    });
+  }
+
+  let deleteFriendButton = document.querySelectorAll(".deleteFriendButton");
+
+  if (deleteFriendButton != null) {
+    [].forEach.call(deleteFriendButton, function(deletefriendbutton){
+      deletefriendbutton.addEventListener('click', sendDeleteFriendRequest);
     });
   }
 
@@ -62,6 +76,10 @@ function sendCommentLikeRequest(event){
   let id = this.previousElementSibling.value;
   let liked = !this.classList.contains("liked");
   sendAjaxRequest('post', '/api/comment/like', {'idComment': id, 'liked': liked}, updateCommentLikeHandler);
+}
+
+function sendDeleteFriendRequest(event) {
+  //TODO later if possible
 }
 
 function sendCountryListRequest() {
@@ -211,6 +229,17 @@ function changeUserPageFromEdit() {
   let memberCountry = document.getElementById('memberCountry');
   memberCountry.hidden = false;
   memberCountry.innerText = response.memberCountry;
+}
+
+function sendDeleteMemberRequest() {
+  let memberId = document.querySelector('input[name=memberId]').value;
+  sendAjaxRequest('delete', '/profile/' + memberId, null, memberDeleteHandler);
+}
+
+function memberDeleteHandler() {
+  if(this.status == 200){
+    window.location = '/';
+  }
 }
 
 addEventListeners();

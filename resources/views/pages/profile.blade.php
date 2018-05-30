@@ -89,9 +89,9 @@
                                 <div class="media-body mb-0">
                                     <p class="pl-2 mb-0 mt-1">
                                         @if ($isOwner)
-                                        <a class="btn btn-outline-danger float-right d-inline-block btn-sm" href="#">
+                                        <button type="button" class="btn btn-outline-danger float-right d-inline-block btn-sm deleteFriendButton">
                                             <i class="fas fa-user-times"></i>
-                                        </a>
+                                        </button>
                                         @endif
                                         <a href="/profile/{{ $friend->id }}">{{ $friend->name }}</a>
                                     </p>
