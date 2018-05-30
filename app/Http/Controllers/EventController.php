@@ -268,15 +268,20 @@ class EventController extends Controller
       $comment = $request->input('idComment');
       $liked = $request->input('liked');
 
-      if(!$liked){
+      if($liked == 'false'){
         DB::table('liked')->where('id_comment', $comment)->where('id_member', $user)->delete();
-      } else
-        DB::table('liked')->insertGetId(array('id_member' => $user, 'id_comment' => $comment));
+        $liked = FALSE;
+      } else {
+        if(!DB::table('liked')->where('id_comment', $comment)->where('id_member', $user)->exists()) {
+          DB::table('liked')->insert(array('id_member' => $user, 'id_comment' => $comment));
+        }
+        $liked = TRUE;
+      }
 
-      $likes = DB::select("SELECT count(*)
+      $likes = DB::select("SELECT count(*) AS likes
       FROM comment, liked 
       WHERE id_comment=comment.id AND id_comment=?", [$comment]);
 
-      return response()->json([$comment, $likes]);
+      return response()->json(['idComment' => $comment, 'likes' => $likes[0]->likes, 'liked' => $liked]);
     }
 }

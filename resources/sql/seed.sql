@@ -163,7 +163,8 @@ CREATE TABLE liked (
     id_comment integer NOT NULL,
     CONSTRAINT liked_pkey PRIMARY KEY (id),
     CONSTRAINT liked_id_comment_fkey FOREIGN KEY (id_comment) REFERENCES comment(id) ON DELETE CASCADE,
-    CONSTRAINT liked_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id)
+    CONSTRAINT liked_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id),
+    CONSTRAINT liked_id_member_id_comment_key UNIQUE (id_member, id_comment)
 );
 
 CREATE TABLE member_tags (

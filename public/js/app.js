@@ -91,16 +91,15 @@ function updateAttendanceEditHandler() {
 
 function updateCommentLikeHandler(){
   let likedInfo = JSON.parse(this.responseText);
-  console.log(likedInfo.idComment)
-  let likeButton = document.querySelector(likedInfo.idComment).nextElementSibling;
-  if(!likedButton.classList.contains('liked')){
-    likedButton.classList.remove('liked');
-    likeButton.childNodes[1].innerHTML = likedInfo.likes;
-  } else{
-    likedButton.classList.add('liked');
-    likeButton.childNodes[1].innerHTML = likedInfo.likes;
+  let likeButton = document.querySelector('input[name=commentId][value="' + likedInfo.idComment + '"]').nextElementSibling;
+  if (likedInfo.liked) {
+    likeButton.classList.add('liked');
+    likeButton.innerHTML = '<i class="fas fa-heart text-danger"></i>';
+  } else {
+    likeButton.classList.remove('liked');
+    likeButton.innerHTML = '<i class="far fa-heart text-danger"></i>';
   }
-
+  likeButton.innerHTML += ' ' + likedInfo.likes;
 }
 
 function updateCountryList() {
