@@ -32,7 +32,7 @@ class EventController extends Controller
 
       $interested = DB::select('select count(*) from event_member where id_event = ? AND status = ?', [$id, 'Interested'])[0]->count;
       
-      $isOwner = Auth::check() ? ($idOwner == Auth::user()->id) : false;
+      $isOwner = Auth::check() ? ($idOwner == Auth::user()->id || Member::find(Auth::user()->id)->admin) : false;
 
       if (Auth::check()) {
         $statusList = DB::select('SELECT status FROM event_member WHERE id_event = ? AND id_member = ?', [$id, Auth::user()->id]);
