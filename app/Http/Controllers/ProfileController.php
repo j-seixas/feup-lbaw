@@ -19,7 +19,7 @@ class ProfileController extends Controller
      */
     public function show($id) {
         $member = Member::findOrFail($id);
-        $isOwner = Auth::check() ? ($id == Auth::user()->id) : false;
+        $isOwner = Auth::check() ? ($id == Auth::user()->id || Member::find(Auth::user()->id)->admin) : false;
         $friends = [];
         $tags = DB::select('SELECT * FROM member_tags WHERE id_member = ?', [$id]);
         $country = DB::select('SELECT country.name FROM country, member WHERE member.id = ? AND member.id_country = country.id', [$id]);
@@ -33,8 +33,8 @@ class ProfileController extends Controller
     }
 
     public function edit(Request $request, $id){
-        if ($id != Auth::user()->id)
-        return response('Forbidden', 403); // TODO check admin
+        if ($id != Auth::user()->id && !Member::find(Auth::user()->id)->admin)
+            return response('Forbidden', 403); // TODO check admin
 
         $memberName = $request->input('memberName');
         $memberDescription = $request->input('memberDescription');
@@ -47,9 +47,7 @@ class ProfileController extends Controller
     }
 
     public function delete(Request $request, $id) {
-        $member = Member::find($id);
-  
-        $isOwner = Auth::check() ? ($id == Auth::user()->id) : false;
+        $isOwner = Auth::check() ? ($id == Auth::user()->id || Member::find(Auth::user()->id)->admin) : false;
   
         if($isOwner) {
           $member->delete();

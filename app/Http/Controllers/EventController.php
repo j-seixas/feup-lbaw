@@ -217,10 +217,9 @@ class EventController extends Controller
     {
       $event = Event::find($id);
 
-
       $idOwner = DB::select('SELECT id_member FROM event_member WHERE role = ? AND id_event = ?', ['Owner', $id])[0]->id_member;
 
-      $isOwner = Auth::check() ? ($idOwner == Auth::user()->id) : false;
+      $isOwner = Auth::check() ? ($idOwner == Auth::user()->id || Member::find(Auth::user()->id)->admin) : false;
       //$this->authorize('delete', $event);
 
       if($isOwner) {
@@ -237,7 +236,7 @@ class EventController extends Controller
 
       $idOwner = DB::select('SELECT id_member FROM event_member WHERE role = ? AND id_event = ?', ['Owner', $id])[0]->id_member;
 
-      $isOwner = Auth::check() ? ($idOwner == Auth::user()->id) : false;
+      $isOwner = Auth::check() ? ($idOwner == Auth::user()->id || Member::find(Auth::user()->id)->admin) : false;
       //$this->authorize('delete', $event);
 
       if($isOwner) {
