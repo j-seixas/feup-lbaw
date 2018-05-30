@@ -73,6 +73,46 @@ class EventController extends Controller
         GROUP BY poll.id_comment ORDER BY poll.id_comment) t ON poll.id_comment=t.id_comment
       WHERE comment.id_event=?
       ORDER BY poll.id_comment;', [$id]); 
+
+      $i = 0;
+      for($i = 0; $i < sizeof($comments); $i++){
+        $comments[$i]->liked = false;
+      }
+      for($i = 0; $i < sizeof($subComments); $i++){
+        $subComments[$i]->liked = false;
+      }
+
+      if(Auth::check()){
+        $idUser = Auth::user()->id;
+        
+        $likedComments = DB::select('SELECT comment.id 
+        FROM comment, liked 
+        WHERE id_comment=comment.id AND id_event=? AND liked.id_member=?;', [$id, $idUser]);
+
+        $j = 0;
+        for($i = 0; $i < sizeof($comments); $i++){
+          if($j >= sizeof($likedComments))
+            break;
+          if($comments[$i]->id == $likedComments[$j]->id){
+            $comments[$i]->liked = true;
+            $j++;
+
+          } else if($comments[$i]->id > $likedComments[$j]->id)
+            $j++;
+        }
+
+        $j = 0;
+        for($i = 0; $i < sizeof($subComments); $i++){
+          if($j >= sizeof($likedComments))
+            break;
+          if($subComments[$i]->id == $likedComments[$j]->id){
+            $subComments[$i]->liked = true;
+            $j++;
+
+          } else if($subComments[$i]->id > $likedComments[$j]->id)
+            $j++;
+        }
+      } 
       
       $i = 0;
       $j = 0;
@@ -221,5 +261,22 @@ class EventController extends Controller
       $event->save();
 
       return redirect()->route('event',['id' => $id]);
+    }
+
+    public function like(Request $request){
+      $user = Auth::user()->id;
+      $comment = $request->input('idComment');
+      $liked = $request->input('liked');
+
+      if(!$liked){
+        DB::table('liked')->where('id_comment', $comment)->where('id_member', $user)->delete();
+      } else
+        DB::table('liked')->insertGetId(array('id_member' => $user, 'id_comment' => $comment));
+
+      $likes = DB::select("SELECT count(*)
+      FROM comment, liked 
+      WHERE id_comment=comment.id AND id_comment=?", [$comment]);
+
+      return response()->json([$comment, $likes]);
     }
 }

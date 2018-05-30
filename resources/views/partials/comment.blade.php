@@ -5,8 +5,9 @@
             <label class="mr-2">
                 <i class="fas fa-comment text-primary"></i> {{ $comment->num_comments}}
             </label>
-            <label class="mr-2">
-                <i class="fas fa-heart text-danger"> </i> {{ $comment->num_likes}}
+            <input value="{{$comment->id}}" hidden>
+            <label class="@if($comment->liked){{'liked'}}@endif mr-2 likeButton">
+                <i class="@if($comment->liked) {{'fas '}} @else {{'far '}}@endif fa-heart text-danger"> </i> {{ $comment->num_likes}}
             </label>
             @if(Auth::check() && (($role != "Participant" && $role != null) || Auth::user()->id == $comment->id_member))
             <label class="mr-2 text-primary">
@@ -48,7 +49,8 @@
             <div class="container pr-3 pl-4  border-left">
                 <img alt="Profile picture" src="@if($comment->profile_pic) {{ Storage::url($comment->profile_pic) }} @else {{ asset('img/person_placeholder.png') }} @endif" class="mr-2 float-left rounded-circle" height="55" width="55">
                 <div class="float-right">
-                    <label class="mr-2">
+                    <input value="{{$comment->id}}" hidden>
+                    <label class="@if($comment->liked){{'liked'}}@endif mr-2 likeButton">
                         <i class="fas fa-heart text-danger"> </i> {{ $sub->num_likes }}
                     </label>
                     @if(Auth::check() && (($role != "Participant" && $role != null) || Auth::user()->id == $sub->id_member))
