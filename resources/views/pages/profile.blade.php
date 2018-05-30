@@ -14,11 +14,13 @@
                             <i class="fas fa-edit"></i> Edit
                         </button>
                         @else
+                        @if(Auth::check())
                         @unless(in_array($auth,$friends))
                         <button type="button" id="addFriendButton" class="btn btn-outline-primary float-right">
                             <i class="fas fa-user-plus"></i>
                         </button>
                         @endunless
+                        @endif
                         @endif
                         <input hidden name="memberId" value="{{ $member->id }}">
                         <h4 class="card-title" id="memberName">{{ $member->name }}</h4>
