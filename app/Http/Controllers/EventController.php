@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 use App\Event;
-use App\Comment;
+use App\Member;
 
 class EventController extends Controller
 {
@@ -296,6 +297,8 @@ class EventController extends Controller
 
       DB::table('text_comment')->insert(['id_comment' => $comment, 'text' => $request->input('text')]);
 
-      return response()->json(['id_member' => Auth::user()->id, 'id_event' => intval($id), 'text' => $request->input('text'), 'id_comment' => $comment]);
+      $member = Member::find(Auth::user()->id);
+
+      return response()->json(['id_member' => Auth::user()->id, 'id_event' => intval($id), 'text' => $request->input('text'), 'id_comment' => $comment, 'profile_pic' => $member->image ? Storage::url($member->image) : asset('img/person_placeholder.png'), 'name' => $member->name]);
     }
 }
