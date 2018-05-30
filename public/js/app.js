@@ -18,6 +18,15 @@ function addEventListeners() {
       attendanceButton.addEventListener('click', sendEditAttendanceRequest);
     });
   }
+
+  let likeButton = document.querySelectorAll(".likeButton");
+
+  if(likeButton != null){
+    [].forEach.call(likeButton, function(likebutton){
+      likebutton.addEventListener('click', sendCommentLikeRequest);
+    });
+  }
+
 }
 
 function encodeForAjax(data) {
@@ -49,6 +58,12 @@ function sendEditAttendanceRequest(event) {
   sendAjaxRequest('post', '/api/event/' + id + '/attendance', {'attendance': attendance}, updateAttendanceEditHandler);
 }
 
+function sendCommentLikeRequest(event){
+  let id = this.previousElementSibling.value;
+  let liked = !this.classList.contains("liked");
+  sendAjaxRequest('post', '/api/comment/like', {'idComment': id, 'liked': liked}, updateCommentLikeHandler);
+}
+
 function sendCountryListRequest() {
   sendAjaxRequest('get', '/api/country', null, updateCountryList);
 }
@@ -72,6 +87,20 @@ function updateAttendanceEditHandler() {
 
   if(document.querySelector('#participants')) document.querySelector('#participants').innerHTML = attendanceInfo.participants;
   if(document.querySelector('#interested')) document.querySelector('#interested').innerHTML = attendanceInfo.interested;
+}
+
+function updateCommentLikeHandler(){
+  let likedInfo = JSON.parse(this.responseText);
+  console.log(likedInfo.idComment)
+  let likeButton = document.querySelector(likedInfo.idComment).nextElementSibling;
+  if(!likedButton.classList.contains('liked')){
+    likedButton.classList.remove('liked');
+    likeButton.childNodes[1].innerHTML = likedInfo.likes;
+  } else{
+    likedButton.classList.add('liked');
+    likeButton.childNodes[1].innerHTML = likedInfo.likes;
+  }
+
 }
 
 function updateCountryList() {
