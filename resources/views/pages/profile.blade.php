@@ -56,15 +56,13 @@
                     </div>
                 </div>
                 @if($isOwner)
-                <div hidden id="deleteUserCard" class="card border-danger mt-3 position-relative" style="margin: auto;
+                <div hidden id="deleteMemberCard" class="card border-danger mt-3 position-relative" style="margin: auto;
     max-width: 30em;">
                     <div class="text-danger card-body w-100">
                         <h4 class="card-title">Danger Zone</h4>
                         <div class="alert alert-danger" role="alert">Be careful, deleting your account will permanently erase all of your information, events and friends,
                             have this in mind when you walk out the plank :'(</div>
-                        <a href="./index.html">
-                            <button type="button" class="btn btn-outline-danger">Delete Account</button>
-                        </a>
+                        <button id="deleteMemberButton" type="button" class="btn btn-outline-danger">Delete account</button>
                     </div>
                 </div>
                 @endif

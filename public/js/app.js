@@ -101,8 +101,8 @@ function updateCountryList() {
 }
 
 function changeUserPageToEdit(event) {
-  let deleteUserCard = document.getElementById('deleteUserCard');
-  deleteUserCard.hidden = false;
+  let deleteMemberCard = document.getElementById('deleteMemberCard');
+  deleteMemberCard.hidden = false;
 
   let editButton = document.getElementById('memberEditButton');
   editButton.innerHTML = '<i class="fas fa-check"></i> Done';
@@ -161,8 +161,8 @@ function changeUserPageFromEdit() {
   document.getElementById('memberDescriptionInput').remove();
   document.getElementById('memberCountryInput').remove();
 
-  let deleteUserCard = document.getElementById('deleteUserCard');
-  deleteUserCard.hidden = true;
+  let deleteMemberCard = document.getElementById('deleteMemberCard');
+  deleteMemberCard.hidden = true;
 
   let editButton = document.getElementById('memberEditButton');
   editButton.innerHTML = '<i class="fas fa-edit"></i> Edit';
