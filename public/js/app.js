@@ -130,8 +130,8 @@ function updateCountryList() {
 }
 
 function changeUserPageToEdit(event) {
-  let deleteUserCard = document.getElementById('deleteUserCard');
-  deleteUserCard.hidden = false;
+  let deleteMemberCard = document.getElementById('deleteMemberCard');
+  deleteMemberCard.hidden = false;
 
   let editButton = document.getElementById('memberEditButton');
   editButton.innerHTML = '<i class="fas fa-check"></i> Done';
@@ -139,6 +139,7 @@ function changeUserPageToEdit(event) {
   editButton.classList.toggle('btn-outline-success');
 
   editButton.removeEventListener('click', changeUserPageToEdit);
+  editButton.addEventListener('click', sendEditProfileRequest);
 
   let memberName = document.getElementById('memberName');
   memberName.hidden = true;
@@ -168,6 +169,49 @@ function changeUserPageToEdit(event) {
   memberDescription.insertAdjacentElement('afterend', memberDescriptionInput);
 
   sendCountryListRequest();
+}
+
+function sendEditProfileRequest() {
+  let memberName = document.getElementById('memberNameInput').value;
+  let memberDescription = document.getElementById('memberDescriptionInput').value;
+  let memberCountry = document.getElementById('memberCountryInput').value;
+  let memberId = document.querySelector('input[name=memberId]').value;
+  sendAjaxRequest('post', '/profile/' + memberId, {memberName: memberName, memberDescription: memberDescription, memberCountry: memberCountry}, changeUserPageFromEdit);
+}
+
+function changeUserPageFromEdit() {
+  if (this.status != 200) {
+    return;
+  }
+
+  let response = JSON.parse(this.responseText);
+
+  document.getElementById('memberNameInput').remove();
+  document.getElementById('memberDescriptionInput').remove();
+  document.getElementById('memberCountryInput').remove();
+
+  let deleteMemberCard = document.getElementById('deleteMemberCard');
+  deleteMemberCard.hidden = true;
+
+  let editButton = document.getElementById('memberEditButton');
+  editButton.innerHTML = '<i class="fas fa-edit"></i> Edit';
+  editButton.classList.toggle('btn-outline-primary');
+  editButton.classList.toggle('btn-outline-success');
+
+  editButton.removeEventListener('click', sendEditProfileRequest);
+  editButton.addEventListener('click', changeUserPageToEdit);
+
+  let memberName = document.getElementById('memberName');
+  memberName.hidden = false;
+  memberName.innerText = response.memberName;
+
+  let memberDescription = document.getElementById('memberDescription');
+  memberDescription.hidden = false;
+  memberDescription.innerText = response.memberDescription;
+
+  let memberCountry = document.getElementById('memberCountry');
+  memberCountry.hidden = false;
+  memberCountry.innerText = response.memberCountry;
 }
 
 addEventListeners();

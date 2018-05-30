@@ -20,6 +20,7 @@
                         </button>
                         @endunless
                         @endif
+                        <input hidden name="memberId" value="{{ $member->id }}">
                         <h4 class="card-title" id="memberName">{{ $member->name }}</h4>
                         <h6 class="card-subtitle text-muted">{{ $member->age }} years old</h6>
                     </div>
@@ -55,15 +56,13 @@
                     </div>
                 </div>
                 @if($isOwner)
-                <div hidden id="deleteUserCard" class="card border-danger mt-3 position-relative" style="margin: auto;
+                <div hidden id="deleteMemberCard" class="card border-danger mt-3 position-relative" style="margin: auto;
     max-width: 30em;">
                     <div class="text-danger card-body w-100">
                         <h4 class="card-title">Danger Zone</h4>
                         <div class="alert alert-danger" role="alert">Be careful, deleting your account will permanently erase all of your information, events and friends,
                             have this in mind when you walk out the plank :'(</div>
-                        <a href="./index.html">
-                            <button type="button" class="btn btn-outline-danger">Delete Account</button>
-                        </a>
+                        <button id="deleteMemberButton" type="button" class="btn btn-outline-danger">Delete account</button>
                     </div>
                 </div>
                 @endif
@@ -86,7 +85,7 @@
                         @foreach ($friends as $friend)
                         <li class="list-group-item p-0 pt-0 pb-0">
                             <div class="media m-2">
-                                <img class="d-flex m-auto rounded-circle" src="@if($friend->image) {{ Storage::url($friend->image) }} @else {{ asset('img/person_placeholder.png') }} @endif" alt="Profile picture" style="width: 32px; height: 32px;">
+                                <img class="d-flex m-auto rounded-circle" src="@if($friend->image) {{ Storage::url($friend->image) }} @else {{ asset('img/person_placeholder.png') }} @endif" alt="Pic" style="width: 32px; height: 32px;">
                                 <div class="media-body mb-0">
                                     <p class="pl-2 mb-0 mt-1">
                                         @if ($isOwner)
