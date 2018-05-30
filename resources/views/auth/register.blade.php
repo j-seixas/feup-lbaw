@@ -32,6 +32,11 @@
   </div>
 
   <div class="form-label-group">
+    <input name="birthdate" type="date" id="inputBirthdate" class="form-control" placeholder="Birthdate" required>
+    <label for="inputBirthdate">Birthdate</label>
+  </div>
+
+  <div class="form-label-group">
     <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" value="{{ old('email') }}" required>
     <label for="inputEmail">Email address</label>
   </div>
