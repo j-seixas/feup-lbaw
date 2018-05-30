@@ -41,6 +41,11 @@ function addEventListeners() {
     });
   }
 
+  let sendCommentButton = document.getElementById('sendCommentButton');
+
+  if (sendCommentButton != null) {
+    sendCommentButton.addEventListener('click', sendCommentRequest);
+  }
 }
 
 function encodeForAjax(data) {
@@ -240,6 +245,12 @@ function memberDeleteHandler() {
   if(this.status == 200){
     window.location = '/';
   }
+}
+
+function sendCommentRequest() {
+  let eventId = document.querySelector('input[name=eventId]').value;
+  let text = document.getElementById('commentInput').value;
+  sendAjaxRequest('post', '/api/event/' + eventId + '/comment', {text: text}, null);
 }
 
 addEventListeners();

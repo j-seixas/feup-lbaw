@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 use App\Event;
+use App\Comment;
 
 class EventController extends Controller
 {
@@ -283,5 +284,17 @@ class EventController extends Controller
       WHERE id_comment=comment.id AND id_comment=?", [$comment]);
 
       return response()->json(['idComment' => $comment, 'likes' => $likes[0]->likes, 'liked' => $liked]);
+    }
+
+    public function addComment(Request $request, $id) {
+      if (!$request->input('text')) {
+        return response('Bad Request', 400);
+      }
+
+      $comment = DB::table('comment')->insertGetId(['id_member' => Auth::user()->id, 'id_event' => intval($id), 'date' => 'now']); 
+
+      DB::table('text_comment')->insert(['id_comment' => $comment, 'text' => $request->input('text')]);
+
+      return response()->json(['id_member' => Auth::user()->id, 'id_event' => intval($id), 'text' => $request->input('text'), 'id_comment' => $comment]);
     }
 }

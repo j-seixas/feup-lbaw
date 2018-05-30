@@ -51,12 +51,15 @@
         <div class="col-md-5"> 
             <div class="card">
                 <div class="card-header bg-white">
-                    <input type="text" class="form-control" placeholder="Comment...">
+                    <textarea id="commentInput" class="form-control" placeholder="Comment..." required></textarea>
                     <button type="button" class="btn btn-secondary mt-2 mr-2">
                         <i class="fas fa-chart-pie"></i> Add poll
                     </button>
                     <button type="button" class="btn btn-secondary mt-2">
                         <i class="fas fa-file"></i> Add file
+                    </button>
+                    <button id="sendCommentButton" type="button" class="btn btn-primary mt-2 mr-2 float-right">
+                        <i class="fas fa-paper-plane"></i> Send
                     </button>
                 </div>
 

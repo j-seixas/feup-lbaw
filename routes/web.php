@@ -16,6 +16,7 @@ Route::get('/', 'EventController@showList');
 // API
 
 Route::post('api/event/{id}/attendance', 'EventMemberController@editStatus');
+Route::post('api/event/{id}/comment', 'EventController@addComment');
 Route::post('api/comment/like', 'EventController@like');
 Route::get('api/country', 'CountryController@list');
 
