@@ -16,6 +16,7 @@ Route::get('/', 'EventController@showList');
 // API
 
 Route::post('api/event/{id}/attendance', 'EventMemberController@editStatus');
+Route::get('api/country', 'CountryController@list');
 
 // Authentication
 
@@ -37,10 +38,6 @@ Route::get('myevents', 'MyEventsController@showMyEvents');
 // Notifications
 
 Route::get('notifications', 'NotificationsController@showNotifications');
-
-// Countries
-
-Route::get('api/country', 'CountryController@list');
 
 // Events
 

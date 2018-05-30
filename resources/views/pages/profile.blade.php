@@ -87,7 +87,7 @@
                         @foreach ($friends as $friend)
                         <li class="list-group-item p-0 pt-0 pb-0">
                             <div class="media m-2">
-                                <img class="d-flex m-auto rounded-circle" src="@if($friend->image) {{ Storage::url($friend->image) }} @else {{ asset('img/person_placeholder.png') }} @endif" alt="Profile picture" style="width: 32px; height: 32px;">
+                                <img class="d-flex m-auto rounded-circle" src="@if($friend->image) {{ Storage::url($friend->image) }} @else {{ asset('img/person_placeholder.png') }} @endif" alt="Pic" style="width: 32px; height: 32px;">
                                 <div class="media-body mb-0">
                                     <p class="pl-2 mb-0 mt-1">
                                         @if ($isOwner)
