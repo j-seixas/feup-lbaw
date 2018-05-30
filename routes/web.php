@@ -30,6 +30,7 @@ Route::post('register', 'Auth\RegisterController@register');
 
 Route::get('profile/{id}', 'ProfileController@show');
 Route::post('profile/{id}', 'ProfileController@edit');
+Route::delete('profile/{id}', 'ProfileController@delete');
 
 // MyEvents
 

@@ -6,7 +6,7 @@ SELECT pg_catalog.setval('notification_id_seq', 21, false);
 SELECT pg_catalog.setval('option_id_seq', 31, false);
 SELECT pg_catalog.setval('event_member_id_seq', 49, false);
 SELECT pg_catalog.setval('friend_id_seq', 11, false);
-SELECT pg_catalog.setval('member_tag_id_seq', 54, false);
+SELECT pg_catalog.setval('member_tags_id_seq', 54, false);
 
 INSERT INTO country VALUES (1, 'Afghanistan');
 INSERT INTO country VALUES (2, 'Albania');

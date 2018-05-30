@@ -45,4 +45,17 @@ class ProfileController extends Controller
         return response()->json(['memberName' => $memberName, 'memberDescription' => $memberDescription, 'memberCountry' => $nameCountry[0]->name]);
 
     }
+
+    public function delete(Request $request, $id) {
+        $member = Member::find($id);
+  
+        $isOwner = Auth::check() ? ($id == Auth::user()->id) : false;
+  
+        if($isOwner) {
+          $member->delete();
+          return response('OK' , 200);
+        }
+        
+        return response('Bad Request', 400);
+      }
 }

@@ -18,6 +18,12 @@ function addEventListeners() {
       attendanceButton.addEventListener('click', sendEditAttendanceRequest);
     });
   }
+
+  let deleteMemberButton = document.getElementById("deleteMemberButton");
+
+  if (deleteMemberButton != null) {
+    deleteMemberButton.addEventListener('click', sendDeleteMemberRequest);
+  }
 }
 
 function encodeForAjax(data) {
@@ -183,6 +189,17 @@ function changeUserPageFromEdit() {
   let memberCountry = document.getElementById('memberCountry');
   memberCountry.hidden = false;
   memberCountry.innerText = response.memberCountry;
+}
+
+function sendDeleteMemberRequest() {
+  let memberId = document.querySelector('input[name=memberId]').value;
+  sendAjaxRequest('delete', '/profile/' + memberId, null, memberDeleteHandler);
+}
+
+function memberDeleteHandler() {
+  if(this.status == 200){
+    window.location = '/';
+  }
 }
 
 addEventListeners();

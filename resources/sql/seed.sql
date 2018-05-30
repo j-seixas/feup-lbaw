@@ -68,7 +68,7 @@ CREATE TABLE blocked (
     id_member integer NOT NULL,
     CONSTRAINT blocked_pkey PRIMARY KEY (id),
     CONSTRAINT blocked_id_event_fkey FOREIGN KEY (id_event) REFERENCES event(id) ON DELETE CASCADE,
-    CONSTRAINT blocked_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id)
+    CONSTRAINT blocked_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id) ON DELETE CASCADE
 );
 
 CREATE TABLE comment (
@@ -78,7 +78,7 @@ CREATE TABLE comment (
     date timestamp without time zone NOT NULL,
     CONSTRAINT comment_pkey PRIMARY KEY (id),
     CONSTRAINT comment_id_event_fkey FOREIGN KEY (id_event) REFERENCES event(id) ON DELETE CASCADE,
-    CONSTRAINT comment_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id)
+    CONSTRAINT comment_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id) ON DELETE CASCADE
 );
     
 CREATE TABLE notification (
@@ -87,7 +87,7 @@ CREATE TABLE notification (
     seen boolean DEFAULT false NOT NULL,
     hidden boolean DEFAULT false NOT NULL,
     CONSTRAINT notification_pkey PRIMARY KEY (id),
-    CONSTRAINT notification_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id)
+    CONSTRAINT notification_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id) ON DELETE CASCADE
 );
 
 CREATE TABLE event_change (
@@ -115,7 +115,7 @@ CREATE TABLE event_member (
     status status,
     CONSTRAINT event_member_pkey PRIMARY KEY (id),
     CONSTRAINT event_member_id_event_fkey FOREIGN KEY (id_event) REFERENCES event(id) ON DELETE CASCADE,
-    CONSTRAINT event_member_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id)
+    CONSTRAINT event_member_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id) ON DELETE CASCADE
 );
 
 CREATE TABLE tag (
@@ -145,15 +145,15 @@ CREATE TABLE friend (
     id_member integer NOT NULL,
     id_friend integer NOT NULL,
     CONSTRAINT friend_pkey PRIMARY KEY (id),
-    CONSTRAINT friend_id_friend_fkey FOREIGN KEY (id_friend) REFERENCES member(id),
-    CONSTRAINT friend_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id)
+    CONSTRAINT friend_id_friend_fkey FOREIGN KEY (id_friend) REFERENCES member(id) ON DELETE CASCADE,
+    CONSTRAINT friend_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id) ON DELETE CASCADE
 );
 
 CREATE TABLE friend_request (
     id_notification integer NOT NULL,
     id_member integer NOT NULL,
     CONSTRAINT friend_request_pkey PRIMARY KEY (id_notification),
-    CONSTRAINT friend_request_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id),
+    CONSTRAINT friend_request_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id) ON DELETE CASCADE,
     CONSTRAINT friend_request_id_notification_fkey FOREIGN KEY (id_notification) REFERENCES notification(id)
 );
 
@@ -163,7 +163,7 @@ CREATE TABLE liked (
     id_comment integer NOT NULL,
     CONSTRAINT liked_pkey PRIMARY KEY (id),
     CONSTRAINT liked_id_comment_fkey FOREIGN KEY (id_comment) REFERENCES comment(id) ON DELETE CASCADE,
-    CONSTRAINT liked_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id)
+    CONSTRAINT liked_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id) ON DELETE CASCADE
 );
 
 CREATE TABLE member_tags (
@@ -171,7 +171,7 @@ CREATE TABLE member_tags (
     id_member integer NOT NULL,
     name_tag character varying(30) NOT NULL,
     CONSTRAINT member_tags_pkey PRIMARY KEY (id),
-    CONSTRAINT member_tags_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id),
+    CONSTRAINT member_tags_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id) ON DELETE CASCADE,
     CONSTRAINT member_tags_name_tag_fkey FOREIGN KEY (name_tag) REFERENCES tag(name)
 );
 
@@ -204,7 +204,7 @@ CREATE TABLE vote (
     id_member integer NOT NULL,
     id_option integer NOT NULL,
     CONSTRAINT vote_pkey PRIMARY KEY (id),
-    CONSTRAINT vote_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id),
+    CONSTRAINT vote_id_member_fkey FOREIGN KEY (id_member) REFERENCES member(id) ON DELETE CASCADE,
     CONSTRAINT vote_id_option_fkey FOREIGN KEY (id_option) REFERENCES option(id) ON DELETE CASCADE
 );
 
